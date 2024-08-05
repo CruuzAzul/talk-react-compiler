@@ -1,0 +1,24 @@
+.selected {
+  background-color: red;
+}
+
+ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.album {
+  width: 300px;
+}
+
+.album > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  outline: none;
+}

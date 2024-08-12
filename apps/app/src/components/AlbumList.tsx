@@ -3,6 +3,7 @@ import { IRelease } from "../types/musicbrainz.types";
 import "../styles/AlbumList.css";
 import { CreateCompilButton } from "./CreateCompilButton";
 import { Album } from "../types/Album";
+import { AlbumCard } from "./AlbumCard";
 
 const musicApiHeader = {
   Accept: "application/json",
@@ -20,7 +21,7 @@ export const AlbumList = ({ search }: AlbumListProps) => {
   useEffect(() => {
     if (search !== "") {
       fetch(
-        `http://musicbrainz.org/ws/2/release/?query=release:${search}&fmt=json`,
+        `http://musicbrainz.org/ws/2/release/?query=artist:${search}&fmt=json`,
         {
           headers: musicApiHeader,
         }
@@ -64,15 +65,11 @@ export const AlbumList = ({ search }: AlbumListProps) => {
       <ul>
         {albumList.map((album) => (
           <li key={album.id} className="album">
-            <button
-              className={selectedAlbums.includes(album) ? "selected" : ""}
+            <AlbumCard
+              album={album}
+              isSelected={selectedAlbums.includes(album)}
               onClick={() => selectAlbum(album)}
-            >
-              <img src={album.thumbnail} />
-              <p>
-                {album.name} - {album.artist}
-              </p>
-            </button>
+            />
           </li>
         ))}
       </ul>

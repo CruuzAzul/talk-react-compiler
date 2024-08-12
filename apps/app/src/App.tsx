@@ -12,11 +12,11 @@ function App() {
   );
 
   return (
-    <main>
+    <>
       <h1 className="main-title">React Compiler</h1>
       <input className="search-input" type="text" onChange={onChange} />
       <AlbumList search={search} />
-    </main>
+    </>
   );
 }
 

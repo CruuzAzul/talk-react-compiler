@@ -1,0 +1,12 @@
+.compil-list {
+  flex-direction: column;
+  width: 100vw;
+  align-content: start;
+  padding-left: 5rem;
+  gap: 3rem;
+}
+
+.compil-name {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}

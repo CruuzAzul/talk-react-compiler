@@ -5,4 +5,6 @@ export type Compil = {
   name: string;
   description: string | null;
   album: Album[];
+  like: number;
+  dislike: number;
 } & Models.Document;

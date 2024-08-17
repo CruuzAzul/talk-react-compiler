@@ -12,12 +12,24 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as SignInIndexImport } from './routes/sign-in/index'
+import { Route as MyCompilsIndexImport } from './routes/my-compils/index'
 import { Route as CompilsIndexImport } from './routes/compils/index'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SignInIndexRoute = SignInIndexImport.update({
+  path: '/sign-in/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MyCompilsIndexRoute = MyCompilsIndexImport.update({
+  path: '/my-compils/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -44,6 +56,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompilsIndexImport
       parentRoute: typeof rootRoute
     }
+    '/my-compils/': {
+      id: '/my-compils/'
+      path: '/my-compils'
+      fullPath: '/my-compils'
+      preLoaderRoute: typeof MyCompilsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/sign-in/': {
+      id: '/sign-in/'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -52,6 +78,8 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
   CompilsIndexRoute,
+  MyCompilsIndexRoute,
+  SignInIndexRoute,
 })
 
 /* prettier-ignore-end */
@@ -63,7 +91,9 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/compils/"
+        "/compils/",
+        "/my-compils/",
+        "/sign-in/"
       ]
     },
     "/": {
@@ -71,6 +101,12 @@ export const routeTree = rootRoute.addChildren({
     },
     "/compils/": {
       "filePath": "compils/index.tsx"
+    },
+    "/my-compils/": {
+      "filePath": "my-compils/index.tsx"
+    },
+    "/sign-in/": {
+      "filePath": "sign-in/index.tsx"
     }
   }
 }

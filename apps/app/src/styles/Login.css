@@ -1,0 +1,14 @@
+.form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-input {
+  display: flex;
+  gap: 1rem;
+}

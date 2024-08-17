@@ -7,4 +7,5 @@ export type Compil = {
   album: Album[];
   like: number;
   dislike: number;
+  createdById: string;
 } & Models.Document;

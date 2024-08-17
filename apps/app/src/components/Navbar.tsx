@@ -10,6 +10,7 @@ export const Navbar = () => {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/compils">Compils</Link>
+        <Link to="/my-compils">My Compils</Link>
       </nav>
       <button onClick={toggleTheme}>{theme}</button>
     </header>

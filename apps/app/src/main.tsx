@@ -5,6 +5,7 @@ import "./styles/reset.css";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen.ts";
 import { ThemeProvider } from "./utils/useTheme.tsx";
+import { AccountProvider } from "./utils/useAccount.tsx";
 
 const router = createRouter({ routeTree });
 
@@ -17,7 +18,9 @@ declare module "@tanstack/react-router" {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <AccountProvider>
+        <RouterProvider router={router} />
+      </AccountProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

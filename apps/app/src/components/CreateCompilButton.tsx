@@ -1,6 +1,7 @@
 import { Album } from "../types/Album";
 import { createCompil } from "../api/createCompil";
 import { useState } from "react";
+import { useAccount } from "../utils/useAccount";
 
 interface CreateCompilButtonProps {
   selectedAlbums: Album[];
@@ -10,6 +11,7 @@ export const CreateCompilButton = ({
   selectedAlbums,
 }: CreateCompilButtonProps) => {
   const [name, setName] = useState("");
+  const { user } = useAccount();
 
   return (
     <>
@@ -23,7 +25,7 @@ export const CreateCompilButton = ({
       </label>
       <button
         className="create-compil-button"
-        onClick={() => createCompil(selectedAlbums, name)}
+        onClick={() => createCompil(selectedAlbums, name, user!.$id)}
       >
         Create Compilation
       </button>

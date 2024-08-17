@@ -4,17 +4,21 @@ import "../styles/Compils.css";
 import { Compil } from "../types/Compil";
 import { CompilCard } from "./CompilCard";
 
-export const Compils = () => {
+interface CompilsProps {
+  compilQueries?: string[];
+}
+
+export const Compils = ({ compilQueries }: CompilsProps) => {
   const [compils, setCompils] = useState<Compil[] | null>(null);
 
   const fetchCompils = async () => {
-    const compils = await getCompils();
+    const compils = await getCompils(compilQueries);
     setCompils(compils.documents);
   };
 
   useEffect(() => {
     fetchCompils();
-  }, []);
+  }, [fetchCompils]);
 
   if (compils === null) {
     return <section>Loading...</section>;

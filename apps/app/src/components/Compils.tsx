@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { getCompils } from "../api/getCompils";
 import "../styles/Compils.css";
 import { Compil } from "../types/Compil";
@@ -11,10 +11,11 @@ interface CompilsProps {
 export const Compils = ({ compilQueries }: CompilsProps) => {
   const [compils, setCompils] = useState<Compil[] | null>(null);
 
-  const fetchCompils = async () => {
+  // Possiblement intéressant à montrer, si on enlève ce useCallback on boucle à l'infini (donc sympa le compiler ici)
+  const fetchCompils = useCallback(async () => {
     const compils = await getCompils(compilQueries);
     setCompils(compils.documents);
-  };
+  }, [compilQueries]);
 
   useEffect(() => {
     fetchCompils();
@@ -23,8 +24,6 @@ export const Compils = ({ compilQueries }: CompilsProps) => {
   if (compils === null) {
     return <section>Loading...</section>;
   }
-
-  console.log(compils);
 
   return (
     <section>

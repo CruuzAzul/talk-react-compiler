@@ -5,12 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { dislikeCompil, likeCompil } from "../api/updateCompil";
 import { Link } from "@tanstack/react-router";
+import { useRenderCount } from "@uidotdev/usehooks";
+import { useShowRerender } from "../utils/useShowRerender";
 
 interface CompilCardProps {
   compil: Compil;
 }
 
 export const CompilCard = ({ compil }: CompilCardProps) => {
+  const { showRerender } = useShowRerender();
+  const rerender = useRenderCount();
   const [likeCount, setLikeCount] = useState(compil.like);
   const [dislikeCount, setDislikeCount] = useState(compil.dislike);
 
@@ -34,9 +38,10 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
 
   return (
     <Link
-      className="compil-card"
+      className="compil-card rerendered"
       to="/compil/$compilId"
       params={{ compilId: compil.$id }}
+      key={Math.random()}
     >
       <div className="photo-stack-container">
         <div
@@ -60,6 +65,7 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
           <FontAwesomeIcon icon={faThumbsDown} />
           {dislikeCount}
         </button>
+        {showRerender && <button>🔃 {rerender}</button>}
       </div>
     </Link>
   );

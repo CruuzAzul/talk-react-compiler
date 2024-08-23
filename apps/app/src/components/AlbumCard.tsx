@@ -14,6 +14,7 @@ export const AlbumCard = ({ album, isSelected, onClick }: AlbumCardProps) => {
     <Component
       className={`album-card ${isSelected ? "selected" : ""}`}
       onClick={onClick}
+      key={Math.random()}
     >
       <div
         className="image"

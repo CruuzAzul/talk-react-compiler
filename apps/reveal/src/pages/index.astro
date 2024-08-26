@@ -1,22 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Title from "../slides/Title.astro";
-import WhyAstro from "../slides/WhyAstro.astro";
+import Now from "../slides/Conclusion/Now.astro";
+import Perspective from "../slides/Conclusion/Perspective.astro";
+import Problem from "../slides/Conclusion/Problem.astro";
+import Questions from "../slides/Conclusion/Questions.astro";
+import QuiSommesVous from "../slides/Conclusion/QuiSommesVous.astro";
+import References from "../slides/Conclusion/References.astro";
+import Thanks from "../slides/Conclusion/Thanks.astro";
+import LiveCoding from "../slides/Explication/LiveCoding.astro";
+import Playground from "../slides/Explication/Playground.astro";
+import ReactCompilerIllustration from "../slides/Explication/ReactCompilerIllustration.astro";
+import RecapBigPart from "../slides/Explication/RecapBigPart.astro";
+import Rendering from "../slides/Explication/Rendering.astro";
+import ExplicationTitle from "../slides/Explication/Title.astro";
+import Utils from "../slides/Explication/Utils.astro";
+import WhyReactCompiler from "../slides/Explication/WhyReactCompiler.astro";
+import DemoTime from "../slides/Exploration/DemoTime.astro";
+import OtherExample from "../slides/Exploration/OtherExample.astro";
+import Announcement from "../slides/Intro/Announcement.astro";
+import Example from "../slides/Intro/Example.astro";
+import ReactCompiler from "../slides/Intro/ReactCompiler.astro";
+import MainTitle from "../slides/Intro/Title.astro";
 ---
 
 <Layout title="My Awesome Talk Title">
-  <main class="reveal">
-    <div class="slides">
-      <Title />
-      <WhyAstro />
-      <!-- Put your slides here -->
-    </div>
-  </main>
+	<main class="reveal">
+		<div class="slides">
+			<!-- Intro -->
+			<MainTitle />
+			<ReactCompiler />
+			<Example />
+			<Announcement />
+			<!-- Explication -->
+			<ExplicationTitle />
+			<Rendering />
+			<Utils />
+			<WhyReactCompiler />
+			<ReactCompilerIllustration />
+			<LiveCoding />
+			<Playground />
+			<RecapBigPart />
+			<!-- Exploration -->
+			<DemoTime />
+			<OtherExample />
+			<!-- Conclusion -->
+			<Problem />
+			<Perspective />
+			<Now />
+			<References />
+			<QuiSommesVous />
+			<Thanks />
+			<Questions />
+		</div>
+	</main>
 </Layout>
 
 <style lang="scss">
-  // Sass is installed by default, you can change if you prefer Stylus or Less
-  main {
-    background: linear-gradient(#133055, #0c1a2a);
-  }
+	// Sass is installed by default, you can change if you prefer Stylus or Less
+	main {
+		background: linear-gradient(#133055, #0c1a2a);
+	}
 </style>

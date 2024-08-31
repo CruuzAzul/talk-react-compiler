@@ -14,7 +14,7 @@
 .album-card .image {
   width: 200px;
   height: 200px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;
   margin-bottom: 10px;

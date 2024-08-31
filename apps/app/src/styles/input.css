@@ -1,0 +1,27 @@
+input {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 0.6rem 2.5rem;
+  padding-left: 0.5rem;
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.25s;
+  width: 100%;
+}
+
+div {
+  position: relative;
+}
+
+span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.5rem;;
+}
+
+svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}

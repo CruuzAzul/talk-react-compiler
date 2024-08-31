@@ -1,53 +1,52 @@
 import { useEffect, useState } from "react";
-import { IRelease } from "../types/musicbrainz.types";
 import "../styles/AlbumList.css";
 import { CreateCompilButton } from "./CreateCompilButton";
 import { Album } from "../types/Album";
 import { AlbumCard } from "./AlbumCard";
-
-const musicApiHeader = {
-  Accept: "application/json",
-  "User-Agent": "ReactCompiler/0.1 ( lucasaudart@gmail.com )",
-};
+import { getCover } from "../api/getCover";
+import { getAlbums } from "../api/getAlbums";
 
 interface AlbumListProps {
   search: string;
+  resetSearch: () => void;
+  setIsLoading: (isLoading: boolean) => void;
 }
 
-export const AlbumList = ({ search }: AlbumListProps) => {
+export const AlbumList = ({
+  search,
+  resetSearch,
+  setIsLoading,
+}: AlbumListProps) => {
   const [albumList, setAlbumList] = useState<Album[]>([]);
   const [selectedAlbums, setSelectedAlbums] = useState<Album[]>([]);
 
   useEffect(() => {
-    if (search !== "") {
-      fetch(
-        `http://musicbrainz.org/ws/2/release/?query=artist:${search}&fmt=json`,
-        {
-          headers: musicApiHeader,
-        }
-      )
-        .then((response) => response.json())
-        .then((data: { releases: IRelease[] }) => {
-          data.releases.forEach((release) => {
-            fetch(`https://coverartarchive.org/release/${release.id}`)
-              .then((response) => response.json())
-              .then((data) => {
-                if (data.images[0]) {
-                  setAlbumList((oldData) => [
-                    ...oldData,
-                    {
-                      thumbnail: data.images[0].thumbnails.small,
-                      artist: release["artist-credit"]?.[0].name ?? "",
-                      name: release.title,
-                      id: release.id,
-                    },
-                  ]);
-                }
-              });
-          });
+    const resetSearch = async () => {
+      if (search !== "") {
+        setAlbumList([]);
+        setSelectedAlbums([]);
+        setIsLoading(true);
+        const releases = await getAlbums(search);
+        setIsLoading(false);
+        releases.forEach(async (release) => {
+          const cover = await getCover(release);
+          if (cover) {
+            setAlbumList((oldData) => [
+              ...oldData,
+              {
+                thumbnail: cover.thumbnails.small,
+                artist: release["artist-credit"]?.[0].name ?? "",
+                name: release.title,
+                id: release.id,
+              },
+            ]);
+          }
         });
-    }
-  }, [search]);
+      }
+    };
+
+    resetSearch();
+  }, [search, setIsLoading]);
 
   const selectAlbum = (album: Album) => {
     if (selectedAlbums.includes(album)) {
@@ -61,7 +60,10 @@ export const AlbumList = ({ search }: AlbumListProps) => {
 
   return (
     <>
-      <CreateCompilButton selectedAlbums={selectedAlbums} />
+      <CreateCompilButton
+        selectedAlbums={selectedAlbums}
+        resetSearch={resetSearch}
+      />
       <ul>
         {albumList.map((album) => (
           <li key={album.id} className="album">

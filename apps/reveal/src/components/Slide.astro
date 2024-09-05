@@ -1,16 +1,16 @@
 ---
 interface Props {
-  /**
-   * Use the auto-animate feature for this slide or not
-   *
-   * default: true
-   */
-  animate?: boolean;
+	/**
+	 * Use the auto-animate feature for this slide or not
+	 *
+	 * default: true
+	 */
+	animate?: boolean;
 }
 
 const { animate = true } = Astro.props;
 ---
 
-<section data-auto-animate={animate}>
-  <slot />
+<section data-auto-animate={animate} {...Astro.props}>
+	<slot />
 </section>

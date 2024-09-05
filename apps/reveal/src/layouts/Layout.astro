@@ -2,12 +2,19 @@
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/slides-template/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" />
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{title}</title>
@@ -18,7 +25,7 @@ const { title } = Astro.props;
 
 		<script>
 			import Reveal from "reveal.js";
-			// import RevealHighlight from "reveal.js/plugin/highlight/highlight";
+			import RevealHighlight from "reveal.js/plugin/highlight/highlight";
 
 			Reveal.initialize({
 				transition: "none",
@@ -27,7 +34,7 @@ const { title } = Astro.props;
 				// controls: false,
 				autoAnimateDuration: 0.5,
 				autoAnimateEasing: "cubic-bezier(0.4, 0, 0.2, 1)",
-				// plugins: [RevealHighlight], // use this if you want to show some code
+				plugins: [RevealHighlight], // use this if you want to show some code
 			});
 		</script>
 	</body>

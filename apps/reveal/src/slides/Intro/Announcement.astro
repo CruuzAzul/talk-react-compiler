@@ -3,7 +3,46 @@ import Slide from "../../components/Slide.astro";
 ---
 
 <Slide>
-	<h2>Announcement</h2>
-	<p>Todo</p>
-	<span>Annonce React Compiler</span>
+	<Slide>
+		<h2>React Compiler</h2>
+		<h3>
+			<span class=" fragment fade-out" data-fragment-index="1">Harder,</span>
+			<span class="red fragment fade-in absolute" data-fragment-index="1">Simpler,</span>
+			<span>Better,</span>
+			<span>Faster,</span>
+			<span>Stronger</span>
+		</h3>
+	</Slide>
+	<!-- <Slide>
+		<h2>React Compiler</h2>
+		<h3>
+			<span>Better,</span>
+			<span>Faster,</span>
+			<span>Stronger</span>
+		</h3>
+	</Slide> -->
 </Slide>
+
+<style lang="scss">
+	h2 {
+		font-weight: bold;
+	}
+
+	h3 {
+		font-weight: 500;
+		display: flex;
+		gap: 1rem
+	}
+
+	.red {
+		color: rgb(208, 33, 33);
+	}
+
+	.fade-out {
+		margin-right: 1rem;
+	}
+
+	.absolute {
+		position: absolute;
+	}
+</style>

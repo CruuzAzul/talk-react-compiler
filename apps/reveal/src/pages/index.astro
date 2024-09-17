@@ -21,13 +21,15 @@ import Announcement from "../slides/Intro/Announcement.astro";
 import Example from "../slides/Intro/Example.astro";
 import ReactCompiler from "../slides/Intro/ReactCompiler.astro";
 import MainTitle from "../slides/Intro/Title.astro";
+import SandpackDemo from "../slides/Intro/SandpackDemo.astro";
 ---
 
-<Layout title="My Awesome Talk Title">
+<Layout title="React Compiler Reveal 🤯">
 	<main class="reveal">
 		<div class="slides">
 			<!-- Intro -->
 			<MainTitle />
+			<SandpackDemo />
 			<ReactCompiler />
 			<Example />
 			<Announcement />
@@ -54,14 +56,3 @@ import MainTitle from "../slides/Intro/Title.astro";
 		</div>
 	</main>
 </Layout>
-
-<style lang="scss">
-	// Sass is installed by default, you can change if you prefer Stylus or Less
-	main {
-		background: linear-gradient(#133055, #0c1a2a);
-
-		font-family: "Montserrat", sans-serif;
-		font-optical-sizing: auto;
-		font-style: normal;
-	}
-</style>

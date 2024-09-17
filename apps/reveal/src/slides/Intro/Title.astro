@@ -1,19 +1,7 @@
 ---
-import Image from "astro/components/Image.astro";
+import Background from "../../assets/images/background.svg?url";
 import Slide from "../../components/Slide.astro";
 ---
 
-<Slide>
-	<h2>React Compiler</h2>
-	<h3>Harder, Better, Faster, Stronger</h3>
-</Slide>
-
-<style lang="scss">
-	h2 {
-		font-weight: bold;
-	}
-
-	h3 {
-		font-weight: 500;
-	}
-</style>
+<!-- À refaire en code ! -->
+<Slide data-background-image={Background} data-background-size="100%" />

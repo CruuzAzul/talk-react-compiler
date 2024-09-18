@@ -1,0 +1,42 @@
+---
+import React from "react";
+interface Props {
+	source: string;
+  style?: React.CSSProperties;
+}
+
+const { source, style } = Astro.props;
+---
+
+<div
+	class="ressourceSlide"
+  style={{
+    ...style,
+  }}
+>
+    <p>
+      {source}
+    </p>
+</div>
+
+<style lang="scss">
+	.ressourceSlide {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		p {
+			text-wrap: balance;
+			font-size: 0.5rem;
+			padding: 0.2rem 1rem;
+			margin-top: 3rem;
+			font-weight: 600;
+			background-color: var(--lighter-grey);
+			border: dashed 2px var(--light-grey);
+			border-radius: 15px;
+			color: var(--dark-grey);
+		}
+	}
+</style>

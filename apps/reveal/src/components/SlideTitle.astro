@@ -9,16 +9,16 @@ interface Props {
 const { title, punctuation, style } = Astro.props;
 ---
 
-<div
+<p
 	class="titleSlide"
   style={{
     ...style,
   }}
 >
-    <p>
-      {title}&nbsp;<span>{punctuation}</span>
-    </p>
-</div>
+    <span>
+      {title}&nbsp;<strong>{punctuation}</strong>
+    </span>
+</p>
 
 <style lang="scss">
 	.titleSlide {
@@ -27,19 +27,18 @@ const { title, punctuation, style } = Astro.props;
 		justify-content: start;
 		align-items: center;
 		font-size: 1.2rem;
-		padding: 0 1.5rem;
 		margin-bottom: 3rem;
 		font-weight: 700;
 		background-color: var(--background-color);
 		border: dashed 2px var(--primary-color);
 		border-radius: 15px;
 
-		p {
+		span {
 			text-wrap: balance;
-			margin: 0.6rem;
+			margin: 0.6rem 1rem;
 		}
 
-		p span {
+		span strong {
 			color: var(--primary-color);
 		}
 	}

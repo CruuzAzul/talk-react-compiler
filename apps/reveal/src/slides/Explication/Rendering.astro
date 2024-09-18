@@ -2,11 +2,79 @@
 import Slide from "../../components/Slide.astro";
 import SlideTitle from "../../components/SlideTitle.astro";
 import Ressource from "../../components/Ressource.astro";
+
+import ArrowSteps from "../../assets/images/rendering/arrow-steps.png?url";
+import RenderAndCommit1 from "../../assets/images/rendering/render-and-commit1.png?url";
+import RenderAndCommit2 from "../../assets/images/rendering/render-and-commit2.png?url";
+import RenderAndCommit3 from "../../assets/images/rendering/render-and-commit3.png?url";
 ---
 
 <Slide>
-	<SlideTitle title="Comment fonctionne le rendering" punctuation="?" />
-	<p>Todo</p>
-	<span>Explication rapide de comment fonctionne le rendering parent / children</span>
-	<Ressource source="Mickaël Alves - https://source.com" />
+	<Slide>
+		<SlideTitle title="Comment fonctionne le rendering" punctuation="?" style={{
+			margin: "auto",
+			fontSize: "2rem",
+			fontWeight: "bolder",
+		}}/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Comment fonctionne le rendering" punctuation="?"/>
+		<div class="r-stack steps">
+			<div data-fragment-index="1" class="fragment step">
+				<img src={RenderAndCommit1} alt="Rendering step 1" />
+				<span>Trigger</span>
+			</div>
+			<img data-fragment-index="2" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps" />
+			<div data-fragment-index=2" class="fragment step">
+				<img src={RenderAndCommit2} alt="Rendering step 2" />
+				<span>Render</span>
+			</div >
+			<img data-fragment-index="3" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps" />
+			<div data-fragment-index="3" class="fragment step">
+				<img src={RenderAndCommit3} alt="Rendering step 3" />
+				<span>Commit</span>
+			</div>
+		</div>
+		<div data-fragment-index="1" class="fragment">
+			<Ressource source="Illustrations par Rachel Lee Nabors"/>
+		</div>
+	</Slide>
 </Slide>
+
+<style>
+	.steps {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		flex-wrap: wrap;
+		gap: 1rem;
+		padding: 3rem 0;
+
+		.step {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			gap: 2rem;
+			margin: 0;
+
+			span {
+				color: var(--primary-color);
+				font-size: 0.8rem;
+				font-weight: 700;
+				border: dashed 2px var(--primary-color);
+				border-radius: 15px;
+				padding: 0.5rem 1rem;
+			}
+		}
+
+		img {
+			width: 250px;
+
+			&.arrow {
+				align-self: center;
+				width: 50px;
+			}
+		}
+	}
+</style>

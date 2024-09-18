@@ -5,7 +5,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const { source, style } = Astro.props;
+const { source, style, ...props } = Astro.props;
 ---
 
 <div
@@ -13,6 +13,7 @@ const { source, style } = Astro.props;
   style={{
     ...style,
   }}
+	...props
 >
     <p>
       {source}

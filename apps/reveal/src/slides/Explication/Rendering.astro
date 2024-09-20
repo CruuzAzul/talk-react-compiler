@@ -7,6 +7,12 @@ import ArrowSteps from "../../assets/images/rendering/arrow-steps.png?url";
 import RenderAndCommit1 from "../../assets/images/rendering/render-and-commit1.png?url";
 import RenderAndCommit2 from "../../assets/images/rendering/render-and-commit2.png?url";
 import RenderAndCommit3 from "../../assets/images/rendering/render-and-commit3.png?url";
+
+import ReRender1 from "../../assets/images/rendering/rerender1.png?url";
+import ReRender2 from "../../assets/images/rendering/rerender2.png?url";
+import ReRender3 from "../../assets/images/rendering/rerender3.png?url";
+
+import Paint from "../../assets/images/rendering/paint.png?url";
 ---
 
 <Slide>
@@ -21,23 +27,81 @@ import RenderAndCommit3 from "../../assets/images/rendering/render-and-commit3.p
 		<SlideTitle title="Comment fonctionne le rendering" punctuation="?"/>
 		<div class="r-stack steps">
 			<div data-fragment-index="1" class="fragment step">
-				<img src={RenderAndCommit1} alt="Rendering step 1" />
+				<img src={RenderAndCommit1} alt="Rendering step 1"/>
 				<span>Trigger</span>
 			</div>
-			<img data-fragment-index="2" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps" />
+			<img data-fragment-index="2" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps"/>
 			<div data-fragment-index=2" class="fragment step">
-				<img src={RenderAndCommit2} alt="Rendering step 2" />
+				<img src={RenderAndCommit2} alt="Rendering step 2"/>
 				<span>Render</span>
-			</div >
-			<img data-fragment-index="3" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps" />
+			</div>
+			<img data-fragment-index="3" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps"/>
 			<div data-fragment-index="3" class="fragment step">
-				<img src={RenderAndCommit3} alt="Rendering step 3" />
+				<img src={RenderAndCommit3} alt="Rendering step 3"/>
 				<span>Commit</span>
 			</div>
 		</div>
 		<div data-fragment-index="1" class="fragment">
 			<Ressource source="Illustrations par Rachel Lee Nabors"/>
 		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Comment se déclanche un render" punctuation="?"/>
+		<div class="r-stack steps">
+			<ul>
+				<li class="fragment">Render initial du composant.</li>
+				<li class="fragment">L'état du composant est mis à jour.</li>
+				<li class="fragment">L'état d'un des composants parents est mis à jour.</li>
+			</ul>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Comment fonctionne un re-render" punctuation="?"/>
+		<div class="r-stack steps">
+			<div data-fragment-index="1" class="fragment step">
+				<img src={ReRender1} alt="Rendering step 1"/>
+				<span>State update</span>
+			</div>
+			<img data-fragment-index="2" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps"/>
+			<div data-fragment-index=2" class="fragment step">
+				<img src={ReRender2} alt="Rendering step 2"/>
+				<span>Triggers</span>
+			</div>
+			<img data-fragment-index="3" class="fragment arrow" src={ArrowSteps} alt="Arrow Steps"/>
+			<div data-fragment-index="3" class="fragment step">
+				<img src={ReRender3} alt="Rendering step 3"/>
+				<span>Render 🪄</span>
+			</div>
+		</div>
+		<div data-fragment-index="1" class="fragment">
+			<Ressource source="Illustrations par Rachel Lee Nabors"/>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Qu'est ce qui est coûteux en performance" punctuation="?"/>
+		<div class="r-stack steps">
+			<div data-fragment-index="1" class="fragment step">
+				<img src={ReRender3} alt="Rendering step 3"/>
+				<span>Render 🪄</span>
+			</div>
+			<div data-fragment-index=1" class="fragment step">
+				<img class="paint-img" src={Paint} alt="Paint"/>
+				<span>Browser paint 🎨</span>
+			</div>
+		</div>
+		<div data-fragment-index="1" class="fragment">
+			<Ressource source="Illustrations par Rachel Lee Nabors"/>
+		</div>
+	</Slide>
+	<Slide>
+		<div class="steps">
+			<ol start=3>
+				<li>L'état d'<strong>un des composants parents</strong> est mis à jour.</li>
+			</ol>
+		</div>
+	</Slide>
+	<Slide>
+		TODO : Rendering game dans un nouveau composant
 	</Slide>
 </Slide>
 
@@ -71,9 +135,35 @@ import RenderAndCommit3 from "../../assets/images/rendering/render-and-commit3.p
 		img {
 			width: 250px;
 
+			&.paint-img {
+				width: 400px;
+			}
+
 			&.arrow {
 				align-self: center;
 				width: 50px;
+				margin: 0;
+			}
+		}
+	}
+
+	ul, ol {
+		list-style-type: decimal;
+
+		li {
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: var(--dark-grey);
+			margin: 1rem 0;
+			text-wrap: balance;
+
+			&::marker {
+				font-size: 5rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				color: var(--primary-color);
 			}
 		}
 	}

@@ -1,18 +1,21 @@
 ---
-import Slide from "../../components/Slide.astro";
-import SlideTitle from "../../components/SlideTitle.astro";
-import Ressource from "../../components/Ressource.astro";
+import Slide from "../../../components/Slide.astro";
+import SlideTitle from "../../../components/SlideTitle.astro";
+import Ressource from "../../../components/Ressource.astro";
 
-import ArrowSteps from "../../assets/images/rendering/arrow-steps.png?url";
-import RenderAndCommit1 from "../../assets/images/rendering/render-and-commit1.png?url";
-import RenderAndCommit2 from "../../assets/images/rendering/render-and-commit2.png?url";
-import RenderAndCommit3 from "../../assets/images/rendering/render-and-commit3.png?url";
+import ArrowSteps from "../../../assets/images/rendering/arrow-steps.png?url";
+import RenderAndCommit1 from "../../../assets/images/rendering/render-and-commit1.png?url";
+import RenderAndCommit2 from "../../../assets/images/rendering/render-and-commit2.png?url";
+import RenderAndCommit3 from "../../../assets/images/rendering/render-and-commit3.png?url";
 
-import ReRender1 from "../../assets/images/rendering/rerender1.png?url";
-import ReRender2 from "../../assets/images/rendering/rerender2.png?url";
-import ReRender3 from "../../assets/images/rendering/rerender3.png?url";
+import ReRender1 from "../../../assets/images/rendering/rerender1.png?url";
+import ReRender2 from "../../../assets/images/rendering/rerender2.png?url";
+import ReRender3 from "../../../assets/images/rendering/rerender3.png?url";
 
-import Paint from "../../assets/images/rendering/paint.png?url";
+import Paint from "../../../assets/images/rendering/paint.png?url";
+
+import {ChildrenRendering} from "./RenderingTree/ChildrenRendering";
+
 ---
 
 <Slide>
@@ -101,7 +104,17 @@ import Paint from "../../assets/images/rendering/paint.png?url";
 		</div>
 	</Slide>
 	<Slide>
-		TODO : Rendering game dans un nouveau composant
+		<SlideTitle title="Memoization de composants" punctuation="."/>
+		<ChildrenRendering client:load />
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de computed values" punctuation="."/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de fonctions" punctuation="."/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Mais du coup les childrens c'est pas des composants" punctuation="?"/>
 	</Slide>
 </Slide>
 

@@ -1,0 +1,51 @@
+.App {
+	font-family: sans-serif;
+	text-align: center;
+}
+
+.square {
+	position: relative;
+	display: inline-block;
+	padding: 1rem 2rem;
+	margin: 10px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	border: solid 2px var(--primary-color);
+	border-radius: 15px;
+	background-color: white;
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		color: var(--primary-color);
+		font-size: 2rem;
+		font-weight: 700;
+		padding: 0.5rem;
+		user-select: none;
+	}
+
+	&.square-memo {
+		border: solid 3px darkred;
+
+		&::before {
+			content: 'Memo';
+			position: absolute;
+			font-size: 0.6rem;
+			font-weight: bolder;
+			top: -0.6rem;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: darkred;
+			color: white;
+			padding: 0.2rem 1rem;
+			border-radius: 50px;
+		}
+	}
+}
+
+
+.highlight {
+	background-color: lightgreen;
+}

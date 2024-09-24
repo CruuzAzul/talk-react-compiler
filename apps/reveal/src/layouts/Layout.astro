@@ -43,6 +43,7 @@ const {title} = Astro.props;
 
 	:root {
 		--primary-color: #0A7EA4;
+		--dark-background-color: #0A7EA499;
 		--background-color: #E6F7FF;
 		--lighter-grey: #F5F5F5;
 		--light-grey: #e4e4e4;
@@ -64,6 +65,6 @@ const {title} = Astro.props;
 		border-radius: 10px;
 		padding: 2rem 2rem !important;
 		max-height: unset !important;
-		border: 2px solid #2ecc71;
+		border: 2px solid var(--primary-color);
 	}
 </style>

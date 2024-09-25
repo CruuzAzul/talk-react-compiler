@@ -1,5 +1,6 @@
 import { Sandpack, type SandpackProps } from "@codesandbox/sandpack-react";
-import "./styles.scss";
+
+import "./codeEditor.scss";
 
 export function CodeEditor(props: SandpackProps) {
 	const firstFile = Object.keys(props?.files || {})[0];

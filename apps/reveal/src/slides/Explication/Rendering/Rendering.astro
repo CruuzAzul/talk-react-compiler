@@ -15,6 +15,7 @@ import ReRender3 from "../../../assets/images/rendering/rerender3.png?url";
 import Paint from "../../../assets/images/rendering/paint.png?url";
 
 import {ChildrenRendering} from "./RenderingTree/ChildrenRendering";
+import {UseCallbackRendering} from "./UseCallback/UseCallbackRendering";
 
 ---
 
@@ -105,13 +106,14 @@ import {ChildrenRendering} from "./RenderingTree/ChildrenRendering";
 	</Slide>
 	<Slide>
 		<SlideTitle title="Memoization de composants" punctuation="."/>
-		<ChildrenRendering client:load />
+		<ChildrenRendering client:visible />
 	</Slide>
 	<Slide>
 		<SlideTitle title="Memoization de computed values" punctuation="."/>
 	</Slide>
 	<Slide>
 		<SlideTitle title="Memoization de fonctions" punctuation="."/>
+		<UseCallbackRendering client:visible />
 	</Slide>
 	<Slide>
 		<SlideTitle title="Mais du coup les childrens c'est pas des composants" punctuation="?"/>

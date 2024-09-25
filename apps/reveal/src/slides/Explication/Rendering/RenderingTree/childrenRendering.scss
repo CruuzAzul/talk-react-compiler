@@ -30,7 +30,7 @@
 		border: solid 3px darkred;
 
 		&::before {
-			content: 'Memo';
+			content: 'React.memo';
 			position: absolute;
 			font-size: 0.6rem;
 			font-weight: bolder;
@@ -44,7 +44,6 @@
 		}
 	}
 }
-
 
 .highlight {
 	background-color: lightgreen;

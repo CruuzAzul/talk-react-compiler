@@ -1,4 +1,4 @@
-import { CodeEditor } from "@/components/CodeEditor";
+import { CodeEditor } from "@/components/CodeEditor/CodeEditor.tsx";
 
 export function Demo() {
 	return (

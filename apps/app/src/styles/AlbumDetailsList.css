@@ -1,0 +1,20 @@
+.album-details-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: start;
+  width: 100vw;
+  padding: 0 5rem;
+
+  .album-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 3px;
+    }
+  }
+}

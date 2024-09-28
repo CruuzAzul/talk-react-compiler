@@ -4,6 +4,7 @@ import { CSSProperties, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { dislikeCompil, likeCompil } from "../api/updateCompil";
+import { Link } from "@tanstack/react-router";
 
 interface CompilCardProps {
   compil: Compil;
@@ -31,7 +32,11 @@ export const CompilCard = ({ compil, fetchCompils }: CompilCardProps) => {
   const centerImage = compil.album?.[2]?.thumbnail;
 
   return (
-    <div className="compil-card">
+    <Link
+      className="compil-card"
+      to="/compil/$compilId"
+      params={{ compilId: compil.$id }}
+    >
       <div className="photo-stack-container">
         <div
           className="photo-stack"
@@ -55,6 +60,6 @@ export const CompilCard = ({ compil, fetchCompils }: CompilCardProps) => {
           {dislikeCount}
         </button>
       </div>
-    </div>
+    </Link>
   );
 };

@@ -11,5 +11,5 @@ export const MyCompils = () => {
 
   const query = [Query.equal("createdById", user?.$id)];
 
-  return <Compils compilQueries={query} />;
+  return <Compils compilQueries={query} title="My Compils" />;
 };

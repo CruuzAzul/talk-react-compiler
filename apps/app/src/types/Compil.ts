@@ -1,10 +1,10 @@
 import { Models } from "appwrite";
-import { Album } from "./Album";
+import { AlbumModel } from "./Album";
 
 export type Compil = {
   name: string;
   description: string | null;
-  album: Album[];
+  album: AlbumModel[];
   like: number;
   dislike: number;
   createdById: string;

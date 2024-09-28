@@ -3,12 +3,14 @@ import { getCompils } from "../api/getCompils";
 import "../styles/Compils.css";
 import { Compil } from "../types/Compil";
 import { CompilCard } from "./CompilCard";
+import Loader from "./Loader";
 
 interface CompilsProps {
   compilQueries?: string[];
+  title: string;
 }
 
-export const Compils = ({ compilQueries }: CompilsProps) => {
+export const Compils = ({ compilQueries, title }: CompilsProps) => {
   const [compils, setCompils] = useState<Compil[] | null>(null);
 
   // Possiblement intéressant à montrer, si on enlève ce useCallback on boucle à l'infini (donc sympa le compiler ici)
@@ -22,11 +24,12 @@ export const Compils = ({ compilQueries }: CompilsProps) => {
   }, [fetchCompils]);
 
   if (compils === null) {
-    return <section>Loading...</section>;
+    return <Loader />;
   }
 
   return (
     <section>
+      <h1 className="main-title">{title}</h1>
       <ul className="compil-list">
         {compils.map((compil) => (
           <li key={compil.$id}>

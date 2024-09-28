@@ -15,6 +15,7 @@ import { Route as IndexImport } from './routes/index'
 import { Route as SignInIndexImport } from './routes/sign-in/index'
 import { Route as MyCompilsIndexImport } from './routes/my-compils/index'
 import { Route as CompilsIndexImport } from './routes/compils/index'
+import { Route as CompilCompilIdImport } from './routes/compil/$compilId'
 
 // Create/Update Routes
 
@@ -38,6 +39,11 @@ const CompilsIndexRoute = CompilsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const CompilCompilIdRoute = CompilCompilIdImport.update({
+  path: '/compil/$compilId',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -47,6 +53,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/compil/$compilId': {
+      id: '/compil/$compilId'
+      path: '/compil/$compilId'
+      fullPath: '/compil/$compilId'
+      preLoaderRoute: typeof CompilCompilIdImport
       parentRoute: typeof rootRoute
     }
     '/compils/': {
@@ -77,6 +90,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
+  CompilCompilIdRoute,
   CompilsIndexRoute,
   MyCompilsIndexRoute,
   SignInIndexRoute,
@@ -91,6 +105,7 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/compil/$compilId",
         "/compils/",
         "/my-compils/",
         "/sign-in/"
@@ -98,6 +113,9 @@ export const routeTree = rootRoute.addChildren({
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/compil/$compilId": {
+      "filePath": "compil/$compilId.tsx"
     },
     "/compils/": {
       "filePath": "compils/index.tsx"

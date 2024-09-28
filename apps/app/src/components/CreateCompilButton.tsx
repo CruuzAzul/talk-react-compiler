@@ -35,7 +35,7 @@ export const CreateCompilButton = ({
           value={name}
         />
       </label>
-      <button className="create-compil-button" type="submit">
+      <button className="create-compil-button" type="submit" disabled={!name}>
         Create Compilation
       </button>
     </form>

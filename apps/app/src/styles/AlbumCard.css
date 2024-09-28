@@ -27,7 +27,7 @@
 
 .album-card p {
   font-size: 14px;
-  color: var(--color-text);
+  color: black;
 }
 
 .album-card.selected {

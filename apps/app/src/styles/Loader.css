@@ -1,0 +1,56 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 80vh;
+}
+
+.helmets {
+  position: relative;
+  width: 40rem;
+  height: 20rem;
+  margin-bottom: 8px;
+}
+
+.helmet {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  animation: pulse;
+  top: 0;
+
+  &.thomas {
+    left: 0;
+  }
+
+  &.guy {
+    right: 0;
+  }
+}
+
+.text-loader {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  animation: pulse;
+}

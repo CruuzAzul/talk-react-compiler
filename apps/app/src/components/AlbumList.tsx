@@ -58,12 +58,20 @@ export const AlbumList = ({
     }
   };
 
+  const onSearchReset = () => {
+    setAlbumList([]);
+    setSelectedAlbums([]);
+    resetSearch();
+  };
+
   return (
     <>
-      <CreateCompilButton
-        selectedAlbums={selectedAlbums}
-        resetSearch={resetSearch}
-      />
+      {selectedAlbums.length > 0 && (
+        <CreateCompilButton
+          selectedAlbums={selectedAlbums}
+          resetSearch={onSearchReset}
+        />
+      )}
       <ul>
         {albumList.map((album) => (
           <li key={album.id} className="album">

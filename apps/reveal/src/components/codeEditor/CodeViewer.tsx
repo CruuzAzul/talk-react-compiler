@@ -48,8 +48,12 @@ export const CodeViewer = ({label, files, decorators, showLineNumbers}: CodeView
 				</SandpackProvider>
 			</section>
 			<div className="code-viewer-footer">
-				<button onClick={handlePreviousStep}>←</button>
-				<button onClick={handleNextStep}>→</button>
+				<button onClick={handlePreviousStep} disabled={
+					step === 0
+				}>←</button>
+				<button onClick={handleNextStep} disabled={
+					step === decorators.length - 1
+				}>→</button>
 			</div>
 		</>
 	)

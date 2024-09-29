@@ -1,5 +1,6 @@
 .reveal .sp-wrapper {
-	--sp-layout-height: 500px;
+	// TODO: Make height fit the content
+	--sp-layout-height: 530px;
 	--sp-font-size: 1rem;
 	--sp-font-lineHeight: 1.5;
 
@@ -13,7 +14,7 @@
 	}
 
 	.sp-layout {
-		height: var(--sp-layout-height);
+		height: 100%;
 		border-radius: 8px;
 	}
 

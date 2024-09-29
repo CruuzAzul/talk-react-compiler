@@ -2,11 +2,11 @@ import {SandpackCodeViewer, type SandpackFiles, SandpackLayout, SandpackProvider
 
 import "./codeViewer.scss";
 import {useState} from "react";
-import type {DecoratorData} from "@/components/codeEditor/decorators.ts";
+import type {DecoratorData} from "@/components/codeEditor/codeViewer.ts";
 
 interface CodeViewerProps {
 	label?: string;
-	files: SandpackFiles;
+	files: SandpackFiles[];
 	decorators: DecoratorData;
 	showLineNumbers: boolean;
 }
@@ -39,7 +39,7 @@ export const CodeViewer = ({label, files, decorators, showLineNumbers}: CodeView
 			<section onClick={handleNextStep}>
 				<SandpackProvider
 					className="code-viewer"
-					files={files}
+					files={files[step]}
 				>
 					<SandpackLayout>
 						<SandpackCodeViewer initMode="lazy" data-id="box" decorators={decorators[step]}

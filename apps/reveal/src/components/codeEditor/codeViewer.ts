@@ -1,3 +1,5 @@
+import type {SandpackFiles} from "@codesandbox/sandpack-react";
+
 type DecoratorHighlight = {
 	className: string;
 	line: number;
@@ -14,3 +16,5 @@ type DecoratorWidget = {
 export type Decorator = DecoratorHighlight[] | DecoratorWidget[] | [];
 
 export type DecoratorData = Decorator[];
+
+export type Files = SandpackFiles[];

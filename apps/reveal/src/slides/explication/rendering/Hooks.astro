@@ -1,0 +1,31 @@
+---
+import {UseMemoRendering} from "./useMemo/UseMemoRendering";
+import SlideTitle from "../../../components/SlideTitle.astro";
+import Slide from "../../../components/Slide.astro";
+import {UseCallbackRendering} from "./useCallback/UseCallbackRendering";
+import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
+import {UseMemoChildren} from "./useMemoChildren/UseMemoChildren";
+---
+
+<Slide>
+	<Slide>
+		<SlideTitle title="Memoization de composants" punctuation="."/>
+		<ChildrenRendering client:visible/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de computed values" punctuation="."/>
+		<UseMemoRendering client:only="react"/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de fonctions" punctuation="."/>
+		<UseCallbackRendering client:only="react"/>
+	</Slide>
+	<section>
+		<SlideTitle title="Mais du coup les childrens c'est pas des composants" punctuation="?"/>
+		<UseMemoChildren client:only="react"/>
+	</section>
+	<Slide>
+		Explosion
+	</Slide>
+</Slide>
+

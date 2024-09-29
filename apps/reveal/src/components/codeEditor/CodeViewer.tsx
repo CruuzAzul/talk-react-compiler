@@ -36,17 +36,17 @@ export const CodeViewer = ({label, files, decorators, showLineNumbers}: CodeView
 				{ label ? <span>{label}</span> : null}
 				<button className="reset" onClick={handleReset}>⟲</button>
 			</div>
-			<section onClick={handleNextStep}>
+			<div onClick={handleNextStep}>
 				<SandpackProvider
 					className="code-viewer"
 					files={files[step]}
 				>
 					<SandpackLayout>
-						<SandpackCodeViewer initMode="lazy" data-id="box" decorators={decorators[step]}
+						<SandpackCodeViewer initMode="lazy" decorators={decorators[step]}
 																showLineNumbers={showLineNumbers}/>
 					</SandpackLayout>
 				</SandpackProvider>
-			</section>
+			</div>
 			<div className="code-viewer-footer">
 				<button onClick={handlePreviousStep} disabled={
 					step === 0

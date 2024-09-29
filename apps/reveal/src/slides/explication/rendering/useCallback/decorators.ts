@@ -5,7 +5,7 @@ export const decorators: DecoratorData = [
 	[
 		{className: "firstMultiLineHightlight", line: 4},
 		{className: "multiLineHightlight", line: 5},
-		{className: "multiLineHightlight", line: 6},
+		{className: "lastMultiLineHightlight", line: 6},
 	],
 	[
 		{className: "highlight", line: 4},

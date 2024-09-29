@@ -13,10 +13,6 @@ import ReRender2 from "../../../assets/images/rendering/rerender2.png?url";
 import ReRender3 from "../../../assets/images/rendering/rerender3.png?url";
 
 import Paint from "../../../assets/images/rendering/paint.png?url";
-
-import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
-import {UseMemoRendering} from "./useMemo/UseMemoRendering";
-import {UseCallbackRendering} from "./useCallback/UseCallbackRendering";
 ---
 
 <Slide>
@@ -103,24 +99,6 @@ import {UseCallbackRendering} from "./useCallback/UseCallbackRendering";
                 <li>L'état d'<strong>un des composants parents</strong> est mis à jour.</li>
             </ol>
         </div>
-    </Slide>
-    <Slide>
-        <SlideTitle title="Memoization de composants" punctuation="."/>
-        <ChildrenRendering client:visible />
-    </Slide>
-    <Slide>
-        <SlideTitle title="Memoization de computed values" punctuation="."/>
-        <UseMemoRendering client:only="react" />
-    </Slide>
-    <Slide>
-        <SlideTitle title="Memoization de fonctions" punctuation="."/>
-        <UseCallbackRendering client:only="react" />
-    </Slide>
-    <Slide>
-        Recap Hooks
-    </Slide>
-    <Slide>
-        <SlideTitle title="Mais du coup les childrens c'est pas des composants" punctuation="?"/>
     </Slide>
 </Slide>
 

@@ -1,6 +1,6 @@
-import type {SquareProps} from "@/slides/Explication/Rendering/RenderingTree/Square.ts";
+import type {SquareProps} from "@/slides/explication/rendering/renderingTree/Square.ts";
 import React, {memo, useState} from "react";
-import {Square} from "@/slides/Explication/Rendering/RenderingTree/Square.tsx";
+import {Square} from "@/slides/explication/rendering/renderingTree/Square.tsx";
 
 export const SquareWrapper = ({name, children, isParentMemoized}: SquareProps) => {
 	const [isMemoized, setIsMemoized] = useState(false);

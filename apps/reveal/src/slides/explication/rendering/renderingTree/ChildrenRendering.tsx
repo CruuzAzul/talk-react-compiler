@@ -1,6 +1,6 @@
 import React from "react";
 
-import {SquareWrapper} from "@/slides/Explication/Rendering/RenderingTree/SquareWrapper.tsx";
+import {SquareWrapper} from "@/slides/explication/rendering/renderingTree/SquareWrapper.tsx";
 
 import './childrenRendering.scss';
 

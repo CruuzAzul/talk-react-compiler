@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import type {SquareProps} from "@/slides/Explication/Rendering/RenderingTree/Square.ts";
-import {SquareWrapper} from "@/slides/Explication/Rendering/RenderingTree/SquareWrapper.tsx";
+import type {SquareProps} from "@/slides/explication/rendering/renderingTree/Square.ts";
+import {SquareWrapper} from "@/slides/explication/rendering/renderingTree/SquareWrapper.tsx";
 
 export const Square = ({name, children, onMemoizeClick, isMemoized, isParentMemoized}: SquareProps) => {
 	const [isClicked, setIsClicked] = useState(false);

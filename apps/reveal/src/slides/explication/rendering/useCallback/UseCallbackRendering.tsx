@@ -1,4 +1,4 @@
-import {CodeViewer} from "@/components/CodeEditor/CodeViewer.tsx";
+import {CodeViewer} from "@/components/codeEditor/CodeViewer.tsx";
 import decorators from "./data.ts";
 
 export const UseCallbackRendering = () => {

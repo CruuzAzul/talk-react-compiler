@@ -16,7 +16,7 @@ export const Navbar = () => {
         <Link to="/compils">Compils</Link>
         <Link to="/my-compils">My Compils</Link>
       </nav>
-      <button onClick={toggleTheme}>
+      <button className="theme-toggle" onClick={toggleTheme}>
         <FontAwesomeIcon icon={themeIcon} />
       </button>
     </header>

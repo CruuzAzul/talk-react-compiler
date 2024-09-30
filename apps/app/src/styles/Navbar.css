@@ -16,6 +16,8 @@ nav > a {
   padding: 0 2rem;
   display: flex;
   align-items: center;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 header {
@@ -25,4 +27,22 @@ header {
   width: 100vw;
   padding: 0 2rem;
   margin-bottom: 2rem;
+}
+
+nav a:hover {
+  color: #10a2e1;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.theme-toggle:focus,
+.theme-toggle:focus-visible {
+  outline: none;
 }

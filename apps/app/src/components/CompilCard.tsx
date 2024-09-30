@@ -1,6 +1,6 @@
 import { Compil } from "../types/Compil";
 import "../styles/CompilCard.css";
-import { CSSProperties, useState } from "react";
+import { CSSProperties, MouseEvent, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { dislikeCompil, likeCompil } from "../api/updateCompil";
@@ -15,13 +15,17 @@ export const CompilCard = ({ compil, fetchCompils }: CompilCardProps) => {
   const [likeCount, setLikeCount] = useState(compil.like);
   const [dislikeCount, setDislikeCount] = useState(compil.dislike);
 
-  const like = () => {
+  const like = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     likeCompil(compil.$id, likeCount);
     setLikeCount(likeCount + 1);
     fetchCompils();
   };
 
-  const dislike = () => {
+  const dislike = (e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     dislikeCompil(compil.$id, dislikeCount);
     setDislikeCount(dislikeCount + 1);
     fetchCompils();

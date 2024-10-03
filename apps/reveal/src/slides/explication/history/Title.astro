@@ -1,0 +1,44 @@
+---
+import Slide from "../../../components/Slide.astro";
+
+import ReactCompiler from "../../../assets/images/logo/react-compiler.png?url";
+---
+
+<Slide>
+	Explosion
+</Slide>
+<Slide>
+	<p>Et c'est pour ça que...</p>
+</Slide>
+<Slide>
+	<p style={{
+		marginBottom: "5rem"
+	}}>Et c'est pour ça que...</p>
+	<img src={ReactCompiler} alt="React Compiler logo" class="reactCompilerLogo"/>
+</Slide>
+<Slide>
+	<img src={ReactCompiler} alt="React Compiler logo" class="reactCompilerLogo"/>
+	<p style={{
+		marginTop: "5rem"
+	}}>Qu'est-ce que c'est ?</p>
+</Slide>
+
+<style>
+	.reactCompilerLogo {
+		width: 60%;
+		text-align: center;
+		filter: drop-shadow(
+			0 0 0.75rem var(--primary-color)
+		);
+	}
+
+	p {
+		font-size: 4rem;
+		font-weight: 700;
+		background-color: var(--background-color);
+		border: dashed 2px var(--primary-color);
+		border-radius: 15px;
+		text-wrap: balance;
+		padding: 1rem 2rem;
+	}
+</style>

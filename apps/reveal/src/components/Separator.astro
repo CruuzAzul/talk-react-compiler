@@ -1,0 +1,21 @@
+---
+interface Props {
+	width?: string;
+}
+
+const {width} = Astro.props;
+---
+
+<div data-id="separator">
+	<hr style={{width: width}} />
+</div>
+
+<style>
+	hr {
+		width: 50%;
+		border: 0;
+		height: 2px;
+		margin-top: 0;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary-color), rgba(0, 0, 0, 0));
+	}
+</style>

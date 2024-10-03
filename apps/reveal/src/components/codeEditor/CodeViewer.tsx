@@ -1,6 +1,8 @@
 import {SandpackCodeViewer, type SandpackFiles, SandpackLayout, SandpackProvider} from "@codesandbox/sandpack-react";
 
 import "./codeViewer.scss";
+import "./codeEditor.scss";
+
 import {useState} from "react";
 import type {DecoratorData} from "@/components/codeEditor/codeViewer.ts";
 

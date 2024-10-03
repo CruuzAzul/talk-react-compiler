@@ -1,0 +1,56 @@
+---
+import SlideTitle from "../../components/SlideTitle.astro";
+import Slide from "../../components/Slide.astro";
+
+import Quote from "../../assets/images/quote.png?url";
+---
+
+<Slide>
+	<Slide>
+		<SlideTitle title="Pour résumé" punctuation="..."/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Pour résumé" punctuation="..."/>
+		<div class="quote">
+			<img src={Quote} alt="Quote" width="80" class="quoteLeft" />
+			<p>Make it easy to build great user experiences</p>
+			<img src={Quote} alt="Quote" width="80" class="quoteRight" />
+		</div>
+	</Slide>
+</Slide>
+
+<style>
+	.quote {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.quoteLeft {
+			position: relative;
+			top: 50px;
+			left: 20px;
+			margin-right: auto;
+		}
+
+		.quoteRight {
+			position: relative;
+			bottom: 50px;
+			right: 20px;
+			margin-left: auto;
+			transform: rotate(180deg);
+		}
+
+		p {
+			width: 80%;
+			font-size: 3.9rem;
+			text-wrap: balance;
+			font-weight: bold;
+			color: var(--primary-color);
+			margin: 0;
+			border: dotted 5px black;
+			padding: 3rem 2rem;
+			border-radius: 1rem;
+		}
+	}
+
+</style>

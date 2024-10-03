@@ -1,0 +1,288 @@
+---
+import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
+
+import Compiler from "../../assets/images/explication/compiler.png?url";
+import Eslint from "../../assets/images/explication/eslint.png?url";
+
+import Cross1 from "../../assets/images/explication/cross1.png?url";
+import Cross2 from "../../assets/images/explication/cross2.png?url";
+import Cross3 from "../../assets/images/explication/cross3.png?url";
+import Separator from "../../components/Separator.astro";
+---
+
+<Slide>
+
+    <Slide>
+        <SlideTitle title="Le React Compiler, au final c'est quoi" punctuation="?"/>
+    </Slide>
+    <Slide>
+        <SlideTitle title="Le React Compiler, au final c'est quoi" punctuation="?"/>
+        <div class="elements">
+            <div class="element">
+                <img src={Compiler} alt="Compiler" style={{
+                    height: "300px",
+                    margin: "auto",
+                    marginTop: "4rem",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+                <p class="label">Un Compilateur</p>
+            </div>
+        </div>
+    </Slide>
+    <Slide>
+        <SlideTitle title="Un compilateur ou un transpileur" punctuation="?"/>
+        <div class="elements">
+            <div class="element">
+                <img src={Compiler} alt="Compiler" style={{
+                    height: "200px",
+                    margin: "auto",
+                    marginTop: "4rem",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+                <p class="label">Un Compilateur</p>
+            </div>
+            <div class="versus">
+                <p>VS</p>
+            </div>
+        </div>
+    </Slide>
+    <Slide>
+        <SlideTitle title="Le React Compiler, au final c'est quoi" punctuation="?"/>
+        <div class="elements">
+            <div class="element">
+                <img src={Compiler} alt="Compiler" style={{
+                    height: "300px",
+                    margin: "auto",
+                    marginTop: "4rem",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+                <p class="label">Un Compilateur</p>
+            </div>
+            <div class="element fragment">
+                <img src={Eslint} alt="Compiler" style={{
+                    height: "300px",
+                    margin: "auto",
+                    marginTop: "4rem",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+                <p class="label">Un plugin eslint</p>
+            </div>
+        </div>
+    </Slide>
+    <Slide>
+        <SlideTitle title="Qu'est ce qu'il fait" punctuation="?"/>
+        <div class="hooks">
+            <div class="hook">
+                <p data-fragment-index="1">
+                    useMemo
+                    <Separator width="200"/>
+                </p>
+                <img data-fragment-index="2" class="fragment fade-down" src={Cross1} alt="Cross1" style={{
+                    margin: "auto",
+                    marginTop: "4rem",
+                    left: "10px",
+                    top: "20%",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+            </div>
+            <div class="hook">
+                <p data-fragment-index="1">
+                    React.memo
+                    <Separator width="200"/>
+                </p>
+                <img data-fragment-index="3" class="fragment fade-up" src={Cross3} alt="Cross1" style={{
+                    margin: "auto",
+                    marginTop: "4rem",
+                    top: "25%",
+                    left: "37%",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+            </div>
+            <div class="hook">
+                <p data-fragment-index="1">
+                    useCallback
+                    <Separator width="200"/>
+                </p>
+                <img data-fragment-index="4" class="fragment fade-down" src={Cross2} alt="Cross1" style={{
+                    margin: "auto",
+                    marginTop: "4rem",
+                    right: "20px",
+                    top: "23%",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+            </div>
+        </div>
+    </Slide>
+    <Slide>
+        <SlideTitle title="Qu'est ce qu'il fait" punctuation="?"/>
+        <div class="hooks">
+            <div class="hook">
+                <p data-fragment-index="1">
+                    useMemo
+                    <Separator width="200"/>
+                </p>
+                <img src={Cross1} alt="Cross1" style={{
+                    margin: "auto",
+                    marginTop: "4rem",
+                    left: "10px",
+                    top: "15%",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+            </div>
+            <div class="hook">
+                <p data-fragment-index="1">
+                    React.memo
+                    <Separator width="200"/>
+                </p>
+                <img src={Cross3} alt="Cross1" style={{
+                    margin: "auto",
+                    marginTop: "4rem",
+                    top: "18%",
+                    left: "37%",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+            </div>
+            <div class="hook">
+                <p data-fragment-index="1">
+                    useCallback
+                    <Separator width="200"/>
+                </p>
+                <img src={Cross2} alt="Cross1" style={{
+                    margin: "auto",
+                    marginTop: "4rem",
+                    right: "20px",
+                    top: "16%",
+                    filter: "drop-shadow(0 0 3px var(--grey))"
+                }}/>
+            </div>
+        </div>
+        <p class="quote">
+            Mémoizer <strong>automatiquement</strong> des valeurs ou des groupes de valeurs dans les
+            <strong>composants</strong> et les <strong>hooks</strong>.
+        </p>
+    </Slide>
+
+    <!--Main use cases-->
+    <Slide>
+        <ol>
+            <li>Éviter le re-rendu en cascade des composants.</li>
+        </ol>
+    </Slide>
+    <Slide>
+        <ol start=2>
+            <li>Éviter des calculs coûteux externe à React.</li>
+        </ol>
+    </Slide>
+    <Slide>
+        <SlideTitle title="Et c'est pas tout" punctuation="..."/>
+        <ol class="soon">
+            <li>Mémoriser les dépendances aux effets.</li>
+            <li>Étapes d'amélioration du code JSX.</li>
+            <li>Amélioration des devtools.</li>
+            <li>...</li>
+        </ol>
+    </Slide>
+</Slide>
+
+<style>
+    .elements {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2rem;
+
+        .element {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+            width: fit-content;
+
+            .label {
+                color: var(--primary-color);
+                font-size: 0.8rem;
+                font-weight: 700;
+                border: dashed 2px var(--primary-color);
+                border-radius: 15px;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .versus {
+            flex: 1;
+        }
+    }
+
+    .hooks {
+        padding: 6rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .hook {
+            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: 700;
+
+            img {
+                position: absolute;
+                width: 250px;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .quote {
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 4rem;
+        border: dashed 2px var(--primary-color);
+        border-radius: 15px;
+        padding: 1rem 1.5rem;
+        background-color: var(--background-color);
+
+        strong {
+            color: var(--primary-color);
+        }
+    }
+
+    ol {
+        display: block;
+        text-align: left;
+        list-style-type: decimal;
+
+        &.soon {
+            line-height: 2;
+            list-style: "\1f51c";
+
+            li {
+                padding-left: 1.5rem;
+
+                &::marker {
+                    font-size: 3rem;
+                    color: var(--primary-color);
+                }
+            }
+        }
+
+        li {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            margin: 1rem 0;
+            text-wrap: balance;
+
+            &::marker {
+                font-size: 5rem;
+                color: var(--primary-color);
+            }
+
+            strong {
+                color: var(--primary-color);
+            }
+        }
+    }
+</style>

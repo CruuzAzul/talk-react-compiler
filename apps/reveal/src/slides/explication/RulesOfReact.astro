@@ -1,0 +1,92 @@
+---
+import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
+
+import JsValid from "../../assets/images/rules/js-valid.png?url";
+import ReactValid from "../../assets/images/rules/react-valid.png?url";
+import NullValid from "../../assets/images/rules/null-valid.png?url";
+---
+
+<Slide>
+	<Slide>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<div class="conditions">
+			<div>
+				<img src={JsValid} alt="JS Valid" />
+				<p>Code JavaScript valide</p>
+			</div>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<div class="conditions">
+			<div>
+				<img src={JsValid} alt="JS Valid" />
+				<p>Code JavaScript valide</p>
+			</div>
+			<div>
+				<img src={NullValid} alt="Null Valid" style={{paddingLeft: "2rem"}} />
+				<p>Toutes les valeurs sont accessibles</p>
+			</div>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<div class="conditions">
+			<div>
+				<img src={JsValid} alt="JS Valid" />
+				<p>Code JavaScript valide</p>
+			</div>
+			<div>
+				<img src={NullValid} alt="Null Valid" style={{paddingLeft: "3rem"}} />
+				<p>Toutes les valeurs sont accessibles</p>
+			</div><div>
+			<img
+			src={ReactValid} alt="React Valid" />
+				<p>Le code suit les Rules of React</p>
+			</div>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Les Rules of React, qu'est ce que c'est" punctuation="?"/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Et sinon aucune autre contrainte" punctuation="?"/>
+	</Slide>
+</Slide>
+
+<style>
+	.conditions {
+		display: flex;
+		gap: 5rem;
+		align-items: flex-end;
+		justify-content: center;
+		padding-top: 3rem;
+
+		div {
+			width: fit-content;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+
+			img {
+				height: 230px;
+			}
+
+			p {
+				width: 100%;
+				text-align: center;
+				font-size: 1rem;
+				font-weight: bold;
+				color: var(--primary-color);
+				border: dashed 2px var(--primary-color);
+				border-radius: 15px;
+				padding: 1rem 1.5rem;
+			}
+		}
+	}
+</style>

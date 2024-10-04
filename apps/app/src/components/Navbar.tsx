@@ -1,13 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import "../styles/Navbar.css";
 import { useThemeContext } from "../utils/useTheme";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { HexColorPicker } from "react-colorful";
+import { Menu, MenuItem } from "@szhsin/react-menu";
 
 export const Navbar = () => {
-  const { theme, toggleTheme } = useThemeContext();
-
-  const themeIcon = theme === "light" ? faMoon : faSun;
+  const { theme, setTheme } = useThemeContext();
 
   return (
     <header>
@@ -16,9 +14,11 @@ export const Navbar = () => {
         <Link to="/compils">Compils</Link>
         <Link to="/my-compils">My Compils</Link>
       </nav>
-      <button className="theme-toggle" onClick={toggleTheme}>
-        <FontAwesomeIcon icon={themeIcon} />
-      </button>
+      <Menu menuButton={<button>Theme</button>}>
+        <MenuItem>
+          <HexColorPicker color={theme} onChange={setTheme} />
+        </MenuItem>
+      </Menu>
     </header>
   );
 };

@@ -15,7 +15,7 @@ export const Root = () => {
   }
 
   return (
-    <main data-theme={theme}>
+    <main style={{ backgroundColor: theme }}>
       {!isSignInPage && <Navbar />}
       <Outlet />
     </main>

@@ -1,21 +1,6 @@
-import { useEffect, useState } from "react";
 import "../styles/Loader.css";
 
 export default function Loader() {
-  const [loadingText, setLoadingText] = useState("Work it");
-  const loadingPhrases = ["Work it", "Make it", "Do it", "Makes us"];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLoadingText((prev) => {
-        const currentIndex = loadingPhrases.indexOf(prev);
-        return loadingPhrases[(currentIndex + 1) % loadingPhrases.length];
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="loader">
       <div className="helmets">
@@ -92,7 +77,6 @@ export default function Loader() {
           />
         </svg>
       </div>
-      <div className="text-loader">{loadingText}</div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { getCompils } from "../api/getCompils";
 import "../styles/Compils.css";
 import { Compil } from "../types/Compil";
@@ -12,28 +12,46 @@ interface CompilsProps {
 
 export const Compils = ({ compilQueries, title }: CompilsProps) => {
   const [compils, setCompils] = useState<Compil[] | null>(null);
+  const [search, setSearch] = useState("");
 
-  // Possiblement intéressant à montrer, si on enlève ce useCallback on boucle à l'infini (donc sympa le compiler ici)
-  const fetchCompils = useCallback(async () => {
+  const filteredCompils =
+    compils?.filter(
+      (compil) =>
+        compil.name.toLowerCase().includes(search.toLowerCase()) ||
+        compil.album.some(
+          (album) =>
+            album.name.toLowerCase().includes(search.toLowerCase()) ||
+            album.artist.toLowerCase().includes(search.toLowerCase())
+        )
+    ) ?? [];
+
+  const fetchCompils = async () => {
     const compils = await getCompils(compilQueries);
     setCompils(compils.documents);
-  }, [compilQueries]);
+  };
 
   useEffect(() => {
     fetchCompils();
-  }, [fetchCompils]);
+  }, []);
 
   if (compils === null) {
     return <Loader />;
   }
 
   return (
-    <section>
+    <section className="compils-page">
       <h1 className="main-title">{title}</h1>
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Rechercher par titre ou artiste"
+        className="search-input"
+      />
       <ul className="compil-list">
-        {compils.map((compil) => (
+        {filteredCompils.map((compil) => (
           <li key={compil.$id}>
-            <CompilCard compil={compil} fetchCompils={fetchCompils} />
+            <CompilCard compil={compil} />
           </li>
         ))}
       </ul>

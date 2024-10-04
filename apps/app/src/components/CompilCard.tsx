@@ -8,10 +8,9 @@ import { Link } from "@tanstack/react-router";
 
 interface CompilCardProps {
   compil: Compil;
-  fetchCompils: () => void;
 }
 
-export const CompilCard = ({ compil, fetchCompils }: CompilCardProps) => {
+export const CompilCard = ({ compil }: CompilCardProps) => {
   const [likeCount, setLikeCount] = useState(compil.like);
   const [dislikeCount, setDislikeCount] = useState(compil.dislike);
 
@@ -20,7 +19,6 @@ export const CompilCard = ({ compil, fetchCompils }: CompilCardProps) => {
     e.stopPropagation();
     likeCompil(compil.$id, likeCount);
     setLikeCount(likeCount + 1);
-    fetchCompils();
   };
 
   const dislike = (e: MouseEvent) => {
@@ -28,7 +26,6 @@ export const CompilCard = ({ compil, fetchCompils }: CompilCardProps) => {
     e.stopPropagation();
     dislikeCompil(compil.$id, dislikeCount);
     setDislikeCount(dislikeCount + 1);
-    fetchCompils();
   };
 
   const rightImage = compil.album?.[0]?.thumbnail;

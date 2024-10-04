@@ -1,33 +1,30 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 
-type ThemeType = "light" | "dark";
+type ThemeType = string;
 
 interface ThemeContextType {
   theme: ThemeType;
-  toggleTheme: () => void;
+  setTheme: (theme: ThemeType) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "light",
-  toggleTheme: () => {},
+  theme: "#FFFFFF",
+  setTheme: () => {},
 });
 
 export const useThemeContext = () => useContext(ThemeContext);
 
 const useTheme = () => {
   const [theme, setTheme] = useState<ThemeType>(
-    (localStorage.getItem("theme") as ThemeType) ?? "light"
+    (localStorage.getItem("theme") as ThemeType) ?? "#FFFFFF"
   );
 
-  useEffect(() => {
+  const setThemeInStorage = (theme: ThemeType) => {
+    setTheme(theme);
     localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  return { theme, toggleTheme };
+  return { theme, setTheme: setThemeInStorage };
 };
 
 interface ThemeProviderProps {
@@ -35,10 +32,10 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

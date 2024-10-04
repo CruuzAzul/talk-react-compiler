@@ -15,6 +15,7 @@
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  --rerendered-outline: 0px solid transparent;
 }
 
 main[data-theme="light"] {
@@ -27,12 +28,33 @@ main[data-theme="dark"] {
   --color-background: #333333;
 }
 
+main[data-rerendered="true"] {
+  --rerendered-outline: 5px solid transparent;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+@keyframes rerenderAnimation {
+  0% {
+    outline-color: transparent;
+  }
+  50% {
+    outline-color: var(--color-primary);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+
+.rerendered {
+  animation: rerenderAnimation 1s linear;
+  outline: var(--rerendered-outline);
 }
 
 h1 {

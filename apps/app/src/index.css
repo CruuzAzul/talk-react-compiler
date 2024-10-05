@@ -18,16 +18,6 @@
   --rerendered-outline: 0px solid transparent;
 }
 
-main[data-theme="light"] {
-  --color-text: #333333;
-  --color-background: #f8f8f8;
-}
-
-main[data-theme="dark"] {
-  --color-text: #f8f8f8;
-  --color-background: #333333;
-}
-
 main[data-rerendered="true"] {
   --rerendered-outline: 5px solid transparent;
 }

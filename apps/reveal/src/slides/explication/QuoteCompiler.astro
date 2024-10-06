@@ -3,23 +3,52 @@ import SlideTitle from "../../components/SlideTitle.astro";
 import Slide from "../../components/Slide.astro";
 
 import Quote from "../../assets/images/quote.png?url";
+import ReactLogo from "../../assets/images/logo/react-curve.png?url";
 ---
 
 <Slide>
+	<Slide>
+		<SlideTitle title="Est ce qu'il faut utiliser React Compiler" punctuation="?"/>
+		<img src={ReactLogo} alt="React Compiler" width="300" class="react-logo"/>
+		<ol data-id="liste">
+			<li class="fragment">Plus besoin de mémoization à la main 🧠</li>
+			<li class="fragment">Facile à mettre en place 😎</li>
+			<li class="fragment">Fonctionne avec des versions de React < 19 👵🏼</li>
+			<li class="fragment">
+				Mise en place sécurisée dans vos bases de code 🛡
+				<ul class="fragment fade-in-then-out">
+					<li>React Compiler peut vérifier le respect des Rules of React, et sautera la compilation en toute sécurité
+						lorsqu'il détectera une erreur ⏭️
+					</li>
+				</ul>
+			</li>
+		</ol>
+		<div class="fragment warn">
+			💡 React Compiler est encore en version <strong>bêta</strong>, le déploiement du compilateur en production pour votre application
+			dépendra de la <strong>santé de votre base de code</strong> et de la façon dont vous avez <strong>suivi les
+			règles de React</strong>.
+		</div>
+	</Slide>
 	<Slide>
 		<SlideTitle title="Pour résumé" punctuation="..."/>
 	</Slide>
 	<Slide>
 		<SlideTitle title="Pour résumé" punctuation="..."/>
 		<div class="quote">
-			<img src={Quote} alt="Quote" width="80" class="quoteLeft" />
+			<img src={Quote} alt="Quote" width="80" class="quoteLeft"/>
 			<p>Make it easy to build great user experiences</p>
-			<img src={Quote} alt="Quote" width="80" class="quoteRight" />
+			<img src={Quote} alt="Quote" width="80" class="quoteRight"/>
 		</div>
 	</Slide>
 </Slide>
 
 <style>
+	.react-logo {
+		position: absolute;
+		right: 0;
+		opacity: 0.8;
+	}
+
 	.quote {
 		display: flex;
 		flex-direction: column;
@@ -53,4 +82,72 @@ import Quote from "../../assets/images/quote.png?url";
 		}
 	}
 
+	ol {
+		margin-left: 3rem !important;
+		list-style-type: decimal;
+
+		li {
+			font-size: 1.3rem;
+			font-weight: 700;
+			color: var(--dark-grey);
+			margin: 1rem 0;
+			text-wrap: balance;
+
+			&::marker {
+				font-size: 4rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	ul {
+		padding-top: 1rem;
+		margin-left: 0 !important;
+		list-style-type: disc;
+
+		li {
+			font-size: 1rem;
+			line-height: 1.6rem;
+			font-weight: 500;
+			color: var(--dark-grey);
+
+			&::marker {
+				font-size: 2rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	.warn {
+		position: relative;
+		bottom: 60px;
+		font-size: 1.2rem;
+		font-weight: 500;
+		color: var(--dark-grey);
+		padding: 1rem;
+		border-radius: 20px;
+		margin: 1rem 0;
+		text-wrap: balance;
+		line-height: 2rem;
+		text-align: left;
+		border-left: 5px solid var(--primary-color);
+
+		&::marker {
+			font-size: 4rem;
+			color: var(--primary-color);
+		}
+
+		strong {
+			font-weight: 700;
+			color: var(--primary-color);
+		}
+	}
 </style>

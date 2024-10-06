@@ -1,9 +1,16 @@
 ---
 import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
 ---
 
 <Slide>
-	<h2>Playground</h2>
-	<p>Todo</p>
-	<span>Playground - Montrer le résultats (+ sourceMap), avec toutes les étapes</span>
+	<Slide>
+	<aside class="notes">Playground - Montrer le résultats (+ sourceMap), avec toutes les étapes</aside>
+	<SlideTitle title="React Compiler Playground" punctuation="." style={{
+		margin: "auto",
+		fontSize: "2.5rem",
+	}}/>
+	</Slide>
+	<!--TODO : Change with custom Playground url-->
+	<Slide data-background-iframe="https://playground.react.dev/" data-background-interactive data-preload />
 </Slide>

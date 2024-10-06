@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/AlbumDetailsList.css";
 import { AlbumModel } from "../types/Album";
 import { AlbumCard } from "./AlbumCard";
@@ -7,11 +8,23 @@ interface AlbumDetailsListProps {
 }
 
 export const AlbumDetailsList = ({ albums }: AlbumDetailsListProps) => {
+  const [albumsList, setAlbumsList] = useState(
+    albums.map((album) => ({ ...album, listened: false }))
+  );
+
+  const onListened = (albumId: string) => {
+    setAlbumsList(
+      albumsList.map((album) =>
+        album.id === albumId ? { ...album, listened: !album.listened } : album
+      )
+    );
+  };
+
   return (
     <ul className="album-details-list">
-      {albums.map((album) => (
+      {albumsList.map((album) => (
         <li className="album-details">
-          <AlbumCard album={album} />
+          <AlbumCard album={album} onClick={() => onListened(album.id)} />
         </li>
       ))}
     </ul>

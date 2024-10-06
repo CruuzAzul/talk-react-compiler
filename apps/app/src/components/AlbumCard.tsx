@@ -8,11 +8,9 @@ interface AlbumCardProps {
 }
 
 export const AlbumCard = ({ album, isSelected, onClick }: AlbumCardProps) => {
-  const Component = onClick ? "button" : "div";
-
   return (
-    <Component
-      className={`album-card ${isSelected ? "selected" : ""}`}
+    <button
+      className={`album-card ${isSelected ? "selected" : ""} ${album.listened ? "listened" : ""}`}
       onClick={onClick}
       key={Math.random()}
     >
@@ -23,6 +21,6 @@ export const AlbumCard = ({ album, isSelected, onClick }: AlbumCardProps) => {
         }}
       />
       <p>{album.name}</p>
-    </Component>
+    </button>
   );
 };

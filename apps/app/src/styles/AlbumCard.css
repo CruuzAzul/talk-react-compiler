@@ -14,7 +14,9 @@
 .album-card {
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .album-card:hover {
@@ -49,4 +51,9 @@
   box-shadow: 0 0 5px #007bff;
   transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.album-card.listened {
+  border-color: #28a745;
+  background: linear-gradient(135deg, #28a745 0%, #20bd20 100%);
 }

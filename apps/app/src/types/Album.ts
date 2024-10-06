@@ -4,6 +4,7 @@ export interface Album {
   id: string;
   name: string;
   artist: string;
+  listened?: boolean;
 }
 
 export interface AlbumModel extends Album, Models.Document {}

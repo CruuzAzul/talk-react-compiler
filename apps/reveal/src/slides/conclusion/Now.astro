@@ -1,9 +1,159 @@
 ---
+import SlideTitle from "@/components/SlideTitle.astro";
 import Slide from "../../components/Slide.astro";
 ---
 
 <Slide>
-	<h2>Now</h2>
-	<p>Todo</p>
-	<span>Qu’est ce qu’on peu faire dès maintenant</span>
+	<Slide>
+		<SlideTitle
+			title="Qu'est ce qu'on peux faire dès maintenant"
+			punctuation="?"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
+	</Slide>
+	<Slide>
+		<SlideTitle
+			title="Qu'est ce qu'on peux faire dès maintenant"
+			punctuation="?"
+		/>
+		<div class="r-stack steps">
+			<ol data-id="liste">
+				<li class="fragment">
+					Vérifier la compatibilité de votre codebase. <pre><code>Successfully compiled 8 out of 9 components.
+StrictMode usage not found.
+Found no usage of incompatible libraries.
+</code></pre>
+				</li>
+				<li class="fragment">
+					Utiliser le plugin eslint : <pre><code>eslint-plugin-react-compiler</code></pre>
+				</li>
+				<li class="fragment">
+					Rejoindre le <strong>Working group</strong> du React Compiler
+				</li>
+			</ol>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle
+			title="Qu'est ce qu'on peux faire dès maintenant"
+			punctuation="?"
+		/>
+		<div class="r-stack steps">
+			<ol start="4" data-id="liste">
+				<li class="fragment">
+					Utiliser la version Canary de React 19 🦆
+					<pre><code>npm install --save-exact react@rc react-dom@rc</code></pre>
+				</li>
+				<li class="fragment">
+					Migrer progressivement avec le <strong>"use no memo"</strong> ou le mode
+					de compilation <strong>"annotation"</strong>
+				</li>
+			</ol>
+			<div class="fragment warn">
+				⚠️ Les versions Canary ne sont <strong>pas</strong> des versions stables
+				et sont sujets à des <strong>bugs</strong> et des <strong
+					>breaking changes</strong
+				>.<br /> Il faut donc l’utiliser en connaissance de cause.
+			</div>
+		</div>
+	</Slide>
+
+	<style>
+		.steps {
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			flex-wrap: wrap;
+			gap: 1rem;
+
+			.step {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				gap: 2rem;
+				margin: 0;
+
+				span {
+					color: var(--primary-color);
+					font-size: 0.8rem;
+					font-weight: 700;
+					border: dashed 2px var(--primary-color);
+					border-radius: 15px;
+					padding: 0.5rem 1rem;
+				}
+			}
+
+			img {
+				width: 250px;
+
+				&.paint-img {
+					width: 400px;
+				}
+
+				&.arrow {
+					align-self: center;
+					width: 50px;
+					margin: 0;
+				}
+			}
+		}
+
+		ul,
+		ol {
+			list-style-type: decimal;
+
+			li {
+				font-size: 1.8rem;
+				font-weight: 700;
+				color: var(--dark-grey);
+				margin: 1rem 0;
+				text-wrap: balance;
+
+				&::marker {
+					font-size: 5rem;
+					color: var(--primary-color);
+				}
+
+				strong {
+					color: var(--primary-color);
+				}
+			}
+		}
+
+		pre {
+			width: 50rem;
+		}
+		code {
+			font-size: 1.25rem;
+		}
+
+		.warn {
+			width: 75%;
+			font-size: 1.6rem;
+			font-weight: 500;
+			color: var(--dark-grey);
+			padding: 1rem;
+			border-radius: 20px;
+			text-wrap: balance;
+			line-height: 2rem;
+			text-align: left;
+			border-left: 5px solid var(--primary-color);
+			margin: 3rem auto;
+
+			&::marker {
+				font-size: 4rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				font-weight: 700;
+				color: var(--primary-color);
+			}
+		}
+	</style>
 </Slide>

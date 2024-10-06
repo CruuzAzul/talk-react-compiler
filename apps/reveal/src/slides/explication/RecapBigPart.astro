@@ -1,9 +1,104 @@
 ---
 import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
+import Schema from "./Schema.astro";
 ---
 
 <Slide>
-	<h2>Recap big parts</h2>
-	<p>Todo</p>
-	<span>Recap des grosses parties</span>
+	<Slide>
+		<SlideTitle title="+ 43 étapes au sein du React Compiler" punctuation="."/>
+	</Slide>
+	<Slide>
+		<aside class="notes">
+			En mode :
+			- On présente les 43 étapes une par une ?
+			- À ton avis...
+			- Ok, étape numéro une sur 43, HIR ... --se fait couper la parole--
+			- Mais non ! On va pas faire ça !
+			- Ah bon ?
+			- On va plutôt les regrouper par catégories à la limite sinon on va perdre tout le monde et ça va contre la
+			volonté de React !
+		</aside>
+		<SlideTitle title="+ 43 étapes au sein du React Compiler" punctuation="."/>
+		<ul style={{padding: "5rem"}}>
+			<li>HIR.</li>
+		</ul>
+	</Slide>
+	<Slide>
+		<aside class="notes">
+			On va faire simple, je t'explique comment on peut simplifier ça et après je te dit pourquoi on fait simple.
+		</aside>
+		<SlideTitle title="Pour faire simple" punctuation=":"/>
+		<p class="summary">
+			<span><strong class="old">43</strong> étapes</span>
+			<span data-fragment-index="2" class="fragment arrow">➜</span>
+			<span data-fragment-index="2" class="fragment"><strong>10</strong> grandes catégories</span>
+			<span data-fragment-index="3" class="fragment arrow">➜</span>
+			<span data-fragment-index="3" class="fragment question">Pourquoi on fait simple ?</span>
+		</p>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Pour faire simple" punctuation=":"/>
+		<Schema />
+	</Slide>
 </Slide>
+
+<style>
+	ul, ol {
+		list-style-type: decimal;
+
+		li {
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: var(--dark-grey);
+			margin: 1rem 0;
+			text-wrap: balance;
+
+			&::marker {
+				font-size: 5rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				color: var(--primary-color);
+			}
+		}
+	}
+
+	.summary {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 1.5rem;
+		padding-top: 3rem;
+		font-size: 3rem;
+		font-weight: 700;
+		color: var(--dark-grey);
+		margin: 1rem 0;
+		text-wrap: balance;
+
+		strong {
+			color: #7cbc7c;
+
+			&.old {
+				color: #c56262;
+			}
+		}
+
+		.arrow {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+			transform: rotate(90deg);
+		}
+
+		.question {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+			border: dashed 2px var(--primary-color);
+			border-radius: 15px;
+			padding: 0.5rem 1.5rem;
+			background-color: var(--background-color);
+		}
+	}
+</style>

@@ -1,9 +1,43 @@
 ---
 import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
+import Separator from "../../components/Separator.astro";
+
+import MemeDemo from "../../assets/images/exploration/meme-demo.jpeg?url";
 ---
 
 <Slide>
-	<h2>Demo Time</h2>
-	<p>Todo</p>
-	<span>Démo sur l’app React Compiler</span>
+	<Slide>
+		<SlideTitle title="Démo time" punctuation="." style={{
+			margin: "auto",
+			fontSize: "2.5rem",
+		}}/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Démo time" punctuation="." style={{
+			margin: "auto",
+			fontSize: "2.5rem",
+		}}/>
+		<img src={MemeDemo} alt="Démo time" />
+		<Separator />
+		<p class="question fragment">Et si on compilait notre application de compilation avec le compiler ? 🤯</p>
+	</Slide>
 </Slide>
+
+<style>
+	.question {
+		font-size: 2rem;
+		text-align: center;
+		text-wrap: balance;
+		color: var(--primary-color);
+		font-weight: 900;
+	}
+
+	img {
+		margin-top: 5rem;
+		width: 500px;
+		height: auto;
+		border-radius: 5px;
+		filter: drop-shadow(0 0 4px var(--dark-grey));
+	}
+</style>

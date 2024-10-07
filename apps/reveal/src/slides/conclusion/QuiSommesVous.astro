@@ -1,9 +1,100 @@
 ---
+import SlideTitle from "@/components/SlideTitle.astro";
 import Slide from "../../components/Slide.astro";
+
+import ZenikaLogo from "../../assets/images/speaker/zenika.png?url";
+import KolectoLogo from "../../assets/images/speaker/kolecto.png?url";
+import EnedisLogo from "../../assets/images/speaker/enedis.png?url";
+
+import LucasQRCode from "../../assets/images/speaker/qrCodeLucas.png?url";
+import MickaQRCode from "../../assets/images/speaker/qrCodeMicka.png?url";
 ---
 
 <Slide>
-	<h2>Who are you ?</h2>
-	<p>Todo</p>
-	<span>Qui Sommes Vous</span>
+	<Slide>
+		<SlideTitle
+			title="Qui sommes vous"
+			punctuation="?"
+			style={{
+				margin: "auto",
+				fontSize: "5rem",
+				fontWeight: "bolder",
+			}}
+		/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Qui sommes vous" punctuation="?" />
+		<div class="flex">
+			<div class="profile">
+				<div class="picture">
+					<img
+						src="https://avatars.githubusercontent.com/u/48870153?v=4"
+						alt=""
+					/>
+					<img class="qr-code" src={LucasQRCode} alt="" />
+				</div>
+				<p>Lucas Audart</p>
+				<img class="logo left" src={KolectoLogo} alt="" />
+			</div>
+			<img class="zenika-logo" src={ZenikaLogo} alt="" />
+			<div class="profile">
+				<div class="picture">
+					<img src="https://avatars.githubusercontent.com/u/60877626" alt="" />
+					<img class="qr-code" src={MickaQRCode} alt="" />
+				</div>
+				<p>Mickaël Alves</p>
+				<img class="logo right" src={EnedisLogo} alt="" />
+			</div>
+		</div>
+	</Slide>
 </Slide>
+
+<style>
+	.profile {
+		padding: 1rem;
+		width: 30%;
+		background-color: var(--background-color);
+		border: dashed 2px var(--primary-color);
+		border-radius: 15px;
+		font-size: 2rem;
+		position: relative;
+
+		.logo {
+			width: 75px;
+			object-fit: contain;
+			position: absolute;
+			top: -3rem;
+
+			&.left {
+				left: -2rem;
+				transform: rotate(20deg);
+			}
+
+			&.right {
+				right: -2rem;
+				transform: rotate(-20deg);
+			}
+		}
+	}
+
+	.picture {
+		position: relative;
+	}
+	.qr-code {
+		width: 125px;
+		object-fit: contain;
+		position: absolute;
+		top: 45.9%;
+		left: 54.2%;
+	}
+
+	.flex {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.zenika-logo {
+		width: 20%;
+		object-fit: contain;
+	}
+</style>

@@ -1,9 +1,28 @@
 ---
 import Slide from "../../components/Slide.astro";
+import SlideVideo from "../../components/SlideVideo.astro";
+
+import EndCounter from "../../assets/videos/end-counter.mp4?url";
+import Separator from "../../components/Separator.astro";
 ---
 
-<Slide>
-	<h2>Thanks</h2>
-	<p>Todo</p>
-	<span>Léonardo di Caprio (ou gif Daft Punk plutôt)</span>
-</Slide>
+<SlideVideo source={EndCounter}>
+	<aside class="notes">Il nous reste quelques seconde pour terminer, donc merci à vous de nous
+		avoir écouté ! Il est temps pour vous de vous habituer au React Compiler, et de vous séparer de toutes vos habitudes
+		de memoization... "Explosion 💥"
+	</aside>
+	<!-- TODO : Ajouter directement à la vidéo au moment de l'explosion (bug en cours donc impossible avec un fragment) -->
+	<div>
+		<p class="thanks">Merci</p>
+		<Separator isWhiteColor />
+	</div>
+</SlideVideo>
+
+<style>
+	.thanks {
+		font-size: 10rem;
+		font-weight: 900;
+		color: white;
+		text-transform: uppercase;
+	}
+</style>

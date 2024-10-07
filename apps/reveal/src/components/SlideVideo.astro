@@ -1,0 +1,12 @@
+---
+interface Props {
+	source: string;
+}
+
+const { source } = Astro.props;
+---
+
+<!-- TODO : Remove muted attr -->
+<section data-background-video={source} data-background-video-muted data-preload >
+	<slot/>
+</section>

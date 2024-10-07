@@ -1,13 +1,19 @@
 ---
 interface Props {
 	width?: string;
+	isWhiteColor?: boolean;
 }
 
-const {width} = Astro.props;
+const {width, isWhiteColor} = Astro.props;
 ---
 
 <div data-id="separator">
-	<hr style={{width: width}} />
+	<hr style={{
+		width: width,
+		backgroundImage: isWhiteColor
+			? 'linear-gradient(to right, rgba(0, 0, 0, 0), white, rgba(0, 0, 0, 0))'
+			: 'linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary-color), rgba(0, 0, 0, 0))'
+	}}/>
 </div>
 
 <style>
@@ -16,6 +22,5 @@ const {width} = Astro.props;
 		border: 0;
 		height: 2px;
 		margin-top: 0;
-		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--primary-color), rgba(0, 0, 0, 0));
 	}
 </style>

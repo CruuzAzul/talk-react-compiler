@@ -39,7 +39,26 @@ import Schema from "./Schema.astro";
 	</Slide>
 	<Slide>
 		<SlideTitle title="Pour faire simple" punctuation=":"/>
-		<Schema />
+		<Schema/>
+		<strong></strong>
+		<div class="def r-stack">
+			<p class="fragment current-visible fade-out" data-fragment-index="1">Déterminer qu'est <strong>ce qui doit être
+				compilé dans les fichiers</strong>, selon notre configuration où les directives utilisées.</p>
+			<p class="fragment current-visible" data-fragment-index="2">Conversion de <strong>Babel AST</strong> en <strong>HIR</strong>
+				(High-level Intermediate Representation)</p>
+			<p class="fragment current-visible" data-fragment-index="3">Processus de <strong>normalisation et d'optimisation
+				du HIR</strong></p>
+			<p class="fragment current-visible" data-fragment-index="4">
+				Vérification des <strong>Rules of React</strong>, suppression du <strong>code mort</strong> et <strong>inférence
+				de types</strong>
+			</p>
+			<p class="fragment current-visible" data-fragment-index="5"></p>
+			<p class="fragment current-visible" data-fragment-index="6"></p>
+			<p class="fragment current-visible" data-fragment-index="7"></p>
+			<p class="fragment current-visible" data-fragment-index="8"></p>
+			<p class="fragment current-visible" data-fragment-index="9"></p>
+			<p class="fragment current-visible" data-fragment-index="10"></p>
+		</div>
 	</Slide>
 </Slide>
 
@@ -99,6 +118,28 @@ import Schema from "./Schema.astro";
 			border-radius: 15px;
 			padding: 0.5rem 1.5rem;
 			background-color: var(--background-color);
+		}
+	}
+
+	.def {
+		margin-top: 2.5rem;
+		padding: 0 1.5rem;
+		text-wrap: balance;
+		border-left: 5px solid var(--primary-color);
+		border-right: 5px solid var(--primary-color);
+
+		p {
+			font-size: 1.5rem;
+			font-weight: 600;
+			color: var(--dark-grey);
+			margin: 1rem 0;
+			padding: 1rem 0;
+			text-wrap: balance;
+
+			strong {
+				font-weight: 700;
+				color: var(--primary-color);
+			}
 		}
 	}
 </style>

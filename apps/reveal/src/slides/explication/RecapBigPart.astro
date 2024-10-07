@@ -2,6 +2,8 @@
 import Slide from "../../components/Slide.astro";
 import SlideTitle from "../../components/SlideTitle.astro";
 import Schema from "./Schema.astro";
+
+import LaurenMessage from "../../assets/images/explication/lauren-message.png?url";
 ---
 
 <Slide>
@@ -88,6 +90,30 @@ import Schema from "./Schema.astro";
 				</p>
 			</div>
 		</div>
+		<aside>
+			Blablabla, depuis tout à l'heure tu dis que c'est plus simple, mais là avec tout ce que tu viens de m'expliquer et
+			en sachant que c'est une version très simplifié, ton React Compiler me fait un peu peur...
+		</aside>
+	</Slide>
+	<!-- Pourquoi on s'en fiche -->
+	<Slide>
+		<aside class="notes">
+			Message avec des membres de la Core Team React pour leur expliquer notre volonté et essayer de simplifier les
+			choses.
+		</aside>
+		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?"/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?"/>
+		<img src={LaurenMessage} alt="Message de Lauren" class="message"/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?"/>
+		<img src={LaurenMessage} alt="Message de Lauren" class="message"/>
+		<p class="traduction">
+			<strong>🇫🇷 Traduction 🇫🇷</strong> Expliquez pas ça, c'est pas du tout le but du React Compiler, vous allez faire
+			peur à tout le monde... 😡
+		</p>
 	</Slide>
 </Slide>
 
@@ -177,6 +203,31 @@ import Schema from "./Schema.astro";
 				font-weight: 700;
 				color: var(--primary-color);
 			}
+		}
+	}
+
+	.message {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+	}
+
+	.traduction {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: var(--dark-grey);
+		margin-top: 2rem;
+		text-wrap: balance;
+		line-height: 2.5rem;
+
+		strong {
+			font-size: 3rem;
+			font-weight: 700;
+			color: var(--primary-color);
 		}
 	}
 </style>

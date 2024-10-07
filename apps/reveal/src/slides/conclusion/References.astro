@@ -1,8 +1,81 @@
 ---
 import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
 ---
 
 <Slide>
-	<h2>References</h2>
-	<p>todo</p>
+	<SlideTitle title="Références du talk" punctuation=":" />
+	<div class="references">
+		<ul>
+			<li>
+				<a href="https://github.com/facebook/react/tree/main/compiler">Code Source React Compiler 👩🏼‍💻</a>
+			</li>
+			<li>
+				<a href="https://react.dev/learn/react-compiler">Documentation React 📃</a>
+			</li>
+			<li>
+				<a href="https://yongseok.me/blog/en/react_compiler_1/">Deep dive dans le React Compiler 📰</a>
+				par YongSeok Jang
+			</li>
+			<li>
+				<a href="https://conf.react.dev/talks/5">Forget About Memo 📺</a>
+				par Lauren Tan
+			</li>
+			<li>
+				<a href="https://react.dev/learn/react-compiler">Documentation React 📃</a>
+			</li>
+			<li>
+				<a href="https://conf.react.dev/talks/15">React Compiler Deep Dive 📺</a>
+				par Mofei Zhang et Sathya Gunasekaran
+			</li>
+			<li>
+				<a href="https://youtu.be/lGEMwh32soc">Annonce React Forget 📺</a>
+				par Xuan Huang
+			</li>
+			<li>
+				<a href="https://youtu.be/PYHBHK37xlE?si=YZAPsxrj5HGQ8gbu">React Compiler : In-Depth Beyond React Conf 2024 📺</a>
+				Jack Herrington
+			</li>
+			<li>
+				<a href="https://www.developerway.com/posts/i-tried-react-compiler">I tried React Compiler 📰</a>
+				par Nadia Makarevich
+			</li>
+			<li>
+				<a href="https://github.com/reactwg/react-compiler/discussions/5">React Compiler Working Group 😍</a>
+			</li>
+		</ul>
+	</div>
 </Slide>
+
+<style>
+	.references {
+		display: flex;
+	}
+
+	a {
+		color: var(--primary-color);
+		text-decoration: none;
+	}
+
+	ul, ol {
+		margin-left: 0 !important;
+		list-style-type: disc;
+
+		li {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--dark-grey);
+			margin: 1rem 0;
+			text-wrap: balance;
+
+			&::marker {
+				font-size: 2rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				color: var(--primary-color);
+			}
+		}
+	}
+</style>

@@ -1,50 +1,77 @@
 ---
 import Slide from "../../components/Slide.astro";
 import SlideTitle from "../../components/SlideTitle.astro";
+
+import ReactInvitation from "../../assets/images/thanks/react-invitation.png?url";
+import Lauren from "../../assets/images/thanks/lauren.jpg?url";
 ---
 
 <Slide>
-	<SlideTitle title="Références du talk" punctuation=":" />
-	<div class="references">
-		<ul>
-			<li>
-				<a href="https://github.com/facebook/react/tree/main/compiler">Code Source React Compiler 👩🏼‍💻</a>
-			</li>
-			<li>
-				<a href="https://react.dev/learn/react-compiler">Documentation React 📃</a>
-			</li>
-			<li>
-				<a href="https://yongseok.me/blog/en/react_compiler_1/">Deep dive dans le React Compiler 📰</a>
-				par YongSeok Jang
-			</li>
-			<li>
-				<a href="https://conf.react.dev/talks/5">Forget About Memo 📺</a>
-				par Lauren Tan
-			</li>
-			<li>
-				<a href="https://react.dev/learn/react-compiler">Documentation React 📃</a>
-			</li>
-			<li>
-				<a href="https://conf.react.dev/talks/15">React Compiler Deep Dive 📺</a>
-				par Mofei Zhang et Sathya Gunasekaran
-			</li>
-			<li>
-				<a href="https://youtu.be/lGEMwh32soc">Annonce React Forget 📺</a>
-				par Xuan Huang
-			</li>
-			<li>
-				<a href="https://youtu.be/PYHBHK37xlE?si=YZAPsxrj5HGQ8gbu">React Compiler : In-Depth Beyond React Conf 2024 📺</a>
-				Jack Herrington
-			</li>
-			<li>
-				<a href="https://www.developerway.com/posts/i-tried-react-compiler">I tried React Compiler 📰</a>
-				par Nadia Makarevich
-			</li>
-			<li>
-				<a href="https://github.com/reactwg/react-compiler/discussions/5">React Compiler Working Group 😍</a>
-			</li>
-		</ul>
-	</div>
+	<Slide>
+		<SlideTitle title="Références du talk" punctuation=":"/>
+		<div class="references">
+			<ul>
+				<li>
+					<a href="https://github.com/facebook/react/tree/main/compiler">Code Source React Compiler 👩🏼‍💻</a>
+				</li>
+				<li>
+					<a href="https://react.dev/learn/react-compiler">Documentation React 📃</a>
+				</li>
+				<li>
+					<a href="https://yongseok.me/blog/en/react_compiler_1/">Deep dive dans le React Compiler 📰</a>
+					par YongSeok Jang
+				</li>
+				<li>
+					<a href="https://conf.react.dev/talks/5">Forget About Memo 📺</a>
+					par Lauren Tan
+				</li>
+				<li>
+					<a href="https://react.dev/learn/react-compiler">Documentation React 📃</a>
+				</li>
+				<li>
+					<a href="https://conf.react.dev/talks/15">React Compiler Deep Dive 📺</a>
+					par Mofei Zhang et Sathya Gunasekaran
+				</li>
+				<li>
+					<a href="https://youtu.be/lGEMwh32soc">Annonce React Forget 📺</a>
+					par Xuan Huang
+				</li>
+				<li>
+					<a href="https://youtu.be/PYHBHK37xlE?si=YZAPsxrj5HGQ8gbu">React Compiler : In-Depth Beyond React Conf 2024
+						📺</a>
+					Jack Herrington
+				</li>
+				<li>
+					<a href="https://www.developerway.com/posts/i-tried-react-compiler">I tried React Compiler 📰</a>
+					par Nadia Makarevich
+				</li>
+				<li>
+					<a href="https://github.com/reactwg/react-compiler/discussions/5">React Compiler Working Group 😍</a>
+				</li>
+			</ul>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="React Compiler Working Group 😍" punctuation="" style={{
+			margin: "auto",
+		}}/>
+		<img src={ReactInvitation} alt="React Invitation" class="invitation"/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="React Compiler Working Group 😍" punctuation="" style={{
+			margin: "auto",
+		}}/>
+		<div class="containers">
+			<img src={ReactInvitation} alt="React Invitation" class="invitation"/>
+			<div class="thanks-react-team">
+				<img src={Lauren} alt="Lauren React Team" class="profile"/>
+				<div class="name">
+					<p>Lauran Tan - React Team 🙏🏼</p>
+					<a href="https://x.com/potetotes?lang=fr">@potetotes <img src="https://svgl.app/library/x.svg" alt="x icon"/></a>
+				</div>
+			</div>
+		</div>
+	</Slide>
 </Slide>
 
 <style>
@@ -76,6 +103,61 @@ import SlideTitle from "../../components/SlideTitle.astro";
 			strong {
 				color: var(--primary-color);
 			}
+		}
+	}
+
+	.containers {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-top: 1rem;
+	}
+
+	.invitation {
+		margin: 5rem 0;
+		width: 400px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	}
+
+	.thanks-react-team {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.profile {
+			width: 100px;
+			border-radius: 20px;
+			border: 2px solid var(--primary-color);
+		}
+
+		.name {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			a {
+				display: flex;
+				align-items: center;
+				font-size: 1rem;
+				color: var(--dark-grey);
+				margin: 0;
+				text-decoration: none;
+				font-weight: bold;
+
+				img {
+					width: 20px;
+					margin-left: 0.5rem;
+				}
+			}
+		}
+
+		p {
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--primary-color);
+			margin: 1rem 0;
 		}
 	}
 </style>

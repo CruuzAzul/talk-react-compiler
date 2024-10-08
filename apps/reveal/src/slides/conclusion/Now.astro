@@ -1,6 +1,11 @@
 ---
 import SlideTitle from "@/components/SlideTitle.astro";
 import Slide from "../../components/Slide.astro";
+
+import BabelLogo from "../../assets/images/now/babel-logo.png?url";
+import ViteLogo from "../../assets/images/now/vite-logo.png?url";
+import NextLogo from "../../assets/images/now/next-logo.png?url";
+import RemixLogo from "../../assets/images/now/remix-logo.png?url";
 ---
 
 <Slide>
@@ -20,6 +25,86 @@ import Slide from "../../components/Slide.astro";
 			title="Qu'est ce qu'on peux faire dès maintenant"
 			punctuation="?"
 		/>
+		<p>
+			Utiliser la version Canary de React 19 🦆 avec votre technologie préféré
+		</p>
+		<div class="logo-container">
+			<img
+				class="fragment logo"
+				alt=""
+				src={BabelLogo}
+				data-fragment-index="1"
+			/>
+			<img
+				class="fragment logo"
+				alt=""
+				src={ViteLogo}
+				data-fragment-index="2"
+			/>
+			<img
+				class="fragment logo"
+				alt=""
+				src={NextLogo}
+				data-fragment-index="3"
+			/>
+			<img
+				class="fragment logo-remix"
+				alt=""
+				src={RemixLogo}
+				data-fragment-index="4"
+			/>
+		</div>
+		<div class="code-container">
+			<pre
+				class="code-sample fragment fade-in-then-out"
+				data-fragment-index="1"><code>{`npm install babel-plugin-react-compiler@experimental
+// ...
+npm install react-compiler-runtime@experimental // <-- Pour des version antérieur à React 19`}
+				</code></pre>
+			<pre
+				class="code-sample fragment fade-in-then-out"
+				data-fragment-index="2"><code>{`plugins: [
+	react({
+		babel: {
+			plugins: [
+				["babel-plugin-react-compiler", ReactCompilerConfig],
+			],
+		},
+	}),
+]`}</code></pre>
+			<pre
+				class="code-sample fragment fade-in-then-out"
+				data-fragment-index="3"><code>{`npm install next@canary babel-plugin-react-compiler@experimental
+
+const nextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
+};`}</code></pre>
+			<pre
+				class="code-sample fragment fade-in-then-out"
+				data-fragment-index="4"><code>{`npm install vite-plugin-babel
+
+babelConfig: {
+	presets: ["@babel/preset-typescript"],
+	plugins: [
+		["babel-plugin-react-compiler", ReactCompilerConfig],
+	],
+},`}</code></pre>
+		</div>
+		<p class="fragment">Et beaucoup d'autre ...</p>
+		<div class="fragment warn">
+			⚠️ Les versions Canary ne sont <strong>pas</strong> des versions stables et
+			sont sujets à des <strong>bugs</strong> et des <strong
+				>breaking changes</strong
+			>.<br /> Il faut donc l’utiliser en connaissance de cause.
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle
+			title="Et pour préparer la release"
+			punctuation="?"
+		/>
 		<div class="r-stack steps">
 			<ol data-id="liste">
 				<li class="fragment">
@@ -35,30 +120,6 @@ Found no usage of incompatible libraries.
 					Rejoindre le <strong>Working group</strong> du React Compiler
 				</li>
 			</ol>
-		</div>
-	</Slide>
-	<Slide>
-		<SlideTitle
-			title="Qu'est ce qu'on peux faire dès maintenant"
-			punctuation="?"
-		/>
-		<div class="r-stack steps">
-			<ol start="4" data-id="liste">
-				<li class="fragment">
-					Utiliser la version Canary de React 19 🦆
-					<pre><code>npm install --save-exact react@rc react-dom@rc</code></pre>
-				</li>
-				<li class="fragment">
-					Migrer progressivement avec le <strong>"use no memo"</strong> ou le mode
-					de compilation <strong>"annotation"</strong>
-				</li>
-			</ol>
-			<div class="fragment warn">
-				⚠️ Les versions Canary ne sont <strong>pas</strong> des versions stables
-				et sont sujets à des <strong>bugs</strong> et des <strong
-					>breaking changes</strong
-				>.<br /> Il faut donc l’utiliser en connaissance de cause.
-			</div>
 		</div>
 	</Slide>
 
@@ -101,6 +162,37 @@ Found no usage of incompatible libraries.
 					margin: 0;
 				}
 			}
+		}
+
+		.code-container {
+			position: relative;
+		}
+
+		.code-sample {
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		.logo-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+		}
+
+		.logo {
+			width: 150px;
+		}
+
+		.logo-remix {
+			width: 100px;
+		}
+
+		p {
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: var(--dark-grey);
 		}
 
 		ul,

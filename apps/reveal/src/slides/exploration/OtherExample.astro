@@ -1,9 +1,24 @@
 ---
 import Slide from "../../components/Slide.astro";
+import SlideTitle from "../../components/SlideTitle.astro";
 ---
 
 <Slide>
-	<h2>Other Example</h2>
-	<p>Todo</p>
-	<span>Exemple externe</span>
+	<Slide>
+		<SlideTitle
+			title="Ça tourne en prod"
+			punctuation="?"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
+	</Slide>
+	<Slide>
+		<SlideTitle
+			title="Ça tourne en prod"
+			punctuation="?"
+		/>
+	</Slide>
 </Slide>

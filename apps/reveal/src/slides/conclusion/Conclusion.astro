@@ -6,20 +6,81 @@ import SlideTitle from "../../components/SlideTitle.astro";
 <Slide>
 	<Slide>
 		<SlideTitle
-			title="Le React Compiler ce n'est pas"
+			title="Le React Compiler ne fait pas"
 			punctuation=":"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
 		/>
 	</Slide>
 	<Slide>
-		<SlideTitle
-			title="Le React Compiler c'est"
-			punctuation=":"
-		/>
+		<SlideTitle title="Le React Compiler ne fait pas" punctuation=":" />
+		<ol>
+			<li>Une stratégie de re-rendu parfaite</li>
+			<li class="fragment">Corrige le mauvais code</li>
+			<li class="fragment">Supporte les features legacy</li>
+			<li class="fragment">Une nouvelle manière d'écrire du React</li>
+		</ol>
 	</Slide>
 	<Slide>
 		<SlideTitle
-			title="Le React Compiler ça sera"
+			title="Le React Compiler fait"
 			punctuation=":"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
 		/>
 	</Slide>
+	<Slide>
+		<SlideTitle title="Le React Compiler fait" punctuation=":" />
+		<ol>
+			<li>Limite le nombre de re-rendu</li>
+			<li class="fragment">"Just Works"</li>
+			<li class="fragment">Améliore les outils autour de l'écosystème</li>
+		</ol>
+	</Slide>
+	<!-- <Slide>
+		<SlideTitle
+			title="Le React Compiler fera"
+			punctuation=":"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Le React Compiler fera" punctuation=":" />
+	</Slide> -->
 </Slide>
+
+<style>
+	ul,
+	ol {
+		list-style-type: decimal;
+		width: 100%;
+		padding: 0 5rem;
+
+		li {
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: var(--dark-grey);
+			margin: 1rem 0;
+			text-wrap: balance;
+
+			&::marker {
+				font-size: 5rem;
+				color: var(--primary-color);
+			}
+
+			strong {
+				color: var(--primary-color);
+			}
+		}
+	}
+</style>

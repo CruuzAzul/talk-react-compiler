@@ -2,11 +2,23 @@
 import SlideTitle from "@/components/SlideTitle.astro";
 import Slide from "../../components/Slide.astro";
 
-import BabelLogo from "../../assets/images/now/babel-logo.png?url";
-import ViteLogo from "../../assets/images/now/vite-logo.png?url";
-import NextLogo from "../../assets/images/now/next-logo.png?url";
-import RemixLogo from "../../assets/images/now/remix-logo.png?url";
+import BabelLogo from "../../assets/images/now/babel-logo.svg?url";
+import ViteLogo from "../../assets/images/now/vite-logo.svg?url";
+import NextLogo from "../../assets/images/now/next-logo.svg?url";
+import RemixLogo from "../../assets/images/now/remix-logo.svg?url";
+import WebpackLogo from "../../assets/images/now/webpack-logo.svg?url";
+import ReactNativeLogo from "../../assets/images/now/react-native-logo.svg?url";
+import ExpoLogo from "../../assets/images/now/expo-logo.svg?url";
 import Ressource from "@/components/Ressource.astro";
+
+import TerminalBabel19 from "@/assets/images/now/terminal-babel-19.svg?url";
+import TerminalBabelOld from "@/assets/images/now/terminal-babel-17-18.svg?url";
+import ViteConfig from "../../assets/images/now/vite-config.svg?url";
+import TerminalNext from "@/assets/images/now/terminal-next.svg?url";
+import NextConfig from "@/assets/images/now/next-config.svg?url";
+import TerminalRemix from "@/assets/images/now/terminal-remix.svg?url";
+import RemixConfig from "@/assets/images/now/remix-vite-config.svg?url";
+
 
 import Leak from "@/assets/images/problem/leak.png?url";
 import CallChain from "@/assets/images/problem/callchain.png?url";
@@ -30,9 +42,6 @@ import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 			title="Qu'est ce qu'on peux faire dès maintenant"
 			punctuation="?"
 		/>
-		<p>
-			Utiliser la version Canary de React 19 🦆 avec votre technologie préféré
-		</p>
 		<div class="logo-container">
 			<img
 				class="fragment logo"
@@ -53,56 +62,34 @@ import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 				data-fragment-index="3"
 			/>
 			<img
-				class="fragment logo-remix"
+				class="fragment logo"
 				alt=""
 				src={RemixLogo}
 				data-fragment-index="4"
 			/>
 		</div>
-		<div class="code-container">
-			<pre
-				class="code-sample fragment fade-in-then-out"
-				data-fragment-index="1"><code>{`npm install babel-plugin-react-compiler@experimental
-// ...
-npm install react-compiler-runtime@experimental // <-- Pour des version antérieur à React 19`}
-				</code></pre>
-			<pre
-				class="code-sample fragment fade-in-then-out"
-				data-fragment-index="2"><code>{`plugins: [
-	react({
-		babel: {
-			plugins: [
-				["babel-plugin-react-compiler", ReactCompilerConfig],
-			],
-		},
-	}),
-]`}</code></pre>
-			<pre
-				class="code-sample fragment fade-in-then-out"
-				data-fragment-index="3"><code>{`npm install next@canary babel-plugin-react-compiler@experimental
-
-const nextConfig = {
-  experimental: {
-    reactCompiler: true,
-  },
-};`}</code></pre>
-			<pre
-				class="code-sample fragment fade-in-then-out"
-				data-fragment-index="4"><code>{`npm install vite-plugin-babel
-
-babelConfig: {
-	presets: ["@babel/preset-typescript"],
-	plugins: [
-		["babel-plugin-react-compiler", ReactCompilerConfig],
-	],
-},`}</code></pre>
-		</div>
-		<p class="fragment">Et beaucoup d'autre ...</p>
-		<div class="fragment warn">
-			⚠️ Les versions Canary ne sont <strong>pas</strong> des versions stables et
-			sont sujets à des <strong>bugs</strong> et des <strong
-				>breaking changes</strong
-			>.<br /> Il faut donc l’utiliser en connaissance de cause.
+		<div class="r-stack">
+			<div class="multi-codes">
+				<img data-fragment-index="1" class="fragment fade-in-then-out" src={TerminalBabel19} alt="" />
+				<img data-fragment-index="1" class="fragment fade-in-then-out" src={TerminalBabelOld} alt="" />
+			</div>
+			<img data-fragment-index="2" class="fragment fade-in-then-out" src={ViteConfig} alt="" />
+			<div class="multi-codes">
+				<img data-fragment-index="3" class="fragment fade-in-then-out" src={TerminalNext} alt="" />
+				<img data-fragment-index="3" class="fragment fade-in-then-out" src={NextConfig} alt="" />
+			</div>
+			<div class="multi-codes">
+				<img data-fragment-index="4" class="fragment fade-in-then-out" src={TerminalRemix} alt="" />
+				<img data-fragment-index="4" class="fragment fade-in-then-out" src={RemixConfig} alt="" />
+			</div>
+			<div class="other-stacks">
+				<p data-fragment-index="5" class="fragment other-label">Et plein d'autres...</p>
+				<div class="other-logos">
+					<img data-fragment-index="5" class="fragment fade-in-then-out" src={WebpackLogo} alt="" />
+					<img data-fragment-index="5" class="fragment fade-in-then-out" src={ReactNativeLogo} alt="" />
+					<img data-fragment-index="5" class="fragment fade-in-then-out" src={ExpoLogo} alt="" />
+				</div>
+			</div>
 		</div>
 	</Slide>
 	<Slide>
@@ -155,104 +142,65 @@ babelConfig: {
 		width: 70%;
 	}
 
-	.steps {
-		display: flex;
-		justify-content: center;
-		align-items: flex-end;
-		flex-wrap: wrap;
-		gap: 1rem;
-
-		.step {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			gap: 2rem;
-			margin: 0;
-
-			span {
-				color: var(--primary-color);
-				font-size: 0.8rem;
-				font-weight: 700;
-				border: dashed 2px var(--primary-color);
-				border-radius: 15px;
-				padding: 0.5rem 1rem;
-			}
-		}
-
-		img {
-			width: 250px;
-
-			&.paint-img {
-				width: 400px;
-			}
-
-			&.arrow {
-				align-self: center;
-				width: 50px;
-				margin: 0;
-			}
-		}
-	}
-
-	.code-container {
-		position: relative;
-	}
-
-	.code-sample {
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-
 	.logo-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		gap: 3rem;
+		padding-top: 2rem;
+
+		.logo {
+			height: 130px;
+
+			&:not(.current-fragment){
+				opacity: 0.2;
+			}
+		}
+	}
+
+	.multi-codes {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 0;
+
+		img {
+			margin: 0;
+		}
+	}
+
+	.other-stacks{
+		display: flex;
+		flex-direction: column;
 		gap: 2rem;
-	}
 
-	.logo {
-		width: 150px;
-	}
+		.other-label {
+			font-size: 2rem;
+			font-weight: 700;
+			color: var(--dark-grey);
+		}
 
-	.logo-remix {
-		width: 100px;
+		.other-logos {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 3rem;
+
+			img {
+				height: 100px;
+
+				&:not(.current-fragment){
+					opacity: 0.2;
+				}
+			}
+		}
 	}
 
 	p {
 		font-size: 1.8rem;
 		font-weight: 700;
 		color: var(--dark-grey);
-	}
-
-	ul,
-	ol {
-		list-style-type: decimal;
-
-		li {
-			font-size: 1.8rem;
-			font-weight: 700;
-			color: var(--dark-grey);
-			margin: 1rem 0;
-			text-wrap: balance;
-
-			&::marker {
-				font-size: 5rem;
-				color: var(--primary-color);
-			}
-
-			strong {
-				color: var(--primary-color);
-			}
-		}
-	}
-
-	pre {
-		width: 50rem;
-	}
-	code {
-		font-size: 1.25rem;
 	}
 
 	.warn {

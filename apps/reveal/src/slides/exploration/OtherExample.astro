@@ -23,6 +23,7 @@ import Facebook from "../../assets/images/production/facebook.png?url";
 			title="Ça tourne en prod"
 			punctuation="?"
 		/>
+		<div class="memo">Memo ✨</div>
 		<div class="screen-container">
 			<img
 				class="screen instagram"
@@ -40,29 +41,42 @@ import Facebook from "../../assets/images/production/facebook.png?url";
 </Slide>
 
 <style>
+	.memo {
+		position: absolute;
+		top: 22px;
+		right: 0;
+		font-size: 1.3rem;
+		font-weight: 700;
+		background-color: #2683E2;
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 10px;
+	}
+
 	.screen-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		min-height: 500px;
+
+		.screen {
+			height: 400px;
+			margin: 0 1rem;
+			border: 1px solid var(--light-grey);
+			border-radius: 10px;
+
+			&.facebook {
+				position: absolute;
+				top: 200px;
+				left: 0;
+			}
+
+			&.instagram {
+				position: absolute;
+				top: 100px;
+				right: 0;
+			}
+		}
 	}
 
-	.screen {
-		height: 400px;
-		margin: 0 1rem;
-		border: 1px solid var(--light-grey);
-		border-radius: 10px;
-
-		&.facebook {
-			position: absolute;
-			top: 200px;
-			left: 0;
-		}
-
-		&.instagram {
-			position: absolute;
-			top: 100px;
-			right: 0;
-		}
-	}
 </style>

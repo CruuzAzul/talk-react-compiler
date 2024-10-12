@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://jsulpis.github.io",
+	site: "https://slides-talk-react-compiler.vercel.app",
 	integrations: [react()],
 	base: "/",
 });

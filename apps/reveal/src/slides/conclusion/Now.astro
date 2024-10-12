@@ -6,6 +6,11 @@ import BabelLogo from "../../assets/images/now/babel-logo.png?url";
 import ViteLogo from "../../assets/images/now/vite-logo.png?url";
 import NextLogo from "../../assets/images/now/next-logo.png?url";
 import RemixLogo from "../../assets/images/now/remix-logo.png?url";
+import Ressource from "@/components/Ressource.astro";
+
+import Leak from "@/assets/images/problem/leak.png?url";
+import CallChain from "@/assets/images/problem/callchain.png?url";
+import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 ---
 
 <Slide>
@@ -101,10 +106,7 @@ babelConfig: {
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle
-			title="Et pour préparer la release"
-			punctuation="?"
-		/>
+		<SlideTitle title="Et pour préparer la release" punctuation="?" />
 		<div class="r-stack steps">
 			<ol data-id="liste">
 				<li class="fragment">
@@ -122,130 +124,177 @@ Found no usage of incompatible libraries.
 			</ol>
 		</div>
 	</Slide>
+	<Slide>
+		<SlideTitle title="⚠️ Attention cependant" punctuation="!"
+		style={{
+			margin: "auto",
+			fontSize: "2rem",
+			fontWeight: "bolder",
+		}}/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="⚠️ Attention cependant" punctuation="!" />
+		<p class="padding">
+			Le React Compiler n'est pas encore prêt pour la production, il est
+			toujours en phase de développement.
+		</p>	</Slide>
+	<Slide>
+		<SlideTitle title="⚠️ Attention cependant" punctuation="!" />
+		<p>
+			Le React Compiler n'est pas encore prêt pour la production, il est
+			toujours en phase de développement.
+		</p>
+		<div class="r-stack">
+			<img class="gif" alt="" src={LeakGif} />
+			<img class="fragment callchain" alt="" src={CallChain} />
+			<img class="fragment leak" alt="" src={Leak} />
+		</div>
+		<Ressource source="Articles par Kevin Schiener" />
+	</Slide>
+</Slide>
 
-	<style>
-		.steps {
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-			flex-wrap: wrap;
-			gap: 1rem;
+<style>
+	.gif {
+		width: 40rem;
+	}
 
-			.step {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				gap: 2rem;
-				margin: 0;
+	.padding {
+		padding: 5rem 0
+	}
 
-				span {
-					color: var(--primary-color);
-					font-size: 0.8rem;
-					font-weight: 700;
-					border: dashed 2px var(--primary-color);
-					border-radius: 15px;
-					padding: 0.5rem 1rem;
-				}
-			}
+	.leak {
+		rotate: -5deg;
+		translate: 10rem;
+		width: 70%;
+	}
 
-			img {
-				width: 250px;
+	.callchain {
+		rotate: 5deg;
+		translate: -10rem;
+		width: 70%;
+	}
 
-				&.paint-img {
-					width: 400px;
-				}
+	.steps {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		flex-wrap: wrap;
+		gap: 1rem;
 
-				&.arrow {
-					align-self: center;
-					width: 50px;
-					margin: 0;
-				}
-			}
-		}
-
-		.code-container {
-			position: relative;
-		}
-
-		.code-sample {
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-
-		.logo-container {
+		.step {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			flex-direction: column;
 			gap: 2rem;
-		}
+			margin: 0;
 
-		.logo {
-			width: 150px;
-		}
-
-		.logo-remix {
-			width: 100px;
-		}
-
-		p {
-			font-size: 1.8rem;
-			font-weight: 700;
-			color: var(--dark-grey);
-		}
-
-		ul,
-		ol {
-			list-style-type: decimal;
-
-			li {
-				font-size: 1.8rem;
+			span {
+				color: var(--primary-color);
+				font-size: 0.8rem;
 				font-weight: 700;
-				color: var(--dark-grey);
-				margin: 1rem 0;
-				text-wrap: balance;
-
-				&::marker {
-					font-size: 5rem;
-					color: var(--primary-color);
-				}
-
-				strong {
-					color: var(--primary-color);
-				}
+				border: dashed 2px var(--primary-color);
+				border-radius: 15px;
+				padding: 0.5rem 1rem;
 			}
 		}
 
-		pre {
-			width: 50rem;
-		}
-		code {
-			font-size: 1.25rem;
-		}
+		img {
+			width: 250px;
 
-		.warn {
-			width: 75%;
-			font-size: 1.6rem;
-			font-weight: 500;
+			&.paint-img {
+				width: 400px;
+			}
+
+			&.arrow {
+				align-self: center;
+				width: 50px;
+				margin: 0;
+			}
+		}
+	}
+
+	.code-container {
+		position: relative;
+	}
+
+	.code-sample {
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	.logo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.logo {
+		width: 150px;
+	}
+
+	.logo-remix {
+		width: 100px;
+	}
+
+	p {
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: var(--dark-grey);
+	}
+
+	ul,
+	ol {
+		list-style-type: decimal;
+
+		li {
+			font-size: 1.8rem;
+			font-weight: 700;
 			color: var(--dark-grey);
-			padding: 1rem;
-			border-radius: 20px;
+			margin: 1rem 0;
 			text-wrap: balance;
-			line-height: 2rem;
-			text-align: left;
-			border-left: 5px solid var(--primary-color);
-			margin: 3rem auto;
 
 			&::marker {
-				font-size: 4rem;
+				font-size: 5rem;
 				color: var(--primary-color);
 			}
 
 			strong {
-				font-weight: 700;
 				color: var(--primary-color);
 			}
 		}
-	</style>
-</Slide>
+	}
+
+	pre {
+		width: 50rem;
+	}
+	code {
+		font-size: 1.25rem;
+	}
+
+	.warn {
+		width: 75%;
+		font-size: 1.6rem;
+		font-weight: 500;
+		color: var(--dark-grey);
+		padding: 1rem;
+		border-radius: 20px;
+		text-wrap: balance;
+		line-height: 2rem;
+		text-align: left;
+		border-left: 5px solid var(--primary-color);
+		margin: 3rem auto;
+
+		&::marker {
+			font-size: 4rem;
+			color: var(--primary-color);
+		}
+
+		strong {
+			font-weight: 700;
+			color: var(--primary-color);
+		}
+	}
+</style>

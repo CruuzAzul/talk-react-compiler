@@ -51,6 +51,17 @@ const {title} = Astro.props;
 		--dark-grey: #23272F;
 	}
 
+	* {
+		scrollbar-width: none;
+
+		pre {
+			-webkit-transition: font-size .5s ease;
+			-moz-transition: font-size .5s ease;
+			-o-transition: font-size .5s ease;
+			transition: font-size .5s ease;
+		}
+	}
+
 	*:not(pre):not(pre *) {
 		font-family: 'Montserrat', sans-serif !important;
 		font-optical-sizing: auto;
@@ -58,15 +69,17 @@ const {title} = Astro.props;
 	}
 
 	pre {
-		border-radius: 10px;
+		border-radius: 5px;
+		box-shadow: none !important;
 	}
 
 	code {
-		font-size: 1.5rem;
-		border-radius: 10px;
+		font-size: 0.8rem;
+		border-radius: 5px;
+		line-height: 1.5rem;
 		padding: 2rem 2rem !important;
 		max-height: unset !important;
-		border: 2px solid var(--primary-color);
+		box-shadow: none !important;
 	}
 
 	section.present.present {

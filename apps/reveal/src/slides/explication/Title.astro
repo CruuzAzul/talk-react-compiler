@@ -1,9 +1,26 @@
 ---
+import SlideTitle from "@/components/SlideTitle.astro";
 import Slide from "../../components/Slide.astro";
+
+import Basique from "@/assets/images/explication/basique.gif?url";
 ---
 
 <Slide>
-	<h2>Explication Title</h2>
-	<p>Todo</p>
-	<span>Titre / Reprenons les bases (avec un gif d’orelsan)</span>
+	<SlideTitle
+		title="Reprenons les bases"
+		punctuation="..."
+		style={{
+			margin: "auto",
+			fontSize: "2rem",
+			fontWeight: "bolder",
+		}}
+	/>
+	<img src={Basique} alt="" />
 </Slide>
+
+<style>
+	img {
+		width: 70%;
+		margin-top: 2rem;
+	}
+</style>

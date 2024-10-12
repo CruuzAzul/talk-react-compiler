@@ -2,34 +2,47 @@
 import Slide from "../../../components/Slide.astro";
 
 import ReactCompiler from "../../../assets/images/logo/react-compiler.png?url";
+import Fire from "@/assets/images/explication/fire.webp?url";
 ---
 
-<Slide>
-	Explosion
-</Slide>
+<Slide data-background-image={Fire} />
 <Slide>
 	<p>Et c'est pour ça que...</p>
 </Slide>
 <Slide>
-	<p style={{
-		marginBottom: "5rem"
-	}}>Et c'est pour ça que...</p>
-	<img src={ReactCompiler} alt="React Compiler logo" class="reactCompilerLogo"/>
+	<p
+		style={{
+			marginBottom: "5rem",
+		}}
+	>
+		Et c'est pour ça que...
+	</p>
+	<img
+		src={ReactCompiler}
+		alt="React Compiler logo"
+		class="reactCompilerLogo"
+	/>
 </Slide>
 <Slide>
-	<img src={ReactCompiler} alt="React Compiler logo" class="reactCompilerLogo"/>
-	<p style={{
-		marginTop: "5rem"
-	}}>Retour en arrière...</p>
+	<img
+		src={ReactCompiler}
+		alt="React Compiler logo"
+		class="reactCompilerLogo"
+	/>
+	<p
+		style={{
+			marginTop: "5rem",
+		}}
+	>
+		Retour en arrière...
+	</p>
 </Slide>
 
 <style>
 	.reactCompilerLogo {
 		width: 60%;
 		text-align: center;
-		filter: drop-shadow(
-			0 0 0.75rem var(--primary-color)
-		);
+		filter: drop-shadow(0 0 0.75rem var(--primary-color));
 	}
 
 	p {

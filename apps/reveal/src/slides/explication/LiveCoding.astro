@@ -6,8 +6,8 @@ import SlideTitle from "../../components/SlideTitle.astro";
 <Slide>
 	<Slide>
 		<SlideTitle
-			title="Pour faire simple, le React Compiler il fait quoi ?"
-			punctuation="?"
+			title="Compilons à la main"
+			punctuation=":"
 			style={{
 				margin: "auto",
 				fontSize: "3rem",
@@ -39,9 +39,67 @@ import SlideTitle from "../../components/SlideTitle.astro";
 		</code>
 	</pre>
 	</Slide>
+	<!-- Variables -->
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
 			<code data-trim data-line-numbers>
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+
+						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged;
+
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="4">
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+
+						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged;
+
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<!-- filteredTodos -->
+	<Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="4,8">
 				{`
 					function TodoList({ visibility, themeColor }) {
 						const [todos, setTodos] = useState(initialTodos);
@@ -99,7 +157,7 @@ import SlideTitle from "../../components/SlideTitle.astro";
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers>
+			<code data-trim data-line-numbers="8-13">
 				{`
 					function TodoList({ visibility, themeColor }) {
 						const [todos, setTodos] = useState(initialTodos);
@@ -130,6 +188,7 @@ import SlideTitle from "../../components/SlideTitle.astro";
 			</code>
 		</pre>
 	</Slide>
+	<!-- memoCache -->
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
 			<code data-trim data-line-numbers="4">
@@ -196,6 +255,40 @@ import SlideTitle from "../../components/SlideTitle.astro";
 			</code>
 		</pre>
 	</Slide>
+	<!-- handleChange -->
+	<Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="6">
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+
+						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged, memoCache;
+
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
+
+						let filteredTodos;
+						if (hasVisibilityChanged || hasTodosChanged) {
+							filteredTodos = memoCache[1] = getFiltered(todos, visibility);
+						} else {
+							filteredTodos = memoCache[1];
+						}
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
 			<code data-trim data-line-numbers="6-8" style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
@@ -231,9 +324,85 @@ import SlideTitle from "../../components/SlideTitle.astro";
 			</code>
 		</pre>
 	</Slide>
+	<!-- jsx_addTodo -->
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
+			<code data-trim data-line-numbers="24" style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+
+						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged, memoCache;
+
+						const handleChange =
+							memoCache[0] ||
+							(memoCache[0] = (todo) => setTodos(todos => getUpdated(todos, todo)));
+
+						let filteredTodos;
+						if (hasVisibilityChanged || hasTodosChanged) {
+							filteredTodos = memoCache[1] = getFiltered(todos, visibility);
+						} else {
+							filteredTodos = memoCache[1];
+						}
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="17-19, 28" style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+
+						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged, memoCache;
+
+						const handleChange =
+							memoCache[0] ||
+							(memoCache[0] = (todo) => setTodos(todos => getUpdated(todos, todo)));
+
+						let filteredTodos;
+						if (hasVisibilityChanged || hasTodosChanged) {
+							filteredTodos = memoCache[1] = getFiltered(todos, visibility);
+						} else {
+							filteredTodos = memoCache[1];
+						}
+
+						const jsx_addTodo = hasThemeColorChanged
+						? (memoCache[3] = <AddTodo setTodos={setTodos} themeColor={themeColor} />)
+						: memoCache[3];
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								{jsx_addTodo}
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<!-- jsx_todos -->
+	<Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="23-27" style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
 				{`
 					function TodoList({ visibility, themeColor }) {
 						const [todos, setTodos] = useState(initialTodos);
@@ -272,7 +441,46 @@ import SlideTitle from "../../components/SlideTitle.astro";
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
+			<code data-trim data-line-numbers="10-23,29" style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+
+						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged, memoCache;
+
+						const handleChange =
+							memoCache[0] ||
+							(memoCache[0] = (todo) => setTodos(todos => getUpdated(todos, todo)));
+
+						let filteredTodos, jsx_todos;
+						if (hasVisibilityChanged || hasTodosChanged) {
+							filteredTodos = memoCache[1] = getFiltered(todos, visibility);
+							jsx_todos = memoCache[2] = (
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+							);
+						} else {
+							filteredTodos = memoCache[1];
+							jsx_todos = memoCache[2];
+						}
+
+						const jsx_addTodo = hasThemeColorChanged
+						? (memoCache[3] = <AddTodo setTodos={setTodos} themeColor={themeColor} />)
+						: memoCache[3];
+
+						return <div>{jsx_todos}{jsx_addTodo}</div>;
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<!-- TodoList -->
+	<Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="6-29" style={{fontSize: "0.7rem", lineHeight: "1.3rem"}}>
 				{`
 					function TodoList({ visibility, themeColor }) {
 						const [todos, setTodos] = useState(initialTodos);

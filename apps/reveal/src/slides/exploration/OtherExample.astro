@@ -1,6 +1,9 @@
 ---
 import Slide from "../../components/Slide.astro";
 import SlideTitle from "../../components/SlideTitle.astro";
+
+import Instagram from "../../assets/images/production/instagram.png?url";
+import Facebook from "../../assets/images/production/facebook.png?url";
 ---
 
 <Slide>
@@ -20,5 +23,46 @@ import SlideTitle from "../../components/SlideTitle.astro";
 			title="Ça tourne en prod"
 			punctuation="?"
 		/>
+		<div class="screen-container">
+			<img
+				class="screen instagram"
+				alt=""
+				src={Instagram}
+				data-fragment-index="1"
+			/>
+			<img
+				class="screen facebook"
+				alt=""
+				src={Facebook}
+			/>
+		</div>
 	</Slide>
 </Slide>
+
+<style>
+	.screen-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 500px;
+	}
+
+	.screen {
+		height: 400px;
+		margin: 0 1rem;
+		border: 1px solid var(--light-grey);
+		border-radius: 10px;
+
+		&.facebook {
+			position: absolute;
+			top: 200px;
+			left: 0;
+		}
+
+		&.instagram {
+			position: absolute;
+			top: 100px;
+			right: 0;
+		}
+	}
+</style>

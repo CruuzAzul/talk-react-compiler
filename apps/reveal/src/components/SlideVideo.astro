@@ -1,12 +1,13 @@
 ---
 interface Props {
 	source: string;
+	loop: string
 }
 
-const { source } = Astro.props;
+const { source, loop = false } = Astro.props;
 ---
 
 <!-- TODO : Remove muted attr -->
-<section data-background-video={source} data-background-video-muted data-preload >
+<section data-background-video={source} data-background-video-muted data-preload data-background-video-loop={loop} >
 	<slot/>
 </section>

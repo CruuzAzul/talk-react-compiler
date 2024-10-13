@@ -1,11 +1,21 @@
 ---
 import Slide from "../../../components/Slide.astro";
 
-import ReactCompiler from "../../../assets/images/logo/react-compiler.png?url";
+import ReactCompiler from "@/assets/images/logo/react-compiler.png?url";
 import Fire from "@/assets/images/explication/fire.webp?url";
+import Explosion from "@/assets/videos/explosion.mp4?url"
+
+import SlideVideo from "../../../components/SlideVideo.astro";
+import Separator from "../../../components/Separator.astro";
 ---
 
-<Slide data-background-image={Fire} />
+<SlideVideo source={Explosion} loop={true}>
+	<div>
+		<span class="label">Les devs React sur des tâches de mémoïsation...</span>
+		<br/><br/>
+		<Separator isWhiteColor />
+	</div>
+</SlideVideo>
 <Slide>
 	<p>Et c'est pour ça que...</p>
 </Slide>
@@ -53,5 +63,15 @@ import Fire from "@/assets/images/explication/fire.webp?url";
 		border-radius: 15px;
 		text-wrap: balance;
 		padding: 1rem 2rem;
+	}
+
+	.label {
+		text-wrap: balance;
+		font-size: 3rem;
+		font-weight: 900;
+		color: white;
+		text-transform: uppercase;
+		text-shadow: 3px 0 #000, -3px 0 #000, 0 3px #000, 0 -3px #000,
+		3px 3px #000, -3px -3px #000, 3px -3px #000, -3px 3px #000;
 	}
 </style>

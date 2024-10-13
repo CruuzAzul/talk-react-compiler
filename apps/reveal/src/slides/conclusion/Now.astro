@@ -9,7 +9,6 @@ import RemixLogo from "../../assets/images/now/remix-logo.svg?url";
 import WebpackLogo from "../../assets/images/now/webpack-logo.svg?url";
 import ReactNativeLogo from "../../assets/images/now/react-native-logo.svg?url";
 import ExpoLogo from "../../assets/images/now/expo-logo.svg?url";
-import Ressource from "@/components/Ressource.astro";
 
 import TerminalBabel19 from "@/assets/images/now/terminal-babel-19.svg?url";
 import TerminalBabelOld from "@/assets/images/now/terminal-babel-17-18.svg?url";
@@ -19,10 +18,6 @@ import NextConfig from "@/assets/images/now/next-config.svg?url";
 import TerminalRemix from "@/assets/images/now/terminal-remix.svg?url";
 import RemixConfig from "@/assets/images/now/remix-vite-config.svg?url";
 
-
-import Leak from "@/assets/images/problem/leak.png?url";
-import CallChain from "@/assets/images/problem/callchain.png?url";
-import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 ---
 
 <Slide>
@@ -92,56 +87,9 @@ import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 			</div>
 		</div>
 	</Slide>
-	<Slide>
-		<SlideTitle title="⚠️ Attention cependant" punctuation="!"
-		style={{
-			margin: "auto",
-			fontSize: "2rem",
-			fontWeight: "bolder",
-		}}/>
-	</Slide>
-	<Slide>
-		<SlideTitle title="⚠️ Attention cependant" punctuation="!" />
-		<p class="padding">
-			Le React Compiler n'est pas encore prêt pour la production, il est
-			toujours en phase de développement.
-		</p>	</Slide>
-	<Slide>
-		<SlideTitle title="⚠️ Attention cependant" punctuation="!" />
-		<p>
-			Le React Compiler n'est pas encore prêt pour la production, il est
-			toujours en phase de développement.
-		</p>
-		<div class="r-stack">
-			<img class="gif" alt="" src={LeakGif} />
-			<img class="fragment callchain" alt="" src={CallChain} />
-			<img class="fragment leak" alt="" src={Leak} />
-		</div>
-		<Ressource source="Articles par Kevin Schiener" />
-	</Slide>
 </Slide>
 
 <style>
-	.gif {
-		width: 40rem;
-	}
-
-	.padding {
-		padding: 5rem 0
-	}
-
-	.leak {
-		rotate: -5deg;
-		translate: 10rem;
-		width: 70%;
-	}
-
-	.callchain {
-		rotate: 5deg;
-		translate: -10rem;
-		width: 70%;
-	}
-
 	.logo-container {
 		display: flex;
 		justify-content: center;

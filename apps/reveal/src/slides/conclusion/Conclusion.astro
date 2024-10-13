@@ -1,62 +1,80 @@
 ---
 import Slide from "../../components/Slide.astro";
 import SlideTitle from "../../components/SlideTitle.astro";
+import Ressource from "../../components/Ressource.astro";
+
+import Leak from "@/assets/images/problem/leak.png?url";
+import CallChain from "@/assets/images/problem/callchain.png?url";
+import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 ---
 
 <Slide>
 	<Slide>
 		<SlideTitle
-			title="Le React Compiler ne fait pas"
-			punctuation=":"
+			title="Du coup, Easier, Better, Faster, Stronger"
+			punctuation="?"
 			style={{
 				margin: "auto",
-				fontSize: "2rem",
+				fontSize: "4rem",
 				fontWeight: "bolder",
 			}}
 		/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Le React Compiler ne fait pas" punctuation=":" />
+		<SlideTitle title="Le React Compiler ne fait pas" punctuation=":"/>
 		<ol>
-			<li>Une stratégie de re-rendu parfaite</li>
+			<li class="fragment">Une stratégie de re-rendu parfaite</li>
 			<li class="fragment">Corrige le mauvais code</li>
-			<li class="fragment">Supporte les features legacy</li>
+			<li class="fragment">Supporte les features legacy (Class Components...)</li>
 			<li class="fragment">Une nouvelle manière d'écrire du React</li>
 		</ol>
 	</Slide>
 	<Slide>
-		<SlideTitle
-			title="Le React Compiler fait"
-			punctuation=":"
-			style={{
-				margin: "auto",
-				fontSize: "2rem",
-				fontWeight: "bolder",
-			}}
-		/>
-	</Slide>
-	<Slide>
-		<SlideTitle title="Le React Compiler fait" punctuation=":" />
+		<SlideTitle title="Le React Compiler fait" punctuation=":"/>
 		<ol>
-			<li>Limite le nombre de re-rendu</li>
+			<li class="fragment">Limite le nombre de re-rendu et améliore les performances</li>
 			<li class="fragment">"Just Works"</li>
-			<li class="fragment">Améliore les outils autour de l'écosystème</li>
+			<li class="fragment">Améliore les outils autour de l'écosystème et la DX 😍</li>
+			<li class="fragment">"Masque" la gestion des re-rendu et de la memoization 🫤</li>
 		</ol>
 	</Slide>
-	<!-- <Slide>
-		<SlideTitle
-			title="Le React Compiler fera"
-			punctuation=":"
-			style={{
-				margin: "auto",
-				fontSize: "2rem",
-				fontWeight: "bolder",
-			}}
-		/>
+	<Slide>
+		<SlideTitle title="⚠️ Attention cependant" punctuation="!" style={{
+			margin: "auto",
+			fontSize: "2rem",
+			fontWeight: "bolder",
+		}}/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Le React Compiler fera" punctuation=":" />
-	</Slide> -->
+		<SlideTitle title="⚠️ Attention cependant" punctuation="!" style={{
+			margin: "auto",
+			fontSize: "2rem",
+			fontWeight: "bolder",
+		}}/>
+		<p class="text">
+			Le React Compiler n'est pas encore prêt pour la production, il est
+			toujours en phase de développement.
+		</p>
+	</Slide>
+	<Slide>
+		<SlideTitle title="⚠️ Attention cependant" punctuation="!" style={{
+			margin: "auto",
+			fontSize: "2rem",
+			fontWeight: "bolder",
+		}}/>
+		<p class="text">
+			Le React Compiler n'est pas encore prêt pour la production, il est
+			toujours en phase de développement.
+		</p>
+		<div class="r-stack">
+			<img class="fragment gif fade-in-then-out" alt="" src={LeakGif}/>
+			<img class="fragment callchain" alt="" src={CallChain}/>
+			<img class="fragment leak" alt="" src={Leak}/>
+		</div>
+		<Ressource source="Articles par Kevin Schiener" style={{
+			marginTop: "1rem",
+		}}/>
+	</Slide>
 </Slide>
 
 <style>
@@ -64,7 +82,7 @@ import SlideTitle from "../../components/SlideTitle.astro";
 	ol {
 		list-style-type: decimal;
 		width: 100%;
-		padding: 0 5rem;
+		padding: 0 3rem;
 
 		li {
 			font-size: 1.8rem;
@@ -83,4 +101,31 @@ import SlideTitle from "../../components/SlideTitle.astro";
 			}
 		}
 	}
+
+	.gif {
+		width: 60%;
+	}
+
+	.text {
+		text-wrap: balance;
+		padding: 2rem 0;
+		font-size: 1.8rem;
+		color: #0A7EA4;
+		font-weight: bolder;
+	}
+
+	.leak {
+		border-radius: 5px;
+		translate: 10rem;
+		width: 50%;
+		border: 2px solid white;
+	}
+
+	.callchain {
+		border-radius: 5px;
+		translate: -10rem;
+		width: 50%;
+		border: 2px solid white;
+	}
+
 </style>

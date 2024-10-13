@@ -14,6 +14,7 @@ import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 	}} />
 	<div class="flex">
 		<div class="profile">
+			<p class="name">Lucas Audart</p>
 			<div class="picture">
 				<img
 					src="https://avatars.githubusercontent.com/u/48870153?v=4"
@@ -30,6 +31,7 @@ import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 			</div>
 		</div>
 		<div class="profile">
+			<p class="name">Mickaël Alves</p>
 			<div class="picture">
 				<img src="https://avatars.githubusercontent.com/u/60877626" alt="" />
 			</div>
@@ -56,6 +58,17 @@ import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 		flex-direction: column;
 		justify-content: center;
 
+		.name {
+			font-size: 0.8rem;
+			color: var(--primary-color);
+			background-color: var(--background-color);
+			font-weight: 800;
+			margin: 0;
+			padding: 0.5rem 1rem;
+			border-radius: 5px;
+			text-transform: uppercase;
+		}
+
 		&.feedback {
 			width: 300px;
 			border: none;
@@ -74,7 +87,7 @@ import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 			width: 50px;
 			object-fit: contain;
 			position: absolute;
-			top: 11rem;
+			top: 13rem;
 
 			&.left {
 				left: 10px;

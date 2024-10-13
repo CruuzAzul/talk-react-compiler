@@ -1,7 +1,9 @@
 ---
-import Slide from "../../components/Slide.astro";
-import SlideTitle from "../../components/SlideTitle.astro";
-import Ressource from "../../components/Ressource.astro";
+import Slide from "../../../components/Slide.astro";
+import SlideTitle from "../../../components/SlideTitle.astro";
+import Ressource from "../../../components/Ressource.astro";
+import SchemaArrow from "./SchemaArrow.astro";
+import SchemaEnd from "./SchemaEnd.astro";
 ---
 
 <Slide>
@@ -15,7 +17,7 @@ import Ressource from "../../components/Ressource.astro";
 				fontWeight: "bolder",
 			}}
 		/>
-		<Ressource source="React without memo - Xuan Huang" />
+		<Ressource source="React without memo - Xuan Huang"/>
 	</Slide>
 	<Slide>
   <pre class="code-demo" data-id="code-animation">
@@ -40,6 +42,7 @@ import Ressource from "../../components/Ressource.astro";
 			`}
 		</code>
 	</pre>
+		<SchemaArrow/>
 	</Slide>
 	<!-- Variables -->
 	<Slide>
@@ -69,6 +72,7 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
@@ -97,6 +101,7 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
 	</Slide>
 	<!-- filteredTodos -->
 	<Slide>
@@ -126,6 +131,7 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
@@ -156,10 +162,11 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers="8-13">
+			<code data-trim data-line-numbers="4, 8-13">
 				{`
 					function TodoList({ visibility, themeColor }) {
 						const [todos, setTodos] = useState(initialTodos);
@@ -189,44 +196,12 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
 	</Slide>
 	<!-- memoCache -->
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers="4">
-				{`
-					function TodoList({ visibility, themeColor }) {
-						const [todos, setTodos] = useState(initialTodos);
-
-						let hasVisibilityChanged, hasThemeColorChanged, hasTodosChanged, memoCache;
-
-						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
-
-						let filteredTodos;
-						if (hasVisibilityChanged || hasTodosChanged) {
-							filteredTodos = getFiltered(todos, visibility);
-						} else {
-							filteredTodos = ????
-						}
-
-						return (
-							<div>
-								<ul>
-									{filteredTodos.map((todo) => (
-										<Todo key={todo.id} todo={todo} onChange={handleChange} />
-									))}
-								</ul>
-								<AddTodo setTodos={setTodos} themeColor={themeColor} />
-							</div>
-						);
-					}
-				`}
-			</code>
-		</pre>
-	</Slide>
-	<Slide>
-		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers="8-13">
+			<code data-trim data-line-numbers="4, 8-13">
 				{`
 					function TodoList({ visibility, themeColor }) {
 						const [todos, setTodos] = useState(initialTodos);
@@ -256,6 +231,11 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p style="text-shadow: 0 0 2px var(--primary-color); position: fixed; right: 350px; top: 70px">✨</p>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
 	</Slide>
 	<!-- handleChange -->
 	<Slide>
@@ -290,6 +270,10 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
@@ -325,6 +309,13 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
 	</Slide>
 	<!-- jsx_addTodo -->
 	<Slide>
@@ -361,6 +352,13 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
@@ -400,6 +398,16 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
+		<p data-id="addTodo"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; bottom: 230px">
+			✨</p>
 	</Slide>
 	<!-- jsx_todos -->
 	<Slide>
@@ -440,6 +448,17 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
+		<p data-id="addTodo"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; bottom: 230px">
+			✨</p>
+
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
@@ -478,6 +497,19 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
+		<p data-id="addTodo"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; bottom: 230px">
+			✨</p>
+		<p data-id="jsxTodos"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 140px; bottom: 245px">
+			✨</p>
 	</Slide>
 	<!-- TodoList -->
 	<Slide>
@@ -517,6 +549,19 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
+		<p data-id="addTodo"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; bottom: 230px">
+			✨</p>
+		<p data-id="jsxTodos"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 140px; bottom: 245px">
+			✨</p>
 	</Slide>
 	<Slide>
 		<pre class="code-demo" data-id="code-animation">
@@ -553,6 +598,22 @@ import Ressource from "../../components/Ressource.astro";
 				`}
 			</code>
 		</pre>
+		<SchemaEnd/>
+		<p data-id="filter"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 185px; top: 235px">
+			✨</p>
+		<p data-id="handleChange"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; top: 235px">
+			✨</p>
+		<p data-id="addTodo"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 10px; bottom: 230px">
+			✨</p>
+		<p data-id="jsxTodos"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 140px; bottom: 245px">
+			✨</p>
+		<p data-id="todosList"
+			 style="text-shadow: 0 0 2px var(--primary-color); font-size: 2rem; position: fixed; right: 100px; bottom: 270px">
+			✨</p>
 	</Slide>
 </Slide>
 

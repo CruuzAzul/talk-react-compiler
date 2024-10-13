@@ -5,11 +5,13 @@ import Slide from "../../components/Slide.astro";
 import QRCodeLucas from "@/assets/images/conclusion/lucas.png?url";
 import QRCodeMicka from "@/assets/images/conclusion/micka.png?url";
 import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url";
+import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 ---
 
 <Slide>
-	<SlideTitle title="Restez en contact" punctuation="!" />
-
+	<SlideTitle title="Un avis ou une question" punctuation="?" style={{
+		margin: "auto",
+	}} />
 	<div class="flex">
 		<div class="profile">
 			<div class="picture">
@@ -19,8 +21,9 @@ import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url"
 				/>
 			</div>
 			<img src={QRCodeLucas} alt="QR Code" class="qr-code" />
+			<img src={LogoZenika} alt="Zenika" class="logo left" />
 		</div>
-		<div class="profile">
+		<div class="profile feedback">
 			<p>OpenFeedback</p>
 			<div class="picture">
 				<img src={QRCodeOpenFeedback} alt="QR Code" class="qr-code" />
@@ -31,19 +34,19 @@ import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url"
 				<img src="https://avatars.githubusercontent.com/u/60877626" alt="" />
 			</div>
 			<img src={QRCodeMicka} alt="QR Code" class="qr-code" />
+			<img src={LogoZenika} alt="Zenika" class="logo right" />
 		</div>
 	</div>
 </Slide>
 
 <style>
 	.qr-code {
-		width: 250px;
+		width: 200px;
 	}
 
 	.profile {
 		padding: 1rem;
-		width: 25%;
-		background-color: var(--background-color);
+		width: 200px;
 		border: dashed 2px var(--primary-color);
 		border-radius: 15px;
 		font-size: 2rem;
@@ -53,25 +56,32 @@ import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url"
 		flex-direction: column;
 		justify-content: center;
 
+		&.feedback {
+			width: 300px;
+			border: none;
+
+			.qr-code {
+				width: 300px;
+			}
+		}
+
 		p {
 			text-align: center;
 			font-weight: bold;
 		}
 
 		.logo {
-			width: 75px;
+			width: 50px;
 			object-fit: contain;
 			position: absolute;
-			top: -3rem;
+			top: 11rem;
 
 			&.left {
-				left: -2rem;
-				transform: rotate(20deg);
+				left: 10px;
 			}
 
 			&.right {
-				right: -2rem;
-				transform: rotate(-20deg);
+				right: 10px;
 			}
 		}
 	}
@@ -84,5 +94,6 @@ import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url"
 		display: flex;
 		justify-content: space-around;
 		gap: 1rem;
+		padding-top: 2rem;
 	}
 </style>

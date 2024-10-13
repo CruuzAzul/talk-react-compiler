@@ -1,26 +1,24 @@
 ---
-import SlideTitle from "@/components/SlideTitle.astro";
-import Slide from "../../components/Slide.astro";
+import Separator from "../../components/Separator.astro";
+import SlideVideo from "../../components/SlideVideo.astro";
 
-import Basique from "@/assets/images/explication/basique.gif?url";
+import Bases from "../../assets/videos/bases.mp4?url";
 ---
 
-<Slide>
-	<SlideTitle
-		title="Reprenons les bases"
-		punctuation="..."
-		style={{
-			margin: "auto",
-			fontSize: "2rem",
-			fontWeight: "bolder",
-		}}
-	/>
-	<img src={Basique} alt="" />
-</Slide>
+<SlideVideo source={Bases}>
+	<div>
+		<p class="label">Reprenons les bases...</p>
+		<Separator isWhiteColor />
+	</div>
+</SlideVideo>
 
 <style>
-	img {
-		width: 70%;
-		margin-top: 2rem;
+	.label {
+		font-size: 4rem;
+		font-weight: 900;
+		color: white;
+		text-transform: uppercase;
+		text-shadow: 3px 0 #000, -3px 0 #000, 0 3px #000, 0 -3px #000,
+		3px 3px #000, -3px -3px #000, 3px -3px #000, -3px 3px #000;
 	}
 </style>

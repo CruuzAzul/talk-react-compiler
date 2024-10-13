@@ -13,7 +13,7 @@ import MickaQRCode from "../../assets/images/speaker/qrCodeMicka.png?url";
 <Slide>
 	<Slide>
 		<SlideTitle
-			title="Qui sommes vous"
+			title="Qui sommes nous"
 			punctuation="?"
 			style={{
 				margin: "auto",
@@ -23,7 +23,7 @@ import MickaQRCode from "../../assets/images/speaker/qrCodeMicka.png?url";
 		/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Qui sommes vous" punctuation="?" />
+		<SlideTitle title="Qui sommes nous" punctuation="?" />
 		<div class="flex">
 			<div class="profile">
 				<div class="picture">
@@ -31,19 +31,15 @@ import MickaQRCode from "../../assets/images/speaker/qrCodeMicka.png?url";
 						src="https://avatars.githubusercontent.com/u/48870153?v=4"
 						alt=""
 					/>
-					<img class="qr-code" src={LucasQRCode} alt="" />
 				</div>
 				<p>Lucas Audart</p>
-				<img class="logo left" src={KolectoLogo} alt="" />
 			</div>
 			<img class="zenika-logo" src={ZenikaLogo} alt="" />
 			<div class="profile">
 				<div class="picture">
 					<img src="https://avatars.githubusercontent.com/u/60877626" alt="" />
-					<img class="qr-code" src={MickaQRCode} alt="" />
 				</div>
 				<p>Mickaël Alves</p>
-				<img class="logo right" src={EnedisLogo} alt="" />
 			</div>
 		</div>
 	</Slide>
@@ -58,6 +54,11 @@ import MickaQRCode from "../../assets/images/speaker/qrCodeMicka.png?url";
 		border-radius: 15px;
 		font-size: 2rem;
 		position: relative;
+
+		p {
+			text-align: center;
+			font-weight: bold;
+		}
 
 		.logo {
 			width: 75px;

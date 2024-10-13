@@ -1,0 +1,88 @@
+---
+import SlideTitle from "@/components/SlideTitle.astro";
+import Slide from "../../components/Slide.astro";
+
+import QRCodeLucas from "@/assets/images/conclusion/lucas.png?url";
+import QRCodeMicka from "@/assets/images/conclusion/micka.png?url";
+import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url";
+---
+
+<Slide>
+	<SlideTitle title="Restez en contact" punctuation="!" />
+
+	<div class="flex">
+		<div class="profile">
+			<div class="picture">
+				<img
+					src="https://avatars.githubusercontent.com/u/48870153?v=4"
+					alt=""
+				/>
+			</div>
+			<img src={QRCodeLucas} alt="QR Code" class="qr-code" />
+		</div>
+		<div class="profile">
+			<p>OpenFeedback</p>
+			<div class="picture">
+				<img src={QRCodeOpenFeedback} alt="QR Code" class="qr-code" />
+			</div>
+		</div>
+		<div class="profile">
+			<div class="picture">
+				<img src="https://avatars.githubusercontent.com/u/60877626" alt="" />
+			</div>
+			<img src={QRCodeMicka} alt="QR Code" class="qr-code" />
+		</div>
+	</div>
+</Slide>
+
+<style>
+	.qr-code {
+		width: 250px;
+	}
+
+	.profile {
+		padding: 1rem;
+		width: 25%;
+		background-color: var(--background-color);
+		border: dashed 2px var(--primary-color);
+		border-radius: 15px;
+		font-size: 2rem;
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+
+		p {
+			text-align: center;
+			font-weight: bold;
+		}
+
+		.logo {
+			width: 75px;
+			object-fit: contain;
+			position: absolute;
+			top: -3rem;
+
+			&.left {
+				left: -2rem;
+				transform: rotate(20deg);
+			}
+
+			&.right {
+				right: -2rem;
+				transform: rotate(-20deg);
+			}
+		}
+	}
+
+	.picture {
+		position: relative;
+	}
+
+	.flex {
+		display: flex;
+		justify-content: space-around;
+		gap: 1rem;
+	}
+</style>

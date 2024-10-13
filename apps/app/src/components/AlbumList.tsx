@@ -29,12 +29,23 @@ export const AlbumList = ({
         const releases = await getAlbums(search);
         setIsLoading(false);
         releases.forEach(async (release) => {
-          const cover = await getCover(release);
-          if (cover) {
+          try {
+            const cover = await getCover(release);
+
             setAlbumList((oldData) => [
               ...oldData,
               {
-                thumbnail: cover.thumbnails.small,
+                thumbnail: cover ? cover.thumbnails.small : "",
+                artist: release["artist-credit"]?.[0].name ?? "",
+                name: release.title,
+                id: release.id,
+              },
+            ]);
+          } catch (error) {
+            setAlbumList((oldData) => [
+              ...oldData,
+              {
+                thumbnail: "",
                 artist: release["artist-credit"]?.[0].name ?? "",
                 name: release.title,
                 id: release.id,

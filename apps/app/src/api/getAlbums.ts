@@ -7,7 +7,7 @@ const musicApiHeader = {
 
 export const getAlbums = async (search: string) => {
   return await fetch(
-    `http://musicbrainz.org/ws/2/release/?query=artist:${search}&fmt=json`,
+    `https://musicbrainz.org/ws/2/release/?query=artist:${search}&fmt=json`,
     {
       headers: musicApiHeader,
     }

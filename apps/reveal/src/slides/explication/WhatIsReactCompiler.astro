@@ -47,10 +47,7 @@ import Separator from "../../components/Separator.astro";
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle
-			title="Un compilateur"
-			punctuation="?"
-		/>
+		<SlideTitle title="Un compilateur" punctuation="?" />
 		<div class="elements">
 			<div class="element">
 				<img
@@ -97,6 +94,32 @@ import Separator from "../../components/Separator.astro";
 		<div class="elements">
 			<div class="element">
 				<img
+					src={Transpiler}
+					alt="Transpiler"
+					style={{
+						height: "300px",
+						margin: "auto",
+						marginTop: "4rem",
+						filter: "drop-shadow(0 0 3px var(--grey))",
+					}}
+				/>
+				<p class="label">Transpiler</p>
+			</div>
+			<div class="element">
+				<p class="definition">
+					Un transpileur est un type de compilateur qui prend le code source
+					d'un langage de programmation et le compile dans un autre langage de
+					programmation
+					<img alt="" src={Wikipedia} class="wikipedia" />
+				</p>
+			</div>
+		</div>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Un Compiler ou un Transpiler" punctuation="?" />
+		<div class="elements">
+			<div class="element">
+				<img
 					src={Compiler}
 					alt="Compiler"
 					style={{
@@ -121,7 +144,7 @@ import Separator from "../../components/Separator.astro";
 				/>
 				<p class="label">Transpiler</p>
 			</div>
-			<p class="dontcare fragment fall">Don't care</p>
+			<p class="dontcare fragment fall">Important ?</p>
 		</div>
 	</Slide>
 	<Slide>
@@ -357,6 +380,7 @@ import Separator from "../../components/Separator.astro";
 					text-wrap: balance;
 					padding: 1rem 1.5rem;
 					background-color: var(--background-color);
+					width: 500px;
 
 					.wikipedia {
 						width: 5rem;

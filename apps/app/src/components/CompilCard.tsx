@@ -38,10 +38,9 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
 
   return (
     <Link
-      className="compil-card rerendered"
+      className="compil-card"
       to="/compil/$compilId"
       params={{ compilId: compil.$id }}
-      key={Math.random()}
     >
       <div className="photo-stack-container">
         <div

@@ -18,16 +18,15 @@ export const AlbumList = ({
   setIsLoading,
 }: AlbumListProps) => {
   const [albumList, setAlbumList] = useState<Album[]>([]);
-  const [selectedAlbums, setSelectedAlbums] = useState<Album[]>([]);
 
   useEffect(() => {
     const resetSearch = async () => {
       if (search !== "") {
         setAlbumList([]);
-        setSelectedAlbums([]);
         setIsLoading(true);
         const releases = await getAlbums(search);
         setIsLoading(false);
+
         releases.forEach(async (release) => {
           try {
             const cover = await getCover(release);
@@ -39,9 +38,10 @@ export const AlbumList = ({
                 artist: release["artist-credit"]?.[0].name ?? "",
                 name: release.title,
                 id: release.id,
+                selected: false,
               },
             ]);
-          } catch (error) {
+          } catch {
             setAlbumList((oldData) => [
               ...oldData,
               {
@@ -49,6 +49,7 @@ export const AlbumList = ({
                 artist: release["artist-credit"]?.[0].name ?? "",
                 name: release.title,
                 id: release.id,
+                selected: false,
               },
             ]);
           }
@@ -60,18 +61,19 @@ export const AlbumList = ({
   }, [search, setIsLoading]);
 
   const selectAlbum = (album: Album) => {
-    if (selectedAlbums.includes(album)) {
-      setSelectedAlbums(
-        selectedAlbums.filter((albumIterator) => albumIterator.id !== album.id)
-      );
-    } else {
-      setSelectedAlbums([...selectedAlbums, album]);
-    }
+    setAlbumList((oldData) =>
+      oldData.map((oldAlbum) =>
+        oldAlbum.id === album.id
+          ? { ...oldAlbum, selected: !oldAlbum.selected }
+          : oldAlbum
+      )
+    );
   };
+
+  const selectedAlbums = albumList.filter((album) => album.selected);
 
   const onSearchReset = () => {
     setAlbumList([]);
-    setSelectedAlbums([]);
     resetSearch();
   };
 
@@ -85,13 +87,7 @@ export const AlbumList = ({
       )}
       <ul>
         {albumList.map((album) => (
-          <li key={album.id} className="album">
-            <AlbumCard
-              album={album}
-              isSelected={selectedAlbums.includes(album)}
-              onClick={() => selectAlbum(album)}
-            />
-          </li>
+          <AlbumCard album={album} onClick={selectAlbum} key={album.id} />
         ))}
       </ul>
     </>

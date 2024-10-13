@@ -1,9 +1,14 @@
 ---
 import SlideTitle from "../../../components/SlideTitle.astro";
 import Slide from "../../../components/Slide.astro";
+import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
 ---
 
 <Slide>
+	<Slide>
+		<SlideTitle title="Memoization de composants" punctuation="."/>
+		<ChildrenRendering client:visible/>
+	</Slide>
 	<Slide>
 		<SlideTitle title="Memoization de composants" punctuation="."/>
 		<pre class="code-demo" data-id="code-animation">

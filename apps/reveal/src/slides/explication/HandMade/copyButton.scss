@@ -1,0 +1,36 @@
+.btn-copy {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 0.8rem;
+	color: var(--primary-color);
+	position: fixed;
+	bottom: 150px;
+	right: 40px;
+	background-color: var(--background-color);
+	border: none;
+	padding: 0.5rem 1rem;
+	font-weight: bold;
+	border-radius: 10px;
+
+	.icon {
+		width: 1rem;
+		height: 1rem;
+		fill: #0A7EA4;
+
+		&.check {
+			fill: #7ada7a;
+		}
+	}
+
+	&:hover {
+		background-color: var(--primary-color);
+		color: var(--background-color);
+		cursor: pointer;
+
+		.icon {
+			fill: white;
+		}
+	}
+}

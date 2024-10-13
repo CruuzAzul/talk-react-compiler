@@ -38,7 +38,61 @@ import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
 	<Slide>
 		<SlideTitle title="Memoization de composants" punctuation="."/>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers="1">
+			<code data-trim data-line-numbers="11">
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de composants" punctuation="."/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="1, 13">
+				{`
+					const Todo = React.memo(UnmemoizedTodo);
+
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de composants" punctuation="."/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="5, 13">
 				{`
 					const Todo = React.memo(UnmemoizedTodo);
 
@@ -66,7 +120,7 @@ import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
 	<Slide>
 		<SlideTitle title="Memoization de functions" punctuation="."/>
 		<pre class="code-demo" data-id="code-animation">
-			<code data-trim data-line-numbers="5-7">
+			<code data-trim data-line-numbers="5-7, 15">
 				{`
 					const Todo = React.memo(UnmemoizedTodo);
 
@@ -94,9 +148,76 @@ import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
 		</pre>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Memoization de computed value" punctuation="."/>
+		<SlideTitle title="Memoization de functions" punctuation="."/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="9, 14-16">
+				{`
+					const Todo = React.memo(UnmemoizedTodo);
+
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = useCallback(
+							(todo) => setTodos(todos => getUpdated(todos, todo)),
+						[]);
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de computed value" punctuation="." style={{
+			marginBottom: "0rem"
+		}}/>
 		<pre class="code-demo" data-id="code-animation">
 			<code data-trim data-line-numbers="9-12">
+				{`
+					const Todo = React.memo(UnmemoizedTodo);
+
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = useCallback(
+							(todo) => setTodos(todos => getUpdated(todos, todo)),
+						[]);
+
+						const filteredTodos = useMemo(
+							getFiltered(todos, visibility),
+							[todos, visibility]
+						);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de computed value" punctuation="." style={{
+			marginBottom: "0rem"
+		}}/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers>
 				{`
 					const Todo = React.memo(UnmemoizedTodo);
 

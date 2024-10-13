@@ -1,30 +1,124 @@
 ---
-import {UseMemoRendering} from "./useMemo/UseMemoRendering";
 import SlideTitle from "../../../components/SlideTitle.astro";
 import Slide from "../../../components/Slide.astro";
-import {UseCallbackRendering} from "./useCallback/UseCallbackRendering";
-import {ChildrenRendering} from "./renderingTree/ChildrenRendering";
-import {UseMemoChildren} from "./useMemoChildren/UseMemoChildren";
 ---
 
 <Slide>
 	<Slide>
 		<SlideTitle title="Memoization de composants" punctuation="."/>
-		<ChildrenRendering client:visible/>
-	</Slide>
-</Slide>
-<Slide>
-	<Slide>
-		<SlideTitle title="Memoization de computed values" punctuation="."/>
-		<UseMemoRendering client:only="react"/>
-	</Slide>
-	<Slide>
-		<SlideTitle title="Memoization de fonctions" punctuation="."/>
-		<UseCallbackRendering client:only="react"/>
-	</Slide>
-	<section>
-		<SlideTitle title="Mais du coup les childrens c'est pas des composants" punctuation="?"/>
-		<UseMemoChildren client:only="react"/>
-	</section>
-</Slide>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers>
+				{`
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
 
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de composants" punctuation="."/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="1">
+				{`
+					const Todo = React.memo(UnmemoizedTodo);
+
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = (todo) => setTodos(todos => getUpdated(todos, todo));
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de functions" punctuation="."/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="5-7">
+				{`
+					const Todo = React.memo(UnmemoizedTodo);
+
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = useCallback(
+							(todo) => setTodos(todos => getUpdated(todos, todo)),
+						[]);
+
+						const filteredTodos = getFiltered(todos, visibility);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Memoization de computed value" punctuation="."/>
+		<pre class="code-demo" data-id="code-animation">
+			<code data-trim data-line-numbers="9-12">
+				{`
+					const Todo = React.memo(UnmemoizedTodo);
+
+					function TodoList({ visibility, themeColor }) {
+						const [todos, setTodos] = useState(initialTodos);
+						const handleChange = useCallback(
+							(todo) => setTodos(todos => getUpdated(todos, todo)),
+						[]);
+
+						const filteredTodos = useMemo(
+							getFiltered(todos, visibility),
+							[todos, visibility]
+						);
+
+						return (
+							<div>
+								<ul>
+									{filteredTodos.map((todo) => (
+										<Todo key={todo.id} todo={todo} onChange={handleChange} />
+									))}
+								</ul>
+								<AddTodo setTodos={setTodos} themeColor={themeColor} />
+							</div>
+						);
+					}
+				`}
+			</code>
+		</pre>
+	</Slide>
+</Slide>

@@ -17,61 +17,80 @@ import StrictCode from "../../assets/images/rules/strict-code.png?url";
 
 <Slide>
 	<Slide>
-		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<SlideTitle
+			title="Qu'est ce que ça suppose"
+			punctuation="?"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?" />
 		<div class="conditions">
 			<div>
-				<img src={JsValid} alt="JS Valid"/>
+				<img src={JsValid} alt="JS Valid" />
 				<p>Code JavaScript valide</p>
 			</div>
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?" />
 		<div class="conditions">
 			<div>
-				<img src={JsValid} alt="JS Valid"/>
+				<img src={JsValid} alt="JS Valid" />
 				<p>Code JavaScript valide</p>
 			</div>
 			<div>
-				<img src={NullValid} alt="Null Valid" style={{paddingLeft: "2rem"}}/>
+				<img src={NullValid} alt="Null Valid" style={{ paddingLeft: "2rem" }} />
 				<p>Toutes les valeurs sont accessibles</p>
 			</div>
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?"/>
+		<SlideTitle title="Qu'est ce que ça suppose" punctuation="?" />
 		<div class="conditions">
 			<div>
-				<img src={JsValid} alt="JS Valid"/>
+				<img src={JsValid} alt="JS Valid" />
 				<p>Code JavaScript valide</p>
 			</div>
 			<div>
-				<img src={NullValid} alt="Null Valid" style={{paddingLeft: "3rem"}}/>
+				<img src={NullValid} alt="Null Valid" style={{ paddingLeft: "3rem" }} />
 				<p>Toutes les valeurs sont accessibles</p>
 			</div>
 			<div>
-				<img
-					src={ReactValid} alt="React Valid"/>
+				<img src={ReactValid} alt="React Valid" />
 				<p>Le code suit les Rules of React</p>
 			</div>
 		</div>
 	</Slide>
 	<Slide>
-		<aside class="notes">Cette section décrit les règles à suivre pour écrire du code React idiomatique. L'écriture de
-			code React
-			idiomatique peut vous aider à écrire des applications bien organisées, sûres et composables. Ces propriétés
-			rendent votre application plus résistante aux changements et facilitent la collaboration avec d'autres
-			développeurs, bibliothèques et outils.
+		<aside class="notes">
+			Cette section décrit les règles à suivre pour écrire du code React
+			idiomatique. L'écriture de code React idiomatique peut vous aider à écrire
+			des applications bien organisées, sûres et composables. Ces propriétés
+			rendent votre application plus résistante aux changements et facilitent la
+			collaboration avec d'autres développeurs, bibliothèques et outils.
 		</aside>
-		<SlideTitle title="Les Rules of React, qu'est ce que c'est" punctuation="?"/>
+		<SlideTitle
+			title="Les Rules of React, qu'est ce que c'est"
+			punctuation="?"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Les Rules of React, qu'est ce que c'est" punctuation="?"/>
+		<SlideTitle
+			title="Les Rules of React, qu'est ce que c'est"
+			punctuation="?"
+		/>
 		<p class="badge">react.dev</p>
-		<img src={Rule1} alt="Rule 1" width="200" class="qrcode"/>
+		<img src={Rule1} alt="Rule 1" width="200" class="qrcode" />
 		<div class="r-stack steps">
 			<ol>
 				<li>
@@ -87,15 +106,20 @@ import StrictCode from "../../assets/images/rules/strict-code.png?url";
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Les Rules of React, qu'est ce que c'est" punctuation="?"/>
+		<SlideTitle
+			title="Les Rules of React, qu'est ce que c'est"
+			punctuation="?"
+		/>
 		<p class="badge">react.dev</p>
-		<img src={Rule2} alt="Rule 2" width="200" class="qrcode"/>
+		<img src={Rule2} alt="Rule 2" width="200" class="qrcode" />
 		<div class="r-stack steps">
-			<ol start=2>
+			<ol start="2">
 				<li>
 					React calls Components and Hooks
 					<ul class="fragment">
-						<li>Ne jamais faire passer les Hooks comme des valeurs régulières</li>
+						<li>
+							Ne jamais faire passer les Hooks comme des valeurs régulières
+						</li>
 						<li>Ne jamais appeler directement les fonctions des composants</li>
 						<li>Ne pas utiliser dynamiquement les Hooks (e.g : props...)</li>
 						<li>...</li>
@@ -105,15 +129,21 @@ import StrictCode from "../../assets/images/rules/strict-code.png?url";
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Les Rules of React, qu'est ce que c'est" punctuation="?"/>
+		<SlideTitle
+			title="Les Rules of React, qu'est ce que c'est"
+			punctuation="?"
+		/>
 		<p class="badge">react.dev</p>
-		<img src={Rule3} alt="Rule 3" width="200" class="qrcode"/>
+		<img src={Rule3} alt="Rule 3" width="200" class="qrcode" />
 		<div class="r-stack steps">
-			<ol start=3>
+			<ol start="3">
 				<li>
 					Rules of Hooks
 					<ul class="fragment">
-						<li>N'appeler les Hooks qu'au top level (e.g : ❌ conditions, try/catch)</li>
+						<li>
+							N'appeler les Hooks qu'au top level (e.g : ❌ conditions,
+							try/catch)
+						</li>
 						<li>N'appeler les Hooks qu'à partir des fonctions React</li>
 						<li>...</li>
 					</ul>
@@ -122,26 +152,39 @@ import StrictCode from "../../assets/images/rules/strict-code.png?url";
 		</div>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Et pour vous aider avec ces règles" punctuation=":"/>
+		<SlideTitle title="Et pour vous aider avec ces règles" punctuation=":" />
 		<div class="elements">
 			<div class="element">
-				<img src={ToggleOn} alt="Compiler" style={{
-					width: "200px",
-					margin: "auto",
-					marginTop: "4rem",
-					filter: "drop-shadow(0 0 3px var(--grey))"
-				}}/>
-				<img src={StrictCode} width="400" class="code" alt="Strict code picto"/>
+				<img
+					src={ToggleOn}
+					alt="Compiler"
+					style={{
+						width: "200px",
+						margin: "auto",
+						marginTop: "4rem",
+						filter: "drop-shadow(0 0 3px var(--grey))",
+					}}
+				/>
+				<img
+					src={StrictCode}
+					width="400"
+					class="code"
+					alt="Strict code picto"
+				/>
 			</div>
 			<div class="element fragment">
-				<img src={Eslint} alt="Compiler" style={{
-					height: "200px",
-					margin: "auto",
-					marginTop: "4rem",
-					filter: "drop-shadow(0 0 3px var(--grey))"
-				}}/>
+				<img
+					src={Eslint}
+					alt="Compiler"
+					style={{
+						height: "200px",
+						margin: "auto",
+						marginTop: "4rem",
+						filter: "drop-shadow(0 0 3px var(--grey))",
+					}}
+				/>
 				<div>
-					<p class="label">📦 eslint-plugin-react </p>
+					<p class="label">📦 eslint-plugin-react</p>
 					<p class="label fragment">📦 eslint-plugin-react-compiler</p>
 				</div>
 			</div>

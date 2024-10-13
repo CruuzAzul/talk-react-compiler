@@ -64,7 +64,7 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
           <FontAwesomeIcon icon={faThumbsDown} />
           {dislikeCount}
         </button>
-        {showRerender && <button>🔃 {rerender}</button>}
+        {showRerender && <button className="rerender-button">{rerender}</button>}
       </div>
     </Link>
   );

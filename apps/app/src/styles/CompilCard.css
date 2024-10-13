@@ -1,100 +1,122 @@
 .compil-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 400px;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transform: scale(1);
-  transition: transform 0.3s;
-  gap: 3rem;
-  cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: transform 0.3s;
+    gap: 3rem;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
 }
 
 .compil-card:hover {
-  transform: scale(1.02);
-  transition: transform 0.3s;
+    transform: scale(1.02);
+    transition: transform 0.3s;
 }
 
 .compil-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .compil-card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
 }
 
 .photo-stack-container {
-  position: relative;
-  min-width: 70%;
-  height: 60%;
+    position: relative;
+    min-width: 70%;
+    height: 60%;
 }
 
 .photo-stack {
-  align-items: center;
-  background-position: center;
-  background-size: cover;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  transition: 0.5s;
-  width: 100%;
-  height: 100%;
-  background-image: var(--center-image);
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+    width: 100%;
+    height: 100%;
+    background-image: var(--center-image);
 }
 
 .photo-stack:before,
 .photo-stack:after {
-  background-size: cover;
-  background-position: center;
-  border-radius: 3px;
-  content: "";
-  height: 100%;
-  left: 0%;
-  pointer-event: none;
-  position: absolute;
-  top: 0%;
-  transition: 0.5s;
-  width: 100%;
-  z-index: -1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: 0.5s;
+    width: 100%;
+    z-index: -1;
 }
 
 .photo-stack:before {
-  background-image: var(--right-image);
+    background-image: var(--right-image);
 }
 
 .photo-stack:after {
-  background-image: var(--left-image);
+    background-image: var(--left-image);
 }
 
 .compil-card:hover .photo-stack:before {
-  left: -30px;
-  transform: rotate(-2deg) scale(1.05);
-  z-index: -1;
+    left: -30px;
+    transform: rotate(-2deg) scale(1.05);
+    z-index: -1;
 }
 
 .compil-card:hover .photo-stack:after {
-  left: 30px;
-  transform: rotate(2deg) scale(1.05);
-  z-index: -1;
+    left: 30px;
+    transform: rotate(2deg) scale(1.05);
+    z-index: -1;
 }
 
 .button-group {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 2rem;
 }
 
 .like-button {
-  display: flex;
-  gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: 2px solid grey;
+
+    &:hover {
+        border: 2px solid #0A7EA4;
+        background: white;
+        color: #0A7EA4;
+    }
+}
+
+.rerender-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0A7EA4;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
 }

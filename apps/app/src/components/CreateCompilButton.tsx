@@ -25,9 +25,9 @@ export const CreateCompilButton = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="form-compil">
       <label>
-        Compil Name :
+        Compilation Name :
         <Input
           className="input"
           type="text"

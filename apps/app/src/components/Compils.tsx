@@ -30,7 +30,7 @@ export const Compils = ({ compilQueries, title }: CompilsProps) => {
 
   return (
     <section className="compils-page" style={{ backgroundColor: theme }}>
-      <h1 className="main-title">{title}</h1>
+      <h1 className="main-title">🎧 {title} 🎧</h1>
       <ul className="compil-list">
         {compils.map((compil) => (
           <li key={compil.$id}>

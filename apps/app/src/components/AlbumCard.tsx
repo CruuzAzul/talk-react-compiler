@@ -12,13 +12,8 @@ export const AlbumCard = ({album, onClick}: AlbumCardProps) => {
     const {showRerender} = useShowRerender();
     const rerender = useRenderCount();
 
-    const date = new Date();
-
     return (
         <li className="album">
-            <p className="date">
-                {date.toISOString()}
-            </p>
             <button
                 className={`album-card ${album.selected ? "selected" : ""} ${album.listened ? "listened" : ""}`}
                 onClick={() => onClick?.(album)}

@@ -1,50 +1,52 @@
 ---
 import Slide from "../../components/Slide.astro";
 import SlideTitle from "../../components/SlideTitle.astro";
-import Schema from "./Schema.astro";
 
 import LaurenMessage from "../../assets/images/explication/lauren-message.png?url";
+import Schema from "./Schema.astro";
 ---
 
 <Slide>
 	<Slide>
-		<SlideTitle title="+ 43 étapes au sein du React Compiler" punctuation="."/>
+		<SlideTitle title="+ 43 étapes au sein du React Compiler" punctuation="." />
 	</Slide>
 	<!-- Blague 43 étapes -->
 	<Slide>
 		<aside class="notes">
-			En mode :
-			- On présente les 43 étapes une par une ?
-			- À ton avis...
-			- Ok, étape numéro une sur 43, HIR ... --se fait couper la parole--
-			- Mais non ! On va pas faire ça !
-			- Ah bon ?
-			- On va plutôt les regrouper par catégories à la limite sinon on va perdre tout le monde et ça va contre la
+			En mode : - On présente les 43 étapes une par une ? - À ton avis... - Ok,
+			étape numéro une sur 43, HIR ... --se fait couper la parole-- - Mais non !
+			On va pas faire ça ! - Ah bon ? - On va plutôt les regrouper par
+			catégories à la limite sinon on va perdre tout le monde et ça va contre la
 			volonté de React !
 		</aside>
-		<SlideTitle title="+ 43 étapes au sein du React Compiler" punctuation="."/>
-		<ul style={{padding: "5rem"}}>
+		<SlideTitle title="+ 43 étapes au sein du React Compiler" punctuation="." />
+		<ul style={{ padding: "5rem" }}>
 			<li>HIR.</li>
 		</ul>
 	</Slide>
 	<!-- Sommaire section -->
 	<Slide>
 		<aside class="notes">
-			On va faire simple, je t'explique comment on peut simplifier ça et après je te dit pourquoi on fait simple.
+			On va faire simple, je t'explique comment on peut simplifier ça et après
+			je te dit pourquoi on fait simple.
 		</aside>
-		<SlideTitle title="Pour faire simple" punctuation=":"/>
+		<SlideTitle title="Pour faire simple" punctuation=":" />
 		<p class="summary">
 			<span><strong class="old">43</strong> étapes</span>
 			<span data-fragment-index="2" class="fragment arrow">➜</span>
-			<span data-fragment-index="2" class="fragment"><strong>10</strong> grandes catégories</span>
+			<span data-fragment-index="2" class="fragment"
+				><strong>10</strong> grandes catégories</span
+			>
 			<span data-fragment-index="3" class="fragment arrow">➜</span>
-			<span data-fragment-index="3" class="fragment question">Pourquoi on fait simple ?</span>
+			<span data-fragment-index="3" class="fragment question"
+				>Pourquoi on fait simple ?</span
+			>
 		</p>
 	</Slide>
 	<!-- Schema étapes React Compiler -->
 	<Slide>
-		<SlideTitle title="Pour faire simple" punctuation=":"/>
-		<Schema/>
+		<SlideTitle title="Pour faire simple" punctuation=":" />
+		<Schema />
 		<strong></strong>
 		<div class="def r-stack fragment" data-fragment-index="1">
 			<div class="text-container">
@@ -54,12 +56,15 @@ import LaurenMessage from "../../assets/images/explication/lauren-message.png?ur
 				</p>
 			</div>
 			<div class="text-container">
-				<p class="fragment current-visible" data-fragment-index="2">Conversion de <strong>Babel AST</strong> en <strong>HIR</strong>
-					(High-level Intermediate Representation) 🤯</p>
+				<p class="fragment current-visible" data-fragment-index="2">
+					Conversion de <strong>Babel AST</strong> en <strong>HIR</strong>
+					(High-level Intermediate Representation) 🤯
+				</p>
 			</div>
 			<div class="text-container">
-				<p class="fragment current-visible" data-fragment-index="3">Processus de <strong>normalisation et d'optimisation
-					du HIR</strong> 🧹</p>
+				<p class="fragment current-visible" data-fragment-index="3">
+					Processus de <strong>normalisation et d'optimisation du HIR</strong> 🧹
+				</p>
 			</div>
 			<div class="text-container">
 				<p class="fragment current-visible" data-fragment-index="4">
@@ -85,39 +90,42 @@ import LaurenMessage from "../../assets/images/explication/lauren-message.png?ur
 			</div>
 			<div class="text-container">
 				<p class="fragment current-visible" data-fragment-index="8">
-					Babel <strong>remplace le noeud d'origine</strong> par la nouvelle version 🔚
+					Babel <strong>remplace le noeud d'origine</strong> par la nouvelle version
+					🔚
 				</p>
 			</div>
 		</div>
 		<aside class="notes">
-			Blablabla, depuis tout à l'heure tu dis que c'est plus simple, mais là avec tout ce que tu viens de m'expliquer et
-			en sachant que c'est une version très simplifié, ton React Compiler me fait un peu peur...
+			Blablabla, depuis tout à l'heure tu dis que c'est plus simple, mais là
+			avec tout ce que tu viens de m'expliquer et en sachant que c'est une
+			version très simplifié, ton React Compiler me fait un peu peur...
 		</aside>
 	</Slide>
 	<!-- Pourquoi on s'en fiche -->
 	<Slide>
 		<aside class="notes">
-			Message avec des membres de la Core Team React pour leur expliquer notre volonté et essayer de simplifier les
-			choses.
+			Message avec des membres de la Core Team React pour leur expliquer notre
+			volonté et essayer de simplifier les choses.
 		</aside>
-		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?"/>
+		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?" />
 	</Slide>
 	<Slide>
-		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?"/>
-		<img src={LaurenMessage} alt="Message de Lauren" class="message"/>
+		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?" />
+		<img src={LaurenMessage} alt="Message de Lauren" class="message" />
 	</Slide>
 	<Slide>
-		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?"/>
-		<img src={LaurenMessage} alt="Message de Lauren" class="message"/>
+		<SlideTitle title="Pourquoi on fait si simple" punctuation=" ?" />
+		<img src={LaurenMessage} alt="Message de Lauren" class="message" />
 		<p class="traduction">
-			<strong>🇫🇷 Traduction 🇫🇷</strong> Expliquez pas ça, c'est pas du tout le but du React Compiler, vous allez faire
-			peur à tout le monde... 😡
+			<strong>🇫🇷 Traduction 🇫🇷</strong> Expliquez pas ça, c'est pas du tout le but
+			du React Compiler, vous allez faire peur à tout le monde... 😡
 		</p>
 	</Slide>
 </Slide>
 
 <style>
-	ul, ol {
+	ul,
+	ol {
 		list-style-type: decimal;
 
 		li {

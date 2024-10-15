@@ -21,59 +21,106 @@ import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 		/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Le React Compiler ne fait pas" punctuation=":"/>
+		<SlideTitle
+			title="Le React Compiler ne fait pas"
+			punctuation=":"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Le React Compiler ne fait pas" punctuation=":" />
 		<ol>
-			<li class="fragment">Une stratégie de re-rendu parfaite</li>
+			<li>Une stratégie de re-rendu parfaite</li>
 			<li class="fragment">Corriger le mauvais code</li>
 			<li class="fragment">Supporter les features legacy (Class Components...)</li>
 			<li class="fragment">Une nouvelle manière d'écrire du React</li>
 		</ol>
 	</Slide>
 	<Slide>
-		<SlideTitle title="Le React Compiler fait" punctuation=":"/>
+		<SlideTitle
+			title="Le React Compiler fait"
+			punctuation=":"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
+	</Slide>
+	<Slide>
+		<SlideTitle title="Le React Compiler fait" punctuation=":" />
 		<ol>
-			<li class="fragment">Limite le nombre de re-rendu et améliore les performances</li>
+			<li>Limite le nombre de re-rendu et améliore les performances</li>
 			<li class="fragment">"Just Works"</li>
 			<li class="fragment">Améliore les outils autour de l'écosystème et la DX 😍</li>
 			<li class="fragment">"Masque" la gestion des re-rendus et de la memoïsation 🫤</li>
 		</ol>
 	</Slide>
 	<Slide>
-		<SlideTitle title="⚠️ Attention cependant" punctuation="!" style={{
-			margin: "auto",
-			fontSize: "2rem",
-			fontWeight: "bolder",
-		}}/>
+		<SlideTitle
+			title="⚠️ Attention cependant"
+			punctuation="!"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
 	</Slide>
 	<Slide>
-		<SlideTitle title="⚠️ Attention cependant" punctuation="!" style={{
-			margin: "auto",
-			fontSize: "2rem",
-			fontWeight: "bolder",
-		}}/>
+		<SlideTitle
+			title="⚠️ Attention cependant"
+			punctuation="!"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
 		<p class="text">
 			Le React Compiler n'est pas encore prêt pour la production, il est
 			toujours en phase de développement.
 		</p>
 	</Slide>
 	<Slide>
-		<SlideTitle title="⚠️ Attention cependant" punctuation="!" style={{
-			margin: "auto",
-			fontSize: "2rem",
-			fontWeight: "bolder",
-		}}/>
+		<SlideTitle
+			title="⚠️ Attention cependant"
+			punctuation="!"
+			style={{
+				margin: "auto",
+				fontSize: "2rem",
+				fontWeight: "bolder",
+			}}
+		/>
 		<p class="text">
 			Le React Compiler n'est pas encore prêt pour la production, il est
 			toujours en phase de développement.
 		</p>
 		<div class="r-stack">
-			<img class="fragment gif fade-in-then-out" alt="" src={LeakGif}/>
-			<img class="fragment callchain" alt="" src={CallChain}/>
-			<img class="fragment leak" alt="" src={Leak}/>
+			<img
+				class="fragment gif fade-out"
+				alt=""
+				src={LeakGif}
+				data-fragment-index="1"
+			/>
+			<img
+				class="fragment callchain"
+				alt=""
+				src={CallChain}
+				data-fragment-index="1"
+			/>
+			<img class="fragment leak" alt="" src={Leak} data-fragment-index="2" />
 		</div>
-		<Ressource source="Articles par Kevin Schiener" style={{
-			marginTop: "1rem",
-		}}/>
+		<Ressource
+			source="Articles par Kevin Schiener"
+			style={{
+				marginTop: "1rem",
+			}}
+		/>
 	</Slide>
 </Slide>
 
@@ -110,7 +157,7 @@ import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 		text-wrap: balance;
 		padding: 2rem 0;
 		font-size: 1.8rem;
-		color: #0A7EA4;
+		color: #0a7ea4;
 		font-weight: bolder;
 	}
 
@@ -127,5 +174,4 @@ import LeakGif from "@/assets/images/problem/leak_gif.webp?url";
 		width: 50%;
 		border: 2px solid white;
 	}
-
 </style>

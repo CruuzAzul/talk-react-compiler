@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import "../styles/AlbumList.css";
-import { CreateCompilButton } from "./CreateCompilButton";
-import { Album } from "../types/Album";
+import "../../styles/AlbumList.css";
+import { Album } from "../../types/Album";
 import { AlbumCard } from "./AlbumCard";
-import { getCover } from "../api/getCover";
-import { getAlbums } from "../api/getAlbums";
+import { getCover } from "../../api/getCover";
+import { getAlbums } from "../../api/getAlbums";
+import { CreateCompilButton } from "./CreateCompilButton";
 
 interface AlbumListProps {
   search: string;

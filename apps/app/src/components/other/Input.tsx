@@ -1,5 +1,5 @@
 import React, { forwardRef, InputHTMLAttributes } from "react";
-import "../styles/input.css";
+import "../../styles/input.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   endSlot?: React.ReactNode;

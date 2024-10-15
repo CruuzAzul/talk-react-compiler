@@ -3,7 +3,7 @@ import { getCompils } from "../api/getCompils";
 import "../styles/Compils.css";
 import { Compil } from "../types/Compil";
 import { CompilCard } from "./CompilCard";
-import Loader from "./Loader";
+import Loader from "./other/Loader";
 import { useThemeContext } from "../utils/useTheme";
 
 interface CompilsProps {

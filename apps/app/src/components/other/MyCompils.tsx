@@ -1,6 +1,6 @@
 import { Query } from "appwrite";
-import { Compils } from "./Compils";
-import { useAccount } from "../utils/useAccount";
+import { Compils } from "../Compils";
+import { useAccount } from "../../utils/useAccount";
 
 export const MyCompils = () => {
   const { user } = useAccount();

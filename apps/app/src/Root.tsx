@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useRouterState } from "@tanstack/react-router";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/other/Navbar";
 import { useThemeContext } from "./utils/useTheme";
 import { useAccount } from "./utils/useAccount";
-import { Devtools } from "./components/Devtools";
+import { Devtools } from "./components/other/Devtools";
 import { useShowRerender } from "./utils/useShowRerender";
 import { contrast } from "./utils/contract";
 import { hexToRgb } from "./utils/hexToRgb";

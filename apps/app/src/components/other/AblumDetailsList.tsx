@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../styles/AlbumDetailsList.css";
-import { AlbumModel } from "../types/Album";
+import "../../styles/AlbumDetailsList.css";
+import { AlbumModel } from "../../types/Album";
 import { AlbumCard } from "./AlbumCard";
 
 interface AlbumDetailsListProps {

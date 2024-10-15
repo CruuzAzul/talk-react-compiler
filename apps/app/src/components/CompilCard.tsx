@@ -32,9 +32,9 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
     setDislikeCount(dislikeCount + 1);
   };
 
-  const rightImage = compil.album?.[0]?.thumbnail;
-  const leftImage = compil.album?.[1]?.thumbnail;
-  const centerImage = compil.album?.[2]?.thumbnail;
+  const rightImage = compil.album?.[0]?.thumbnail ?? "public/images/ram.webp";
+  const leftImage = compil.album?.[1]?.thumbnail ?? "public/images/ram.webp";
+  const centerImage = compil.album?.[2]?.thumbnail ?? "public/images/ram.webp";
 
   return (
     <Link
@@ -47,9 +47,9 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
           className="photo-stack"
           style={
             {
-              "--left-image": `url(${leftImage})`,
-              "--right-image": `url(${rightImage})`,
-              "--center-image": `url(${centerImage})`,
+              "--left-image": `url(${leftImage}), url(public/images/ram.webp)`,
+              "--right-image": `url(${rightImage}), url(public/images/ram.webp)`,
+              "--center-image": `url(${centerImage}), url(public/images/ram.webp)`,
             } as CSSProperties
           }
         />
@@ -64,7 +64,9 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
           <FontAwesomeIcon icon={faThumbsDown} />
           {dislikeCount}
         </button>
-        {showRerender && <button className="rerender-button">{rerender}</button>}
+        {showRerender && (
+          <button className="rerender-button">{rerender}</button>
+        )}
       </div>
     </Link>
   );

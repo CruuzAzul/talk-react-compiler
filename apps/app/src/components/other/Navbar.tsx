@@ -1,6 +1,6 @@
 import {Link} from "@tanstack/react-router";
-import "../styles/Navbar.css";
-import {useThemeContext} from "../utils/useTheme";
+import "../../styles/Navbar.css";
+import {useThemeContext} from "../../utils/useTheme";
 import {HexColorPicker} from "react-colorful";
 import {Menu, MenuItem} from "@szhsin/react-menu";
 

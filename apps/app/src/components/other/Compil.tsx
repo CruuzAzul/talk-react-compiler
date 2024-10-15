@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getCompil } from "../api/getCompil";
-import { Route as CompilRoute } from "../routes/compil/$compilId";
-import { Compil as CompilType } from "../types/Compil";
+import { getCompil } from "../../api/getCompil";
+import { Route as CompilRoute } from "../../routes/compil/$compilId";
+import { Compil as CompilType } from "../../types/Compil";
 import { AlbumDetailsList } from "./AblumDetailsList";
-import "../styles/Compil.css";
+import "../../styles/Compil.css";
 import Loader from "./Loader";
 
 export const Compil = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../styles/Login.css";
-import { account } from "../api/appwrite";
-import { useAccount } from "../utils/useAccount";
+import "../../styles/Login.css";
+import { account } from "../../api/appwrite";
+import { useAccount } from "../../utils/useAccount";
 import { useNavigate } from "@tanstack/react-router";
 
 export const Login = () => {

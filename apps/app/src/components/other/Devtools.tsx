@@ -1,5 +1,5 @@
-import { useShowRerender } from "../utils/useShowRerender";
-import "../styles/Devtools.css";
+import { useShowRerender } from "../../utils/useShowRerender";
+import "../../styles/Devtools.css";
 import { useEffect } from "react";
 
 export const Devtools = () => {

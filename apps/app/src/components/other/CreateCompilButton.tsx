@@ -1,8 +1,8 @@
-import { Album } from "../types/Album";
-import { createCompil } from "../api/createCompil";
+import { Album } from "../../types/Album";
+import { createCompil } from "../../api/createCompil";
 import { useState } from "react";
-import { useAccount } from "../utils/useAccount";
-import "../styles/CreateCompilButton.css";
+import { useAccount } from "../../utils/useAccount";
+import "../../styles/CreateCompilButton.css";
 import { Input } from "./Input";
 
 interface CreateCompilButtonProps {
@@ -19,7 +19,15 @@ export const CreateCompilButton = ({
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await createCompil(selectedAlbums, name, user!.$id);
+    await createCompil(
+      selectedAlbums.map((album) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { selected, ...rest } = album;
+        return rest;
+      }),
+      name,
+      user!.$id
+    );
     resetSearch();
     setName("");
   };

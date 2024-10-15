@@ -1,7 +1,84 @@
 ---
-import Background from "../../assets/images/background.svg?url";
+import Background from "../../assets/images/title/background.png?url";
+import One from "../../assets/images/title/one.png?url";
+import Two from "../../assets/images/title/two.png?url";
+import ReactCompiler from "../../assets/images/logo/react-compiler.png?url";
+import Easier from "../../assets/images/title/easier.png?url";
+import Better from "../../assets/images/title/better.png?url";
+import Faster from "../../assets/images/title/faster.png?url";
+import Stronger from "../../assets/images/title/stronger.png?url";
+
 import Slide from "../../components/Slide.astro";
 ---
 
 <!-- À refaire en code ! -->
-<Slide data-background-image={Background} data-background-size="100%" />
+<Slide data-background-image={Background} data-background-size="cover">
+	<img src={ReactCompiler} alt="React Compiler" class="react-compiler"/>
+	<div class="daft-punk">
+		<img src={Two} alt="Two" class="two"/>
+		<img src={One} alt="One" class="one"/>
+	</div>
+	<img src={Easier} alt="Easier" class="tag easier"/>
+	<img src={Better} alt="Better" class="tag better"/>
+	<img src={Faster} alt="Faster" class="tag faster"/>
+	<img src={Stronger} alt="Stronger" class="tag stronger"/>
+</Slide>
+
+<style>
+	.react-compiler {
+		width: 60%;
+		filter: drop-shadow(0 0 6px var(--dark-grey));
+	}
+
+	.tag {
+		height: 60px;
+		color: var(--primary-color);
+		position: absolute;
+		font-size: 2.5rem;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+		rotate: 15deg;
+		padding: 0.5rem 1rem;
+		border-radius: 5px;
+		filter: drop-shadow(0 0 10px var(--dark-grey));
+
+		&.easier {
+			font-size: 2rem;
+			left: -70px;
+			top: 50px;
+			rotate: -15deg;
+		}
+
+		&.better {
+			right: -70px;
+			top: 150px;
+		}
+
+		&.faster {
+			left: -60px;
+			top: 400px;
+		}
+
+		&.stronger {
+			right: -60px;
+			bottom: -200px;
+			rotate: -5deg;
+		}
+	}
+
+	.daft-punk {
+		position: fixed;
+		bottom: -400px;
+		display: flex;
+		justify-content: center;
+		gap: 5rem;
+		width: 100%;
+		z-index: 2;
+	}
+
+	.one, .two {
+		width: 350px;
+		filter: drop-shadow(0 0 6px var(--dark-grey));
+	}
+</style>

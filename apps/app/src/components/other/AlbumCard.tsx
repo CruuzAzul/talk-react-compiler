@@ -2,6 +2,7 @@ import { Album } from "../../types/Album";
 import "../../styles/AlbumCard.css";
 import { useShowRerender } from "../../utils/useShowRerender";
 import { useRenderCount } from "@uidotdev/usehooks";
+import ImageFallback from "../../assets/images/ram.webp?url";
 
 interface AlbumCardProps {
   album: Album;
@@ -11,7 +12,7 @@ interface AlbumCardProps {
 export const AlbumCard = ({ album, onClick }: AlbumCardProps) => {
   const { showRerender } = useShowRerender();
   const rerender = useRenderCount();
-  const imageUrl = album.thumbnail || "public/images/ram.webp";
+  const imageUrl = album.thumbnail || ImageFallback;
 
   return (
     <li className="album">

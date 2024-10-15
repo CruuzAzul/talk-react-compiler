@@ -7,6 +7,7 @@ import { dislikeCompil, likeCompil } from "../api/updateCompil";
 import { Link } from "@tanstack/react-router";
 import { useRenderCount } from "@uidotdev/usehooks";
 import { useShowRerender } from "../utils/useShowRerender";
+import ImageFallback from "../assets/images/ram.webp?url";
 
 interface CompilCardProps {
   compil: Compil;
@@ -47,9 +48,9 @@ export const CompilCard = ({ compil }: CompilCardProps) => {
           className="photo-stack"
           style={
             {
-              "--left-image": `url(${leftImage}), url(public/images/ram.webp)`,
-              "--right-image": `url(${rightImage}), url(public/images/ram.webp)`,
-              "--center-image": `url(${centerImage}), url(public/images/ram.webp)`,
+              "--left-image": `url(${leftImage}), url(${ImageFallback})`,
+              "--right-image": `url(${rightImage}), url(${ImageFallback})`,
+              "--center-image": `url(${centerImage}), url(${ImageFallback})`,
             } as CSSProperties
           }
         />

@@ -23,7 +23,7 @@ export const AlbumDetailsList = ({ albums }: AlbumDetailsListProps) => {
   return (
     <ul className="album-details-list">
       {albumsList.map((album) => (
-        <li className="album-details">
+        <li className="album-details" key={album.$id}>
           <AlbumCard album={album} onClick={() => onListened(album.id)} />
         </li>
       ))}

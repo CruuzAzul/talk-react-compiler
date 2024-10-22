@@ -25,34 +25,37 @@ export const AlbumList = ({
         setAlbumList([]);
         setIsLoading(true);
         const releases = await getAlbums(search);
+        setAlbumList(
+          releases.map((release) => ({
+            thumbnail:
+              "https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif",
+            artist: release["artist-credit"]?.[0].name ?? "",
+            name: release.title,
+            id: release.id,
+            selected: false,
+          }))
+        );
         setIsLoading(false);
 
         releases.forEach(async (release) => {
-          try {
-            const cover = await getCover(release);
+          let thumbnail;
 
-            setAlbumList((oldData) => [
-              ...oldData,
-              {
-                thumbnail: cover ? cover.thumbnails.small : "",
-                artist: release["artist-credit"]?.[0].name ?? "",
-                name: release.title,
-                id: release.id,
-                selected: false,
-              },
-            ]);
+          try {
+            thumbnail = (await getCover(release)).thumbnails.small;
           } catch {
-            setAlbumList((oldData) => [
-              ...oldData,
-              {
-                thumbnail: "",
-                artist: release["artist-credit"]?.[0].name ?? "",
-                name: release.title,
-                id: release.id,
-                selected: false,
-              },
-            ]);
+            thumbnail = "";
           }
+
+          setAlbumList((oldData) =>
+            oldData.map((currentRelease) =>
+              currentRelease.id === release.id
+                ? {
+                    ...currentRelease,
+                    thumbnail,
+                  }
+                : currentRelease
+            )
+          );
         });
       }
     };

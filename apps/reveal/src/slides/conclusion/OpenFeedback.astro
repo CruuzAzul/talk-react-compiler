@@ -4,15 +4,20 @@ import Slide from "../../components/Slide.astro";
 
 import QRCodeLucas from "@/assets/images/conclusion/lucas.png?url";
 import QRCodeMicka from "@/assets/images/conclusion/micka.png?url";
-import QRCodeOpenFeedback from "@/assets/images/conclusion/openfeedback.png?url";
-import OpenFeedBackLogo from "@/assets/images/conclusion/openfeedback-text.png?url";
+import QRCodeOpenFeedback from "@/assets/images/conclusion/feedback-devoxx.png?url";
+// import OpenFeedBackLogo from "@/assets/images/conclusion/openfeedback-text.png?url";
 import LogoZenika from "@/assets/images/speaker/zenika.png?url";
+import LogoKolecto from "@/assets/images/speaker/kolecto.jpeg?url";
 ---
 
 <Slide>
-	<SlideTitle title="Un avis ou une question" punctuation="?" style={{
-		margin: "auto",
-	}} />
+	<SlideTitle
+		title="Un avis ou une question"
+		punctuation="?"
+		style={{
+			margin: "auto",
+		}}
+	/>
 	<div class="flex">
 		<div class="profile">
 			<p class="name">Lucas Audart</p>
@@ -23,10 +28,11 @@ import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 				/>
 			</div>
 			<img src={QRCodeLucas} alt="QR Code" class="qr-code" />
-			<img src={LogoZenika} alt="Zenika" class="logo left" />
+			<img src={LogoKolecto} alt="Kolecto" class="logo left" />
 		</div>
 		<div class="profile feedback">
-			<img src={OpenFeedBackLogo} alt="Open Feedback" />
+			<h2 class="name big">Feedback</h2>
+			<!-- <img src={OpenFeedBackLogo} alt="Open Feedback" /> -->
 			<div class="picture">
 				<img src={QRCodeOpenFeedback} alt="QR Code" class="qr-code" />
 			</div>
@@ -68,6 +74,10 @@ import LogoZenika from "@/assets/images/speaker/zenika.png?url";
 			padding: 0.5rem 1rem;
 			border-radius: 5px;
 			text-transform: uppercase;
+
+			&.big {
+				font-size: 2rem;
+			}
 		}
 
 		&.feedback {

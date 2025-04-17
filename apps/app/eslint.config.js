@@ -1,0 +1,25 @@
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
+import eslintPluginReactCompiler from "eslint-plugin-react-compiler";
+
+export default [
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    plugins: {
+      "react-compiler": eslintPluginReactCompiler,
+    },
+  },
+  { languageOptions: { globals: globals.browser } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  {
+    rules: {
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "react-compiler/react-compiler": "error",
+    },
+  },
+];

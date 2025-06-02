@@ -1,11 +1,12 @@
 Préparation de la démo :
+
 - Préparer le serveur de dev
 - IDE ouvert sur le fichier Compils.tsx, avec le plus de code réduit possible => Editeur zoomé
-    - 2 autres onglets ouvert, package.json & vite.config.ts
+  - 2 autres onglets ouvert, package.json & vite.config.ts
 - Console ouverte sur le serveur de dev => Console zoomé
 - Démo sur une branche unique pour la conférence => Sans le Compiler d'activé
 
-Étape de la démo : 
+Étape de la démo :
 
 - Arrivée sur la page des compils du React Compiler™
 - Affichage du nombre de re-rendu avec la touche "R"
@@ -13,9 +14,9 @@ Préparation de la démo :
 - Passer sur l'IDE => Expliquer rapidement le composant Compils.tsx
 - Passer sur la console
 - Lancer la commande d'healthcheck : npm react-compiler-healthcheck@latest
-- Installer le React Compiler : pnpm i babel-plugin-react-compiler@beta
+- Installer le React Compiler : pnpm i babel-plugin-react-compiler@rc
 - Retourner sur l'éditeur, aller sur l'onglet de la vite.config
-- Ajouter la config activant le compiler : 
+- Ajouter la config activant le compiler :
 
 ```
 plugins: [TanstackRouterVite(), react({
